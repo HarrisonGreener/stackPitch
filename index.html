@@ -520,6 +520,7 @@ footer .sun{height:10px;background:var(--stripe)}
 #o-sky svg{position:absolute;inset:0;width:100%;height:100%}
 #o-rec{z-index:1}#o-chart{z-index:5}
 @media (max-width:760px){#o-sky{height:30vh;bottom:46vh}}
+#o-tower{transform-origin:50% 28.333%;width:calc(var(--R)*1.615);height:calc(var(--R)*4.846);margin:calc(var(--R)*-1.373) 0 0 calc(var(--R)*-.8075);z-index:4;opacity:0}#o-tower svg{width:100%;height:100%;display:block}
 </style>
 </head>
 <body>
@@ -801,8 +802,6 @@ footer .sun{height:10px;background:var(--stripe)}
   <!-- mill with chimney -->
   <rect x="330" y="270" width="190" height="150"/><g fill="#F0E3CE" opacity=".22"><rect x="345" y="290" width="18" height="26" rx="9"/><rect x="375" y="290" width="18" height="26" rx="9"/><rect x="405" y="290" width="18" height="26" rx="9"/><rect x="435" y="290" width="18" height="26" rx="9"/><rect x="465" y="290" width="18" height="26" rx="9"/><rect x="345" y="335" width="18" height="26" rx="9"/><rect x="375" y="335" width="18" height="26" rx="9"/><rect x="405" y="335" width="18" height="26" rx="9"/><rect x="435" y="335" width="18" height="26" rx="9"/><rect x="465" y="335" width="18" height="26" rx="9"/></g>
   <path d="M495 270V120h18l6 150z"/>
-  <!-- town hall clock tower -->
-  <rect x="600" y="300" width="170" height="120"/><path d="M660 300V170h50v130z"/><path d="M660 170l25-90 25 90z"/><circle cx="685" cy="200" r="13" fill="#F0E3CE" opacity=".35"/><path d="M615 300l10-20 10 20M735 300l10-20 10 20"/>
   <!-- Beetham tower -->
   <path d="M1010 420V95h46v-8h10v333z"/><path d="M1000 95h70v10h-70z"/><g fill="#F0E3CE" opacity=".14"><rect x="1016" y="120" width="34" height="3"/><rect x="1016" y="150" width="34" height="3"/><rect x="1016" y="180" width="34" height="3"/><rect x="1016" y="210" width="34" height="3"/><rect x="1016" y="240" width="34" height="3"/><rect x="1016" y="270" width="34" height="3"/></g>
   <!-- warehouse + gasholder -->
@@ -812,6 +811,13 @@ footer .sun{height:10px;background:var(--stripe)}
   <g class="tram"><rect x="0" y="388" width="120" height="26" rx="6" fill="#E9B949"/><rect x="8" y="393" width="104" height="9" rx="2" fill="#3A2216" opacity=".8"/><path d="M60 388v-14" stroke="#3A2216" stroke-width="3"/></g>
   <rect x="0" y="412" width="1600" height="8"/>
  </g>
+</svg></div><div class="obj" id="o-tower"><svg viewBox="0 0 200 600">
+ <path fill="#3A2216" fill-rule="evenodd" d="M100 0 L128 70 H72 Z M66 70 H134 V112 H66 Z M20 112 H180 V240 H20 Z M100 116 A54 54 0 1 0 100.01 116 Z M40 240 H160 V600 H40 Z"/>
+ <g fill="#3A2216"><path d="M58 112 V84 L64 70 L70 84 V112Z M130 112 V84 L136 70 L142 84 V112Z M14 240 V100 L20 86 L26 100 V240Z M174 240 V100 L180 86 L186 100 V240Z"/></g>
+ <circle cx="100" cy="170" r="56" fill="none" stroke="#E9B949" stroke-width="4"/>
+ <rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(0 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(30 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(60 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(90 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(120 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(150 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(180 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(210 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(240 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(270 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(300 100 170)"/><rect x="98.5" y="110" width="3" height="7" fill="#F0E3CE" transform="rotate(330 100 170)"/>
+ <g fill="#F0E3CE" opacity=".18"><path d="M84 84h12v20H84zM104 84h12v20h-12z"/><path d="M60 280a10 10 0 0 1 20 0v60H60zM90 280a10 10 0 0 1 20 0v60H90zM120 280a10 10 0 0 1 20 0v60h-20zM60 390a10 10 0 0 1 20 0v60H60zM90 390a10 10 0 0 1 20 0v60H90zM120 390a10 10 0 0 1 20 0v60h-20z"/></g>
+ <g id="hands"><rect id="hHr" x="97.5" y="140" width="5" height="32" rx="2.5" fill="#F0E3CE"/><rect id="hMin" x="98.5" y="124" width="3" height="48" rx="1.5" fill="#F0E3CE"/><circle cx="100" cy="170" r="5" fill="#E9B949"/></g>
 </svg></div><div class="obj" id="o-bars"></div>
     <div class="obj" id="o-chart"></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
@@ -1020,7 +1026,7 @@ const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 /* key states per chapter: [x,y,scale,opacity] in units of R from the stage centre */
 const Z=[0,0,1,0];
 const K={
- rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[-1.2,1.18,.8,1],[-.3,0,1.15,1]],
+ rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[-1.15,.15,.42,1],[-.3,0,1.15,1]],
  phone:[[1.6,0,.8,0],[1.45,0,1,1],[1.5,0,1,1],[1.9,-.9,.6,0],Z,Z,Z,Z],
  gap:  [Z,[0,0,1,1],[0,0,1,0],Z,Z,Z,Z,Z],
  join: [Z,[0,0,1,0],[0,0,1,1],Z,Z,Z,Z,Z],
@@ -1033,11 +1039,11 @@ const K={
  chart:[Z,Z,Z,Z,Z,[.5,.3,.9,0],[.6,-.05,.9,1],[.6,.3,.9,0]],
 };
 const KM={/* phone overrides: tighter horizontally */
- rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-.2,1.45,.8,1],null],
+ rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-.72,.62,.42,1],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
- sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,.15,.95,1],null]};
+ sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[.62,.05,.62,1],null]};
 const el={};Object.keys(K).forEach(k=>el[k]=$('#o-'+k));
 
 /* market bars */
@@ -1104,7 +1110,7 @@ function frame(now){
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
   e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
  recSpin.style.transform=`rotate(${spin}deg)`;
- sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`)}
+ sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`);const tw=document.getElementById('o-tower'),rp=pos.rec;tw.style.opacity=k;{const sc=rp.s/.42,g=mob?innerHeight*.54:innerHeight,cut=Math.max(0,3.473*R-(g-rp.y)/sc);tw.style.clipPath=`inset(0 0 ${cut}px 0)`}tw.style.transform=`translate(${rp.x}px,${rp.y+(1-k)*30}px) scale(${rp.s/.42})`;document.getElementById('hMin').setAttribute('transform',`rotate(${t*720} 100 170)`);document.getElementById('hHr').setAttribute('transform',`rotate(${100+t*60} 100 170)`)}
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
