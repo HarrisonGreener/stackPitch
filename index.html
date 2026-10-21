@@ -518,9 +518,8 @@ footer .sun{height:10px;background:var(--stripe)}
 .vhole{position:absolute;left:50%;top:50%;width:3.2%;height:3.2%;margin:-1.6% 0 0 -1.6%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#3a3530,#0b0908 60%);box-shadow:0 0 0 1.5px rgba(255,240,220,.35),inset 0 1px 2px rgba(0,0,0,.8)}
 #o-sky{left:0;top:auto;bottom:0;width:100%;height:42vh;opacity:0;z-index:4}
 #o-sky svg{position:absolute;inset:0;width:100%;height:100%}
-#o-rec{z-index:1}#o-chart{z-index:5}
+#o-rec{z-index:6}#o-chart{z-index:5}
 @media (max-width:760px){#o-sky{height:30vh;bottom:46vh}}
-#o-tower{transform-origin:50% 28.333%;width:calc(var(--R)*1.615);height:calc(var(--R)*4.846);margin:calc(var(--R)*-1.373) 0 0 calc(var(--R)*-.8075);z-index:4;opacity:0}#o-tower svg{width:100%;height:100%;display:block}
 </style>
 </head>
 <body>
@@ -802,22 +801,17 @@ footer .sun{height:10px;background:var(--stripe)}
   <!-- mill with chimney -->
   <rect x="330" y="270" width="190" height="150"/><g fill="#F0E3CE" opacity=".22"><rect x="345" y="290" width="18" height="26" rx="9"/><rect x="375" y="290" width="18" height="26" rx="9"/><rect x="405" y="290" width="18" height="26" rx="9"/><rect x="435" y="290" width="18" height="26" rx="9"/><rect x="465" y="290" width="18" height="26" rx="9"/><rect x="345" y="335" width="18" height="26" rx="9"/><rect x="375" y="335" width="18" height="26" rx="9"/><rect x="405" y="335" width="18" height="26" rx="9"/><rect x="435" y="335" width="18" height="26" rx="9"/><rect x="465" y="335" width="18" height="26" rx="9"/></g>
   <path d="M495 270V120h18l6 150z"/>
+  <!-- town hall clock tower -->
+  <rect x="600" y="300" width="170" height="120"/><path d="M660 300V170h50v130z"/><path d="M660 170l25-90 25 90z"/><circle cx="685" cy="200" r="16" fill="#1d110b"/><circle cx="685" cy="200" r="17" fill="none" stroke="#E9B949" stroke-width="2.5"/><path d="M615 300l10-20 10 20M735 300l10-20 10 20"/>
   <!-- Beetham tower -->
   <path d="M1010 420V95h46v-8h10v333z"/><path d="M1000 95h70v10h-70z"/><g fill="#F0E3CE" opacity=".14"><rect x="1016" y="120" width="34" height="3"/><rect x="1016" y="150" width="34" height="3"/><rect x="1016" y="180" width="34" height="3"/><rect x="1016" y="210" width="34" height="3"/><rect x="1016" y="240" width="34" height="3"/><rect x="1016" y="270" width="34" height="3"/></g>
   <!-- warehouse + gasholder -->
-  <rect x="800" y="320" width="180" height="100"/><path d="M1100 420v-80h170v80z"/><g fill="none" stroke="#3A2216" stroke-width="6"><path d="M1290 420v-110h150v110M1290 340h150M1290 375h150M1320 310v110M1365 310v110M1410 310v110"/></g>
+  <rect x="800" y="320" width="180" height="100"/><g class="stadium"><path d="M1085 420v-62c20-14 60-22 100-22s80 8 100 22v62z"/><path d="M1078 352c24-20 66-30 107-30s83 10 107 30l-6 8c-24-16-62-25-101-25s-77 9-101 25z"/><g fill="#F0E3CE" opacity=".16"><rect x="1100" y="370" width="170" height="4"/><rect x="1100" y="384" width="170" height="4"/></g><path d="M1092 352V292h4v60zM1274 352V292h4v60z"/><rect x="1084" y="284" width="20" height="10" rx="2"/><rect x="1266" y="284" width="20" height="10" rx="2"/><g fill="#E9B949" opacity=".9"><rect x="1087" y="286" width="4" height="5"/><rect x="1093" y="286" width="4" height="5"/><rect x="1099" y="286" width="3" height="5"/><rect x="1269" y="286" width="4" height="5"/><rect x="1275" y="286" width="4" height="5"/><rect x="1281" y="286" width="3" height="5"/></g></g><g fill="none" stroke="#3A2216" stroke-width="6"><path d="M1290 420v-110h150v110M1290 340h150M1290 375h150M1320 310v110M1365 310v110M1410 310v110"/></g>
   <path d="M1460 420v-60l35-28 35 28 35-28 35 28v60z"/>
   <!-- tram -->
   <g class="tram"><rect x="0" y="388" width="120" height="26" rx="6" fill="#E9B949"/><rect x="8" y="393" width="104" height="9" rx="2" fill="#3A2216" opacity=".8"/><path d="M60 388v-14" stroke="#3A2216" stroke-width="3"/></g>
   <rect x="0" y="412" width="1600" height="8"/>
  </g>
-</svg></div><div class="obj" id="o-tower"><svg viewBox="0 0 200 600">
- <path fill="#3A2216" fill-rule="evenodd" d="M100 0 L128 70 H72 Z M66 70 H134 V112 H66 Z M20 112 H180 V240 H20 Z M100 116 A54 54 0 1 0 100.01 116 Z M40 240 H160 V600 H40 Z"/>
- <g fill="#3A2216"><path d="M58 112 V84 L64 70 L70 84 V112Z M130 112 V84 L136 70 L142 84 V112Z M14 240 V100 L20 86 L26 100 V240Z M174 240 V100 L180 86 L186 100 V240Z"/></g>
- <circle cx="100" cy="170" r="56" fill="none" stroke="#E9B949" stroke-width="4"/>
- 
- <g fill="#F0E3CE" opacity=".18"><path d="M84 84h12v20H84zM104 84h12v20h-12z"/><path d="M60 280a10 10 0 0 1 20 0v60H60zM90 280a10 10 0 0 1 20 0v60H90zM120 280a10 10 0 0 1 20 0v60h-20zM60 390a10 10 0 0 1 20 0v60H60zM90 390a10 10 0 0 1 20 0v60H90zM120 390a10 10 0 0 1 20 0v60h-20z"/></g>
- 
 </svg></div><div class="obj" id="o-bars"></div>
     <div class="obj" id="o-chart"></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
@@ -1092,6 +1086,10 @@ function sitters(i,t,u,pos,R,mob){
  const P=pos.puck,e=k*k,x=lerp(ph.x,P.x,k),y=lerp(top-R*.3,P.y,e)-Math.sin(k*Math.PI)*R*.55*(1-k);
  fall.style.opacity=k>.92?(1-k)/.08:1;fall.style.transform=`translate(${x}px,${y}px) rotate(${-k*560}deg) scale(${1-k*.25})`}
 function runSel(){}
+const skySvg=document.querySelector('#o-sky svg'),skyEl=document.getElementById('o-sky');
+function fitClock(R,cx,cy){const r=skySvg.getBoundingClientRect(),m=(skyEl.style.transform||'').match(/translateY\(([-\d.]+)px/),off=m?parseFloat(m[1]):0;
+ const sc=Math.max(r.width/1600,r.height/420),ox=r.left+(r.width-1600*sc)/2,oy=r.top-off+(r.height-420*sc);
+ const v=[(ox+685*sc-cx)/R,(oy+200*sc-cy)/R,16*sc/R,1];K.rec[6]=v;KM.rec[6]=v}
 function val(key,i,u,mob){const g=(j)=>{const m=mob&&KM[key]&&KM[key][j];return m||K[key][j]};const a=g(i),b=g(Math.min(N-1,i+1));return a.map((v,k)=>lerp(v,b[k],u))}
 function frame(now){
  const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
@@ -1106,11 +1104,11 @@ function frame(now){
  stage.classList.toggle('dark',!!DARK[u>.5?Math.min(N-1,i+1):i]);
  /* objects */
  spin+=dt*(i===3?110:40);
- const pos={};
+ const pos={};fitClock(R,cx,cy);
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
   e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
  recSpin.style.transform=`rotate(${spin}deg)`;
- sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`);const tw=document.getElementById('o-tower'),rp=pos.rec;tw.style.opacity=k;{const sc=rp.s/.42,g=mob?innerHeight*.54:innerHeight,cut=Math.max(0,3.473*R-(g-rp.y)/sc);tw.style.clipPath=`inset(0 0 ${cut}px 0)`}tw.style.transform=`translate(${rp.x}px,${rp.y+(1-k)*30}px) scale(${rp.s/.42})`}
+ sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`);}
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
