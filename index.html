@@ -520,6 +520,32 @@ footer .sun{height:10px;background:var(--stripe)}
 #o-sky svg{position:absolute;inset:0;width:100%;height:100%}
 #o-rec{z-index:6}#o-chart{z-index:5}
 @media (max-width:760px){#o-sky{height:30vh;bottom:46vh}}
+.ed-num{background:var(--paper)}
+.num-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:6vw;align-items:end}
+.num-chart{display:flex;align-items:flex-end;gap:8%;height:min(420px,48vw);border-bottom:2px solid rgba(58,34,22,.18)}
+.num-chart .cc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.num-chart .cb{width:100%;display:flex;flex-direction:column-reverse;border-radius:12px 12px 0 0;overflow:hidden;height:0;transition:height 1.4s var(--ease)}
+.num-chart.in .cb{height:calc(var(--hh)*1%)}
+.num-chart .cb i{display:block}
+.num-chart b{font-weight:800;font-size:clamp(18px,2vw,28px);margin-bottom:8px}
+.num-chart label{font-weight:700;font-size:14px;margin-top:10px;color:var(--cocoa)}
+.num-t{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+.num-t th,.num-t td{padding:9px 6px;border-bottom:1px solid rgba(58,34,22,.14);text-align:right}
+.num-t th:first-child,.num-t td:first-child{text-align:left}
+.num-t th{font-size:13px;color:var(--cocoa);font-weight:700}
+.num-t tr.tot td{font-weight:800;border-bottom:0}
+.num-a{margin:0;padding-left:18px;color:var(--cocoa);font-size:14px}.num-a li{margin:4px 0}
+@media (max-width:760px){.num-grid{grid-template-columns:1fr}}
+#o-chart{display:grid!important;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end;height:auto!important}
+.stg{background:#FFF8EC;border-radius:18px;padding:14px 14px 12px;box-shadow:0 10px 24px rgba(58,34,22,.12);opacity:.45;transform:translateY(12px) scale(.96);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.stg.on{opacity:1;transform:none}
+.stg small{display:block;font-weight:700;font-size:12px;color:var(--red)}
+.stg h5{margin:2px 0 8px;font-size:clamp(14px,1.3vw,18px)}
+.stg .u{font-weight:800;font-size:clamp(22px,2.3vw,34px);letter-spacing:-.02em;line-height:1}
+.stg .ul{font-size:12px;color:var(--cocoa);margin-bottom:8px}
+.stg ul{margin:0;padding:0;list-style:none;font-size:12.5px;color:var(--cocoa)}
+.stg li{margin:2px 0}.stg li b{color:var(--espresso)}
+@media (max-width:760px){.stg{padding:9px}.stg ul{display:none}.stg h5{font-size:12px}.stg .u{font-size:18px}}
 </style>
 </head>
 <body>
@@ -833,7 +859,7 @@ footer .sun{height:10px;background:var(--stripe)}
       <div class="ch" data-i="3"><span class="no">(3) The Puck</span><h3>A spin becomes<br><em>your own copy.</em></h3><p>The Puck sits between turntable and speakers. Sound passes straight through while it records your copy in hi-res and logs every play.</p></div>
       <div class="ch" data-i="4"><span class="no">(4) The market</span><h3><span class="mega">£<b data-cnt="174.4">0</b>m</span><em>UK vinyl sales in 2025.</em></h3><p>Up <b data-cnt="19.9">0</b>% in a year, and the highest in around 30 years. Collectors want to own music again.</p><p class="src">Sources: BPI via Dork; Express &amp; Star (2025).</p></div>
       <div class="ch" data-i="5"><span class="no">(5) How it earns</span><h3>One loop,<br><em>four ways in.</em></h3><div class="loopinfo" id="loopInfo"></div></div>
-      <div class="ch" data-i="6"><span class="no">(6) Three years</span><h3>From Manchester<br><em>to the UK.</em></h3><p id="chartTxt"></p><p class="src">Illustrative figures, not a forecast.</p></div>
+      <div class="ch" data-i="6"><span class="no">(6) Launch</span><h3>From Manchester<br><em>to the UK.</em></h3><p>Start in one city, with partner record shops, students and Record Store Day. Each record shop brings its regulars, and every shared home brings friends.</p><p class="src">Illustrative figures, not a forecast.</p></div>
       <div class="ch" data-i="7"><span class="no">(7) Stack</span><h3>Own it.<br><em>Play it everywhere.</em></h3><p>The rest of the plan is below: pricing, competitors, risks and launch.</p></div>
     </div>
 
@@ -885,14 +911,20 @@ footer .sun{height:10px;background:var(--stripe)}
   <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
 
-<section class="ed ed-road" id="launch"><div class="wrap">
-  <span class="no px" data-speed=".06">(12) Launch</span>
-  <h3 class="ed-h px" data-speed="-.04">Start in Manchester,<br><em>grow from record shops.</em></h3>
-  <div class="road2" id="road2">
-    <svg viewBox="0 0 1000 120" preserveAspectRatio="none"><path id="roadPath" d="M10 60 C 200 0, 300 120, 500 60 S 800 0, 990 60" stroke="url(#rdg)" stroke-width="6" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/><defs><linearGradient id="rdg"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg>
-    <div class="stops"><div class="st2"><b>12.1 Manchester</b><span>Partner record shops, students and Record Store Day.</span></div><div class="st2"><b>12.2 The North West</b><span>Liverpool, Leeds and Sheffield shops join the Marketplace.</span></div><div class="st2"><b>12.3 The UK</b><span>Label partnerships and the Puck in stores nationwide.</span></div><div class="st2"><b>12.4 Beyond</b><span>Markets where vinyl is growing, with local labels.</span></div></div>
+<section class="ed ed-num" id="numbers"><div class="wrap">
+  <span class="no px" data-speed=".06">(12) The numbers</span>
+  <h3 class="ed-h px" data-speed="-.04">Three years,<br><em>from one city.</em></h3>
+  <div class="num-grid">
+    <div class="num-chart" id="numChart"></div>
+    <div class="num-side">
+      <div class="legend"><span><i style="background:#C8452B"></i>Sharing plans</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div>
+      <table class="num-t" id="numT"></table>
+      <ul class="num-a" id="numA"></ul>
+      <p class="src">Illustrative figures, not a forecast. Stack Supply and record shop commission come on top.</p>
+    </div>
   </div>
 </div></section>
+
 
 <section class="ed ed-q" id="testers"><div class="wrap">
   <span class="no px" data-speed=".06">(13) Testing</span>
@@ -1035,14 +1067,14 @@ const K={
  flow: [Z,Z,Z,[0,0,.84,1],Z,Z,Z,Z],
  bars: [[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.12,1,1],[0,.4,1,0],Z,Z],
  loop: [Z,Z,Z,Z,[0,0,.5,0],[0,0,.8,1],[0,0,1.1,0],Z],
- chart:[Z,Z,Z,Z,Z,[.5,.3,.9,0],[.6,-.05,.9,1],[.6,.3,.9,0]],
+ chart:[Z,Z,Z,Z,Z,[.55,-.4,.9,0],[.55,-.55,1,1],[.55,-.4,.9,0]],
 };
 const KM={/* phone overrides: tighter horizontally */
  rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-.72,.62,.42,1],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
- sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[.62,.05,.62,1],null]};
+ sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,-.9,1,1],null]};
 const el={};Object.keys(K).forEach(k=>el[k]=$('#o-'+k));
 
 /* market bars */
@@ -1065,9 +1097,13 @@ const A={acc:[5000,25000,80000],arpu:.6*7+.4*14.99,puckTake:.4,puckAvg:40,gmv:24
 const Y=A.acc.map((n,i)=>{const p=i?A.acc[i-1]:0;return{sub:n*A.arpu*12,puck:(n-p)*A.puckTake*A.puckAvg,mkt:n*A.gmv*A.fee}});
 const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
 const mx=Math.max(...Y.map(y=>y.sub+y.puck+y.mkt));
-$('#o-chart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b data-m="${t}">£0</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
-$('#chartTxt').innerHTML=`Subscriptions (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.acc.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
-const chartNums=$$('#o-chart [data-m]');
+const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',650000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
+$('#o-chart').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+const stgs=$$('#o-chart .stg'),chartNums=[];
+$('#numChart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b>${money(t)}</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
+$('#numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack',STG.map(g=>g[2].toLocaleString())],['Shared homes (paying)',A.acc.map(n=>n.toLocaleString())],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(y.sub+y.puck+y.mkt)}</td>`).join('')}</tr>`;
+$('#numA').innerHTML=['Solo is free. Shared homes pay: 60% Duo at £7, 40% Family at £14.99, about £'+A.arpu.toFixed(2)+' a month','40% of new shared homes buy a Puck, about £40 each with bundles','Each shared home buys about £24 of second-hand records a year, with an 8% fee'].map(x=>`<li>${x}</li>`).join('');
+
 /* callouts: [chapter, anchor object, angle (deg), length (R), title, sub] */
 const CAL=[[0,'rec',-55,.5,'(0.1) Vinyl','LPs and 7″ singles'],[0,'rec',55,.5,'(0.2) CDs','Ripped bit-perfect'],
  [1,'rec',90,.35,'(1.1) Your records','On the shelf at home'],[1,'phone',90,.35,'(1.2) Your phone','With you everywhere'],
@@ -1119,7 +1155,7 @@ function frame(now){
  /* bars grow in market chapter, chart in numbers chapter */
  const gB=i===4?ease(clamp(t/.3)):i===3?ease(u)*.2:i>4?1-u:0;$('#o-bars').style.setProperty('--g',gB);
  const gC=i===6?ease(clamp(t/.3)):i===5?u*.2:i>6?1:0;$('#o-chart').style.setProperty('--g',gC);
- chartNums.forEach(b=>b.textContent=money(+b.dataset.m*gC));
+ {const act=i===6?Math.min(2,Math.floor(clamp((t-.05)/.6)*3)):-1;stgs.forEach((g,k)=>{g.classList.toggle('on',k<=act);const n=g.querySelector('[data-u]'),f=k<act?1:k===act?ease(clamp(((t-.05)/.6*3-k)/.7)):0;n.textContent=Math.round(+n.dataset.u*f).toLocaleString()})}
  cnts.forEach(c=>{const k=i===4?ease(clamp(t/.3)):i>4?1:0;c.textContent=(+c.dataset.cnt*k).toFixed(1)});
  if(i===5)setNode(Math.min(3,Math.floor(clamp(t/.62)*4)));
  /* chapter text */
@@ -1153,9 +1189,9 @@ function editorial(W,H){
  const tr=tour.getBoundingClientRect(),tp=clamp(-tr.top/(tour.offsetHeight-H));
  const maxX=rail.scrollWidth-W+Math.max(24,(W-1120)/2+24);rail.style.transform=`translateX(${-tp*Math.max(0,maxX)}px)`;
  tshots.forEach((s,k)=>s.style.transform=`rotate(${(k%2?1:-1)*(2-tp*4)}deg) translateY(${Math.sin(tp*6+k)*10}px)`);
- const rr=roadBox.getBoundingClientRect(),rp=clamp((H*.85-rr.top)/(H*.6));road.setAttribute('stroke-dasharray',`${rp*100} 100`)}
+ if(roadBox){const rr=roadBox.getBoundingClientRect(),rp=clamp((H*.85-rr.top)/(H*.6));road.setAttribute('stroke-dasharray',`${rp*100} 100`)}}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.25});
-$$('.rv2,.cgrid,.rk').forEach(e=>io.observe(e));
+$$('.rv2,.cgrid,.rk,.num-chart').forEach(e=>io.observe(e));
 
 /* smooth, weighted scrolling where available */
 if(window.Lenis&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const lenis=new Lenis({lerp:.09,smoothWheel:true});const loop=t=>{lenis.raf(t);requestAnimationFrame(loop)};requestAnimationFrame(loop);
