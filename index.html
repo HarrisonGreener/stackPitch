@@ -561,6 +561,13 @@ footer .sun{height:10px;background:var(--stripe)}
 .snd.on .eqb i{animation:eqb .9s ease-in-out infinite}.snd.on .eqb i:nth-child(2){animation-delay:.2s}.snd.on .eqb i:nth-child(3){animation-delay:.4s}
 @keyframes eqb{50%{height:12px}}.top nav{margin-left:0!important}
 @media (max-width:640px){.snd b{display:none}.snd{padding:8px}}
+.game{background:var(--night);color:var(--cream);padding:12vh 0 0;overflow:hidden}
+.game-h h3{font-size:clamp(34px,5vw,72px);line-height:1;letter-spacing:-.03em;font-weight:800;margin:10px 0 10px}.game-h h3 em{font-style:normal;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.game-h p{color:#BFA88E;margin:0}
+.game-box{position:relative;height:min(46vh,380px);margin-top:4vh;cursor:pointer;touch-action:manipulation;user-select:none}
+#gameC{position:absolute;inset:0;width:100%;height:100%;display:block}
+.game-ui{position:absolute;right:max(24px,calc((100vw - 1120px)/2 + 24px));top:10px;display:flex;align-items:baseline;gap:8px;font-weight:700;color:#E9CFA8}.game-ui b{font-size:30px;color:var(--cream)}.game-ui .best{margin-left:14px;opacity:.7}.game-ui .best b{font-size:16px}
+.game-msg{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;gap:4px;pointer-events:none}.game-msg b{font-size:22px}.game-msg span{color:#BFA88E;font-size:14px}.game-msg.hide{display:none}
 </style>
 </head>
 <body>
@@ -963,6 +970,12 @@ footer .sun{height:10px;background:var(--stripe)}
   <div class="phone" id="phone"><button class="ph-start" id="phStart"><img src="assets/shots/my-stack.jpg" alt=""><span><b>Start the prototype</b><small>Runs live in this frame</small></span></button></div>
 </div></section>
 
+<section class="game" id="game">
+  <div class="wrap game-h"><span class="no" style="color:var(--gold)">(∞) One more thing</span><h3>Help the Selector<br><em>dodge the crates.</em></h3><p>Press space, or tap, to jump.</p></div>
+  <div class="game-box"><canvas id="gameC" aria-label="Mini game: the Selector jumps over record crates. Press space or tap to jump."></canvas>
+   <div class="game-ui"><b id="gScore">0</b><span>records dodged</span><span class="best">Best <b id="gBest">0</b></span></div>
+   <div class="game-msg" id="gMsg"><b>Press space to start</b><span>or tap the screen</span></div></div>
+</section>
 <footer><div class="sun"></div><div class="wrap" style="margin-top:26px">
   <span>Designed and built by Harrison Greener.</span>
   <span>Album artwork and audio belong to their artists and labels.</span>
@@ -1106,6 +1119,49 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  window.SFX=k=>{if(on&&FX[k])try{FX[k]()}catch(e){}};
  const btn=document.getElementById('sndBtn');btn.onclick=()=>{on?stop():start();btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);btn.querySelector('b').textContent=on?'Sound off':'Sound on'};
  document.addEventListener('visibilitychange',()=>{if(ac&&on){document.hidden?ac.suspend():ac.resume()}});
+})();
+</script>
+<script>
+/* ===== mini game: the Selector jumps record crates ===== */
+(()=>{const cv=document.getElementById('gameC'),box=cv.parentNode,g=cv.getContext('2d'),msg=document.getElementById('gMsg'),sc=document.getElementById('gScore'),bestEl=document.getElementById('gBest');
+ const run=new Image();run.src='assets/sel-run.png';const fall=new Image();fall.src='assets/sel-fall.png';
+ let W=0,H=0,dpr=1,state='idle',y=0,vy=0,obs=[],spd=0,dist=0,score=0,best=0,t0=0,last=0,nextGap=0,inView=false,hitT=0;
+ try{best=+localStorage.getItem('stack-game-best')||0}catch(e){}bestEl.textContent=best;
+ function size(){const r=box.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr}
+ addEventListener('resize',size);size();
+ const GROUND=()=>H-46,SH=()=>Math.min(120,H*.34),SW=()=>SH()*(256/420);
+ function reset(){y=0;vy=0;obs=[];spd=Math.max(320,W*.38);dist=0;score=0;nextGap=420;sc.textContent=0}
+ function jump(){if(state==='idle'||state==='over'){reset();state='play';msg.classList.add('hide');window.SFX&&SFX('tick');return}if(y===0){vy=Math.min(900,H*2.6);window.SFX&&SFX('beeps')}}
+ addEventListener('keydown',e=>{if(!inView)return;if(e.code==='Space'||e.key===' '||e.key==='ArrowUp'){e.preventDefault();jump()}});
+ box.addEventListener('pointerdown',e=>{e.preventDefault();jump()});
+ new IntersectionObserver(es=>{inView=es[0].intersectionRatio>.5},{threshold:[0,.5,1]}).observe(box);
+ const KINDS=[{w:62,h:46,t:'crate'},{w:40,h:62,t:'stack'},{w:96,h:46,t:'crate2'},{w:34,h:34,t:'cd'}];
+ function drawObs(o,gy){const x=o.x,top=gy-o.h;g.save();
+  if(o.t==='cd'){g.fillStyle='#7FA7B7';g.beginPath();g.arc(x+o.w/2,gy-o.h/2,o.w/2,0,7);g.fill();g.fillStyle='#2A1A12';g.beginPath();g.arc(x+o.w/2,gy-o.h/2,4,0,7);g.fill()}
+  else if(o.t==='stack'){for(let k=0;k<6;k++){g.fillStyle=['#C8452B','#E9B949','#EF8B2C','#7FA7B7','#B6452C','#F0E3CE'][k];g.fillRect(x+(k%2)*3,top+k*(o.h/6),o.w-3,o.h/6-2)}}
+  else{const n=o.t==='crate2'?2:1,cw=o.w/n;for(let k=0;k<n;k++){const cx=x+k*cw;g.fillStyle='#C99A62';g.fillRect(cx,top,cw-3,o.h);g.fillStyle='#3A2216';g.fillRect(cx+cw*.3,top+o.h*.35,cw*.4-3,6);
+    for(let j=0;j<4;j++){g.fillStyle=['#1d110b','#C8452B','#1d110b','#E9B949'][j];g.fillRect(cx+4+j*((cw-11)/4),top-10,(cw-11)/4-2,12)}}}
+  g.restore()}
+ function frame(now){const dt=Math.min(.033,(now-last)/1000||0);last=now;g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,W,H);
+  const gy=GROUND(),sh=SH(),sw=SW(),px=Math.max(40,W*.12);
+  // skyline-ish ground stripes
+  g.fillStyle='#3A2216';g.fillRect(0,gy,W,H-gy);g.fillStyle='rgba(240,227,206,.12)';
+  const off=(dist*.5)%60;for(let x=-off;x<W;x+=60)g.fillRect(x,gy+14,30,3);
+  ['#E9B949','#EF8B2C','#C8452B','#7FA7B7'].forEach((c,k)=>{g.fillStyle=c;g.fillRect(0,gy-1+k*3,W,3)});
+  if(state==='play'){spd+=dt*14;dist+=spd*dt;vy-=dt*H*7.2;y=Math.max(0,y+vy*dt);if(y===0)vy=0;
+   nextGap-=spd*dt;if(nextGap<=0){const k=KINDS[Math.floor(Math.random()*KINDS.length)],s=Math.min(1.25,H/300);obs.push({x:W+20,w:k.w*s,h:k.h*s,t:k.t,passed:false});nextGap=spd*(.75+Math.random()*.9)}
+   obs.forEach(o=>{o.x-=spd*dt;if(!o.passed&&o.x+o.w<px){o.passed=true;score++;sc.textContent=score;window.SFX&&SFX('tick')}});obs=obs.filter(o=>o.x>-200);
+   const hb={x:px+sw*.22,y:gy-y-sh*.92,w:sw*.56,h:sh*.88};
+   for(const o of obs){if(hb.x<o.x+o.w-4&&hb.x+hb.w>o.x+4&&hb.y+hb.h>gy-o.h+4){state='over';hitT=now;window.SFX&&SFX('boop');if(score>best){best=score;bestEl.textContent=best;try{localStorage.setItem('stack-game-best',best)}catch(e){}}
+     msg.innerHTML=`<b>${score} record${score===1?'':'s'} dodged</b><span>Press space or tap to go again</span>`;msg.classList.remove('hide');break}}}
+  obs.forEach(o=>drawObs(o,gy));
+  // selector
+  if(run.complete&&run.naturalWidth){const fw=run.naturalWidth/12;
+   if(state==='over'){const k=Math.min(1,(now-hitT)/500);g.save();g.translate(px+sw/2,gy-sh*.5-Math.sin(k*Math.PI)*30);g.rotate(k*1.4);if(fall.complete)g.drawImage(fall,-sh*.34,-sh*.5,sh*.68,sh*.68*(fall.naturalHeight/fall.naturalWidth));g.restore()}
+   else{const fi=state==='play'?(y>0?3:Math.floor(now/55)%12):Math.floor(now/120)%12;g.drawImage(run,fi*fw,0,fw,run.naturalHeight,px,gy-y-sh,sw,sh)}
+   g.fillStyle='rgba(0,0,0,.25)';g.beginPath();g.ellipse(px+sw/2,gy+2,sw*.35*(1-Math.min(.6,y/300)),5,0,0,7);g.fill()}
+  requestAnimationFrame(frame)}
+ requestAnimationFrame(frame);
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
