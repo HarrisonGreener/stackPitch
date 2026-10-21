@@ -495,8 +495,9 @@ footer .sun{height:10px;background:var(--stripe)}
 .hx-rec{position:absolute;inset:0;animation:recin 1.6s cubic-bezier(.2,.8,.2,1) both}
 .hx-rec .vrec{box-shadow:0 60px 120px -20px rgba(0,0,0,.8),0 0 0 2px rgba(255,255,255,.03)}
 @keyframes recin{from{transform:translateX(40%) rotate(-50deg);opacity:0}to{transform:none;opacity:1}}
-.hx-arm{position:absolute;left:-14%;top:-6%;width:30%;height:auto;transform-origin:75% 11.5%;transform:rotate(38deg);animation:armin 1.4s cubic-bezier(.3,1.2,.4,1) 1s forwards;filter:drop-shadow(0 20px 20px rgba(0,0,0,.5))}
-@keyframes armin{to{transform:rotate(9deg)}}
+.hx-arm{position:absolute;left:-14%;top:-6%;width:30%;height:auto;transform-origin:75% 11.5%;transform:rotate(-1deg);transition:transform 1.1s cubic-bezier(.3,1.15,.4,1);cursor:pointer;pointer-events:auto;filter:drop-shadow(0 20px 20px rgba(0,0,0,.5))}
+.hx-arm:focus{outline:none}.hx-arm.on{transform:rotate(-15deg)}
+.hx-copy{pointer-events:none}.hx-copy a,.hx-copy button{pointer-events:auto}.hx-deck{pointer-events:none}
 .hx-copy{position:relative;z-index:2;padding:110px max(24px,calc((100vw - 1120px)/2 + 24px)) 90px;max-width:1100px}
 .hx-kick{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:#E9CFA8;margin-bottom:22px}
 .hx-kick img{width:26px;height:26px}
@@ -536,7 +537,7 @@ footer .sun{height:10px;background:var(--stripe)}
 .num-t tr.tot td{font-weight:800;border-bottom:0}
 .num-a{margin:0;padding-left:18px;color:var(--cocoa);font-size:14px}.num-a li{margin:4px 0}
 @media (max-width:760px){.num-grid{grid-template-columns:1fr}}
-#o-chart{display:grid!important;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end;height:auto!important}
+
 .stg{background:#FFF8EC;border-radius:18px;padding:14px 14px 12px;box-shadow:0 10px 24px rgba(58,34,22,.12);opacity:.45;transform:translateY(12px) scale(.96);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
 .stg.on{opacity:1;transform:none}
 .stg small{display:block;font-weight:700;font-size:12px;color:var(--red)}
@@ -546,6 +547,15 @@ footer .sun{height:10px;background:var(--stripe)}
 .stg ul{margin:0;padding:0;list-style:none;font-size:12.5px;color:var(--cocoa)}
 .stg li{margin:2px 0}.stg li b{color:var(--espresso)}
 @media (max-width:760px){.stg{padding:9px}.stg ul{display:none}.stg h5{font-size:12px}.stg .u{font-size:18px}}
+
+.ed-ln{padding:0;height:320vh;background:var(--paper)}
+.ln-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.ln-top{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.15fr;gap:4vw;align-items:start;padding-top:13vh}
+.ln-top .ed-h{font-size:clamp(34px,4.6vw,72px);margin-bottom:0}
+.ln-sky{position:absolute;left:0;right:0;bottom:0;height:44vh;z-index:1}.ln-sky svg{position:absolute;inset:0;width:100%;height:100%}
+.ln-rec{position:absolute;z-index:3;left:0;top:0;width:10px;height:10px;box-shadow:none}
+.ln-stg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:760px){.ln-top{grid-template-columns:1fr;padding-top:11vh;gap:3vh}.ln-sky{height:30vh}}
 </style>
 </head>
 <body>
@@ -561,7 +571,7 @@ footer .sun{height:10px;background:var(--stripe)}
   <svg class="hx-arcs" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke-width="10" stroke-linecap="round"><path class="arc" d="M-60 1060 A 900 900 0 0 1 1060 -60" stroke="#E9B949"/><path class="arc" d="M-60 1120 A 960 960 0 0 1 1120 -60" stroke="#EF8B2C"/><path class="arc" d="M-60 1180 A 1020 1020 0 0 1 1180 -60" stroke="#C8452B"/><path class="arc" d="M-60 1240 A 1080 1080 0 0 1 1240 -60" stroke="#7FA7B7"/></g></svg>
   <div class="hx-deck" aria-hidden="true">
     <div class="hx-rec"><div class="vrec"><div class="vspin" id="hxSpin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div><div class="vsheen"></div></div></div>
-    <svg class="hx-arm" viewBox="0 0 200 520"><defs><linearGradient id="armg" x1="0" x2="1"><stop offset="0" stop-color="#8d8a85"/><stop offset=".5" stop-color="#e9e5de"/><stop offset="1" stop-color="#9b9790"/></linearGradient></defs><circle cx="150" cy="60" r="46" fill="#2a2420" stroke="#4a3f38" stroke-width="4"/><circle cx="150" cy="60" r="24" fill="url(#armg)"/><path d="M150 60 L 150 360 Q 150 420 105 455" stroke="url(#armg)" stroke-width="13" fill="none" stroke-linecap="round"/><rect x="72" y="440" width="58" height="34" rx="6" fill="#1c1916" transform="rotate(38 101 457)"/><rect x="128" y="10" width="44" height="30" rx="6" fill="#3a3330"/></svg>
+    <svg class="hx-arm" id="hxArm" tabindex="0" aria-label="Tonearm" viewBox="0 0 200 520"><defs><linearGradient id="armg" x1="0" x2="1"><stop offset="0" stop-color="#8d8a85"/><stop offset=".5" stop-color="#e9e5de"/><stop offset="1" stop-color="#9b9790"/></linearGradient></defs><circle cx="150" cy="60" r="46" fill="#2a2420" stroke="#4a3f38" stroke-width="4"/><circle cx="150" cy="60" r="24" fill="url(#armg)"/><path d="M150 60 L 150 360 Q 150 420 105 455" stroke="url(#armg)" stroke-width="13" fill="none" stroke-linecap="round"/><rect x="72" y="440" width="58" height="34" rx="6" fill="#1c1916" transform="rotate(38 101 457)"/><rect x="128" y="10" width="44" height="30" rx="6" fill="#3a3330"/></svg>
   </div>
   <div class="hx-copy">
     
@@ -622,7 +632,7 @@ footer .sun{height:10px;background:var(--stripe)}
         <div class="gap"><i></i><b>×</b><i></i></div>
         <div class="it rv d3"><svg viewBox="0 0 120 120"><rect x="32" y="6" width="56" height="108" rx="12" fill="#1d110b"/><rect x="37" y="16" width="46" height="84" rx="4" fill="#F8EEDD"/><circle cx="60" cy="107" r="3" fill="#8A6E5E"/><path d="M52 50l14 8-14 8z" fill="#C8452B"/></svg>Your phone</div>
       </div>
-      <div class="prob-cap rv d4">Own <i>Rumours</i> on vinyl? <s>Play it on the bus.</s> Pay Spotify again.</div>
+      <div class="prob-cap rv d4">Own <i>The Dark Side of the Moon</i> on vinyl? <s>Play it on the bus.</s> Pay Spotify again.</div>
     </div>
     <span class="n">2</span>
   </article>
@@ -816,34 +826,7 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="obj" id="o-gap"><i></i><b>×</b><i></i></div>
     <div class="obj" id="o-join"><i></i></div>
     <div class="obj" id="o-phone"><svg viewBox="0 0 60 120"><rect width="60" height="120" rx="12" fill="#1d110b"/><rect x="5" y="10" width="50" height="94" rx="4" fill="#F8EEDD"/><circle cx="30" cy="112" r="3" fill="#8A6E5E"/><path id="phPlay" d="M24 48l14 9-14 9z" fill="#C8452B"/></svg></div>
-    <img class="obj sitter" id="o-sitp" src="assets/sel-sit2.png" alt=""><div class="obj" id="o-sky"><svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
- <g class="far" fill="#C9A98A">
-  <rect x="40" y="250" width="120" height="170"/><rect x="170" y="210" width="80" height="210"/><rect x="560" y="230" width="140" height="190"/><rect x="1180" y="200" width="110" height="220"/><rect x="1300" y="240" width="160" height="180"/><rect x="1470" y="220" width="90" height="200"/>
-  <path d="M880 420V190l40-30 40 30v230z"/><rect x="720" y="260" width="120" height="160"/>
- </g>
- <g class="near" fill="#3A2216">
-  <!-- terraced houses -->
-  <path d="M0 420V330l40-30 40 30 40-30 40 30 40-30 40 30 40-30 40 30v90z"/><rect x="28" y="288" width="10" height="22"/><rect x="108" y="288" width="10" height="22"/><rect x="188" y="288" width="10" height="22"/><rect x="268" y="288" width="10" height="22"/>
-  <!-- mill with chimney -->
-  <rect x="330" y="270" width="190" height="150"/><g fill="#F0E3CE" opacity=".22"><rect x="345" y="290" width="18" height="26" rx="9"/><rect x="375" y="290" width="18" height="26" rx="9"/><rect x="405" y="290" width="18" height="26" rx="9"/><rect x="435" y="290" width="18" height="26" rx="9"/><rect x="465" y="290" width="18" height="26" rx="9"/><rect x="345" y="335" width="18" height="26" rx="9"/><rect x="375" y="335" width="18" height="26" rx="9"/><rect x="405" y="335" width="18" height="26" rx="9"/><rect x="435" y="335" width="18" height="26" rx="9"/><rect x="465" y="335" width="18" height="26" rx="9"/></g>
-  <path d="M495 270V120h18l6 150z"/>
-  <!-- town hall clock tower -->
-  <path d="M592 420V338l22-18 22 18v-10h24v92zM710 420v-92h24v10l22-18 22 18v82z"/><rect x="600" y="352" width="170" height="68"/>
-  <g fill="#F0E3CE" opacity=".18"><path d="M606 372a6 6 0 0 1 12 0v22h-12zM626 372a6 6 0 0 1 12 0v22h-12zM732 372a6 6 0 0 1 12 0v22h-12zM752 372a6 6 0 0 1 12 0v22h-12z"/></g>
-  <rect x="664" y="226" width="42" height="194"/><rect x="660" y="176" width="50" height="50"/><path d="M657 176h56l-4-8h-48z"/>
-  <rect x="664" y="136" width="42" height="32"/><g fill="#F0E3CE" opacity=".2"><path d="M670 162v-14a4 4 0 0 1 8 0v14zM681 162v-14a4 4 0 0 1 8 0v14zM692 162v-14a4 4 0 0 1 8 0v14z"/><path d="M676 260a9 9 0 0 1 18 0v34h-18z"/></g>
-  <path d="M660 140v-16l4-10 4 10v16zM702 140v-16l4-10 4 10v16z"/><path d="M668 136l17-78 17 78z"/><path d="M684 58v-12h2v12z"/>
-  <circle cx="685" cy="200" r="16" fill="#1d110b"/><circle cx="685" cy="200" r="17.5" fill="none" stroke="#E9B949" stroke-width="2.5"/>
-  <!-- Beetham tower -->
-  <path d="M1010 420V95h46v-8h10v333z"/><path d="M1000 95h70v10h-70z"/><g fill="#F0E3CE" opacity=".14"><rect x="1016" y="120" width="34" height="3"/><rect x="1016" y="150" width="34" height="3"/><rect x="1016" y="180" width="34" height="3"/><rect x="1016" y="210" width="34" height="3"/><rect x="1016" y="240" width="34" height="3"/><rect x="1016" y="270" width="34" height="3"/></g>
-  <!-- warehouse + gasholder -->
-  <rect x="800" y="320" width="180" height="100"/><g class="stadium"><path d="M1060 420v-58c30-20 80-28 125-28s95 8 125 28v58z"/><path d="M1052 358c34-24 84-34 133-34s99 10 133 34l-4 7c-34-20-80-29-129-29s-95 9-129 29z"/><path d="M1082 286 l3 0 l2 70 h-7z"/><path d="M1083.5 288 L1100 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1118 276 l3 0 l2 80 h-7z"/><path d="M1119.5 278 L1136 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1154 270 l3 0 l2 86 h-7z"/><path d="M1155.5 272 L1172 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1214 270 l3 0 l2 86 h-7z"/><path d="M1215.5 272 L1196 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1250 276 l3 0 l2 80 h-7z"/><path d="M1251.5 278 L1232 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1286 286 l3 0 l2 70 h-7z"/><path d="M1287.5 288 L1268 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><g fill="#F0E3CE" opacity=".15"><path d="M1074 378c30-14 70-20 111-20s81 6 111 20v4c-30-13-70-19-111-19s-81 6-111 19z"/><path d="M1070 396c32-12 72-17 115-17s83 5 115 17v4c-32-11-72-16-115-16s-83 5-115 16z"/></g></g><g fill="none" stroke="#3A2216" stroke-width="6"><path d="M1290 420v-110h150v110M1290 340h150M1290 375h150M1320 310v110M1365 310v110M1410 310v110"/></g>
-  <path d="M1460 420v-60l35-28 35 28 35-28 35 28v60z"/>
-  <!-- tram -->
-  <g class="tramlines" stroke="#FFFFFF" fill="none" opacity=".45"><path d="M0 414H1600" stroke-width="2"/><path d="M0 376H1600" stroke-width="1.2"/><path d="M60 376v38" stroke-width="2"/><path d="M280 376v38" stroke-width="2"/><path d="M500 376v38" stroke-width="2"/><path d="M720 376v38" stroke-width="2"/><path d="M940 376v38" stroke-width="2"/><path d="M1160 376v38" stroke-width="2"/><path d="M1380 376v38" stroke-width="2"/></g><g class="tram"><rect x="0" y="388" width="120" height="24" rx="6" fill="#E9B949"/><path d="M60 388l-12 -12h24z" fill="none" stroke="#3A2216" stroke-width="2"/><rect x="8" y="393" width="104" height="9" rx="2" fill="#3A2216" opacity=".8"/></g>
-  <rect x="0" y="412" width="1600" height="8"/>
- </g>
-</svg></div><div class="obj" id="o-bars"></div>
+    <img class="obj sitter" id="o-sitp" src="assets/sel-sit2.png" alt=""><div class="obj" id="o-bars"></div>
     <div class="obj" id="o-chart"></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
     <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div><div class="vsheen"></div></div><svg class="vprog" viewBox="0 0 200 200"><circle id="recProg" cx="100" cy="100" r="99" fill="none" stroke="url(#rpg)" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg></div>
@@ -854,17 +837,17 @@ footer .sun{height:10px;background:var(--stripe)}
     <!-- chapter text -->
     <div class="chs" id="chs">
       <div class="ch" data-i="0"><span class="no">(0) Stack</span><h3>Your records,<br><em>everywhere.</em></h3><p>Stack turns the vinyl and CDs you own into a library you can play on your phone, share and sell.</p><p class="hint">Scroll</p></div>
-      <div class="ch" data-i="1"><span class="no">(1) The problem</span><h3>You own the record.<br><em>You still pay to hear it.</em></h3><p>Records and phones don't talk to each other. Own <i>Rumours</i> on vinyl, and you still pay a streaming service to hear it on the bus.</p></div>
+      <div class="ch" data-i="1"><span class="no">(1) The problem</span><h3>You own the record.<br><em>You still pay to hear it.</em></h3><p>Records and phones don't talk to each other. Own <i>The Dark Side of the Moon</i> on vinyl, and you still pay a streaming service to hear it on the bus.</p></div>
       <div class="ch" data-i="2"><span class="no">(2) The solution</span><h3>Owning the record<br><em>unlocks it everywhere.</em></h3><p>Add a record once by barcode, Discogs or the Puck, and it plays on every device, for your whole family.</p></div>
       <div class="ch" data-i="3"><span class="no">(3) The Puck</span><h3>A spin becomes<br><em>your own copy.</em></h3><p>The Puck sits between turntable and speakers. Sound passes straight through while it records your copy in hi-res and logs every play.</p></div>
       <div class="ch" data-i="4"><span class="no">(4) The market</span><h3><span class="mega">£<b data-cnt="174.4">0</b>m</span><em>UK vinyl sales in 2025.</em></h3><p>Up <b data-cnt="19.9">0</b>% in a year, and the highest in around 30 years. Collectors want to own music again.</p><p class="src">Sources: BPI via Dork; Express &amp; Star (2025).</p></div>
       <div class="ch" data-i="5"><span class="no">(5) How it earns</span><h3>One loop,<br><em>four ways in.</em></h3><div class="loopinfo" id="loopInfo"></div></div>
-      <div class="ch" data-i="6"><span class="no">(6) Launch</span><h3>From Manchester<br><em>to the UK.</em></h3><p>Start in one city, with partner record shops, students and Record Store Day. Each record shop brings its regulars, and every shared home brings friends.</p><p class="src">Illustrative figures, not a forecast.</p></div>
+      <div class="ch" data-i="6"><span class="no">(6) Three years</span><h3>From Manchester<br><em>to the UK.</em></h3><p id="chartTxt"></p><p class="src">Illustrative figures, not a forecast.</p></div>
       <div class="ch" data-i="7"><span class="no">(7) Stack</span><h3>Own it.<br><em>Play it everywhere.</em></h3><p>The rest of the plan is below: pricing, competitors, risks and launch.</p></div>
     </div>
 
     <!-- dial -->
-    <div class="dial" id="dial"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="2"/><circle id="dialArc" cx="50" cy="50" r="44" fill="none" stroke="#EF8B2C" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 50 50)"/></svg><b id="dialN">0</b><small>of 7</small></div>
+    
     <div class="sline"><i id="sline"></i></div>
   </div>
 </section>
@@ -911,18 +894,38 @@ footer .sun{height:10px;background:var(--stripe)}
   <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
 
-<section class="ed ed-num" id="numbers"><div class="wrap">
-  <span class="no px" data-speed=".06">(12) Revenue forecast</span>
-  <h3 class="ed-h px" data-speed="-.04">How Stack<br><em>makes money.</em></h3>
-  <div class="num-grid">
-    <div class="num-chart" id="numChart"></div>
-    <div class="num-side">
-      <div class="legend"><span><i style="background:#C8452B"></i>Sharing plans</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div>
-      <table class="num-t" id="numT"></table>
-      <ul class="num-a" id="numA"></ul>
-      <p class="src">Based on the assumptions below. Stack Supply and record shop commission come on top.</p>
-    </div>
-  </div>
+<section class="ed ed-ln" id="launch"><div class="ln-pin">
+  <div class="wrap ln-top"><div><span class="no">(12) Launch</span><h3 class="ed-h">Start in Manchester,<br><em>grow from record shops.</em></h3></div>
+   <div class="ln-stg" id="lnStg"></div></div>
+  <div class="ln-sky" id="lnSky"><svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+ <g class="far" fill="#C9A98A">
+  <rect x="40" y="250" width="120" height="170"/><rect x="170" y="210" width="80" height="210"/><rect x="560" y="230" width="140" height="190"/><rect x="1180" y="200" width="110" height="220"/><rect x="1300" y="240" width="160" height="180"/><rect x="1470" y="220" width="90" height="200"/>
+  <path d="M880 420V190l40-30 40 30v230z"/><rect x="720" y="260" width="120" height="160"/>
+ </g>
+ <g class="near" fill="#3A2216">
+  <!-- terraced houses -->
+  <path d="M0 420V330l40-30 40 30 40-30 40 30 40-30 40 30 40-30 40 30v90z"/><rect x="28" y="288" width="10" height="22"/><rect x="108" y="288" width="10" height="22"/><rect x="188" y="288" width="10" height="22"/><rect x="268" y="288" width="10" height="22"/>
+  <!-- mill with chimney -->
+  <rect x="330" y="270" width="190" height="150"/><g fill="#F0E3CE" opacity=".22"><rect x="345" y="290" width="18" height="26" rx="9"/><rect x="375" y="290" width="18" height="26" rx="9"/><rect x="405" y="290" width="18" height="26" rx="9"/><rect x="435" y="290" width="18" height="26" rx="9"/><rect x="465" y="290" width="18" height="26" rx="9"/><rect x="345" y="335" width="18" height="26" rx="9"/><rect x="375" y="335" width="18" height="26" rx="9"/><rect x="405" y="335" width="18" height="26" rx="9"/><rect x="435" y="335" width="18" height="26" rx="9"/><rect x="465" y="335" width="18" height="26" rx="9"/></g>
+  <path d="M495 270V120h18l6 150z"/>
+  <!-- town hall clock tower -->
+  <path d="M592 420V338l22-18 22 18v-10h24v92zM710 420v-92h24v10l22-18 22 18v82z"/><rect x="600" y="352" width="170" height="68"/>
+  <g fill="#F0E3CE" opacity=".18"><path d="M606 372a6 6 0 0 1 12 0v22h-12zM626 372a6 6 0 0 1 12 0v22h-12zM732 372a6 6 0 0 1 12 0v22h-12zM752 372a6 6 0 0 1 12 0v22h-12z"/></g>
+  <rect x="664" y="226" width="42" height="194"/><rect x="660" y="176" width="50" height="50"/><path d="M657 176h56l-4-8h-48z"/>
+  <rect x="664" y="136" width="42" height="32"/><g fill="#F0E3CE" opacity=".2"><path d="M670 162v-14a4 4 0 0 1 8 0v14zM681 162v-14a4 4 0 0 1 8 0v14zM692 162v-14a4 4 0 0 1 8 0v14z"/><path d="M676 260a9 9 0 0 1 18 0v34h-18z"/></g>
+  <path d="M660 140v-16l4-10 4 10v16zM702 140v-16l4-10 4 10v16z"/><path d="M668 136l17-78 17 78z"/><path d="M684 58v-12h2v12z"/>
+  <circle cx="685" cy="200" r="16" fill="#1d110b"/><circle cx="685" cy="200" r="17.5" fill="none" stroke="#E9B949" stroke-width="2.5"/>
+  <!-- Beetham tower -->
+  <path d="M1010 420V95h46v-8h10v333z"/><path d="M1000 95h70v10h-70z"/><g fill="#F0E3CE" opacity=".14"><rect x="1016" y="120" width="34" height="3"/><rect x="1016" y="150" width="34" height="3"/><rect x="1016" y="180" width="34" height="3"/><rect x="1016" y="210" width="34" height="3"/><rect x="1016" y="240" width="34" height="3"/><rect x="1016" y="270" width="34" height="3"/></g>
+  <!-- warehouse + gasholder -->
+  <rect x="800" y="320" width="180" height="100"/><g class="stadium"><path d="M1060 420v-58c30-20 80-28 125-28s95 8 125 28v58z"/><path d="M1052 358c34-24 84-34 133-34s99 10 133 34l-4 7c-34-20-80-29-129-29s-95 9-129 29z"/><path d="M1082 286 l3 0 l2 70 h-7z"/><path d="M1083.5 288 L1100 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1118 276 l3 0 l2 80 h-7z"/><path d="M1119.5 278 L1136 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1154 270 l3 0 l2 86 h-7z"/><path d="M1155.5 272 L1172 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1214 270 l3 0 l2 86 h-7z"/><path d="M1215.5 272 L1196 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1250 276 l3 0 l2 80 h-7z"/><path d="M1251.5 278 L1232 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><path d="M1286 286 l3 0 l2 70 h-7z"/><path d="M1287.5 288 L1268 350" stroke="#3A2216" stroke-width="1.4" fill="none"/><g fill="#F0E3CE" opacity=".15"><path d="M1074 378c30-14 70-20 111-20s81 6 111 20v4c-30-13-70-19-111-19s-81 6-111 19z"/><path d="M1070 396c32-12 72-17 115-17s83 5 115 17v4c-32-11-72-16-115-16s-83 5-115 16z"/></g></g><g fill="none" stroke="#3A2216" stroke-width="6"><path d="M1290 420v-110h150v110M1290 340h150M1290 375h150M1320 310v110M1365 310v110M1410 310v110"/></g>
+  <path d="M1460 420v-60l35-28 35 28 35-28 35 28v60z"/>
+  <!-- tram -->
+  <g class="tramlines" stroke="#FFFFFF" fill="none" opacity=".45"><path d="M0 414H1600" stroke-width="2"/><path d="M0 376H1600" stroke-width="1.2"/><path d="M60 376v38" stroke-width="2"/><path d="M280 376v38" stroke-width="2"/><path d="M500 376v38" stroke-width="2"/><path d="M720 376v38" stroke-width="2"/><path d="M940 376v38" stroke-width="2"/><path d="M1160 376v38" stroke-width="2"/><path d="M1380 376v38" stroke-width="2"/></g><g class="tram"><rect x="0" y="388" width="120" height="24" rx="6" fill="#E9B949"/><path d="M60 388l-12 -12h24z" fill="none" stroke="#3A2216" stroke-width="2"/><rect x="8" y="393" width="104" height="9" rx="2" fill="#3A2216" opacity=".8"/></g>
+  <rect x="0" y="412" width="1600" height="8"/>
+ </g>
+</svg></div>
+  <div class="vrec ln-rec" id="lnRec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div></div>
 </div></section>
 
 
@@ -1044,6 +1047,20 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 .node{transform:translate(-50%,-50%)!important}.dot{transform:translate(-50%,-50%)!important}
 .tour-track{animation:none}
 </style>
+<script>
+/* launch section: pinned skyline, stages light up, tram moves, record in the clock */
+(()=>{const $=q=>document.querySelector(q),$$=q=>[...document.querySelectorAll(q)];const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+ const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',650000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
+ $('#lnStg').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+ const sec=$('#launch'),stg=$$('#lnStg .stg'),svg=$('#lnSky svg'),tram=$('#lnSky .tram'),rec=$('#lnRec'),spin=$('#lnRec .vspin');let a=0;
+ function f(){const H=innerHeight,r=sec.getBoundingClientRect(),p=clamp(-r.top/(sec.offsetHeight-H));
+  if(r.bottom>0&&r.top<H){const act=Math.min(2,Math.floor(clamp((p-.05)/.75)*3));
+   stg.forEach((g,k)=>{g.classList.toggle('on',k<=act);const n=g.querySelector('[data-u]'),q=k<act?1:k===act?ease(clamp(((p-.05)/.75*3-k)/.7)):0;n.textContent=Math.round(+n.dataset.u*q).toLocaleString()});
+   tram.setAttribute('transform',`translate(${p*1750-150} 0)`);
+   const b=svg.getBoundingClientRect(),pb=svg.parentNode.parentNode.getBoundingClientRect(),sc=Math.max(b.width/1600,b.height/420),ox=b.left-pb.left+(b.width-1600*sc)/2,oy=b.top-pb.top+(b.height-420*sc),d=32*sc;
+   rec.style.width=rec.style.height=d+'px';rec.style.transform=`translate(${ox+685*sc-d/2}px,${oy+200*sc-d/2}px)`;a+=1.2;spin.style.transform=`rotate(${a}deg)`}
+  requestAnimationFrame(f)}requestAnimationFrame(f)})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 /* ================= scroll-driven story ================= */
@@ -1057,7 +1074,7 @@ const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 /* key states per chapter: [x,y,scale,opacity] in units of R from the stage centre */
 const Z=[0,0,1,0];
 const K={
- rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[-1.15,.15,.42,1],[-.3,0,1.15,1]],
+ rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[.3,.4,.25,0],[-.3,0,1.15,1]],
  phone:[[1.6,0,.8,0],[1.45,0,1,1],[1.5,0,1,1],[1.9,-.9,.6,0],Z,Z,Z,Z],
  gap:  [Z,[0,0,1,1],[0,0,1,0],Z,Z,Z,Z,Z],
  join: [Z,[0,0,1,0],[0,0,1,1],Z,Z,Z,Z,Z],
@@ -1067,14 +1084,14 @@ const K={
  flow: [Z,Z,Z,[0,0,.84,1],Z,Z,Z,Z],
  bars: [[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.12,1,1],[0,.4,1,0],Z,Z],
  loop: [Z,Z,Z,Z,[0,0,.5,0],[0,0,.8,1],[0,0,1.1,0],Z],
- chart:[Z,Z,Z,Z,Z,[.55,-.4,.9,0],[.55,-.55,1,1],[.55,-.4,.9,0]],
+ chart:[Z,Z,Z,Z,Z,[.25,.3,.9,0],[.3,.05,1,1],[.25,.3,.9,0]],
 };
 const KM={/* phone overrides: tighter horizontally */
- rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-.72,.62,.42,1],null],
+ rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[0,.3,.25,0],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
- sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,-.9,1,1],null]};
+ sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,.15,.95,1],null]};
 const el={};Object.keys(K).forEach(k=>el[k]=$('#o-'+k));
 
 /* market bars */
@@ -1097,12 +1114,9 @@ const A={acc:[5000,25000,80000],arpu:.6*7+.4*14.99,puckTake:.4,puckAvg:40,gmv:24
 const Y=A.acc.map((n,i)=>{const p=i?A.acc[i-1]:0;return{sub:n*A.arpu*12,puck:(n-p)*A.puckTake*A.puckAvg,mkt:n*A.gmv*A.fee}});
 const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
 const mx=Math.max(...Y.map(y=>y.sub+y.puck+y.mkt));
-const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',650000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
-$('#o-chart').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
-const stgs=$$('#o-chart .stg'),chartNums=[];
-$('#numChart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b>${money(t)}</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
-$('#numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack',STG.map(g=>g[2].toLocaleString())],['Shared homes (paying)',A.acc.map(n=>n.toLocaleString())],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(y.sub+y.puck+y.mkt)}</td>`).join('')}</tr>`;
-$('#numA').innerHTML=['Solo is free. Shared homes pay: 60% Duo at £7, 40% Family at £14.99, about £'+A.arpu.toFixed(2)+' a month','40% of new shared homes buy a Puck, about £40 each with bundles','Each shared home buys about £24 of second-hand records a year, with an 8% fee'].map(x=>`<li>${x}</li>`).join('');
+$('#o-chart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b data-m="${t}">£0</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
+$('#chartTxt').innerHTML=`Sharing plans (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.acc.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
+const chartNums=$$('#o-chart [data-m]');
 
 /* callouts: [chapter, anchor object, angle (deg), length (R), title, sub] */
 const CAL=[[0,'rec',-55,.5,'(0.1) Vinyl','LPs and 7″ singles'],[0,'rec',55,.5,'(0.2) CDs','Ripped bit-perfect'],
@@ -1113,7 +1127,7 @@ const svgL=$('#lines');
 svgL.innerHTML=CAL.map(()=>'<line x1="0" y1="0" x2="0" y2="0"/><circle r="3.5"/>').join('');
 const lineEls=$$('#lines line'),dotEls=$$('#lines circle');
 const chs=$$('.ch'),cnts=$$('.ch [data-cnt]');
-const marq=$('.marq-t'),dialArc=$('#dialArc'),dialN=$('#dialN'),recProg=$('#recProg'),sline=$('#sline'),bgfill=$('#bgfill'),phPlay=$('#phPlay');
+const marq=$('.marq-t'),recProg=$('#recProg'),sline=$('#sline'),bgfill=$('#bgfill'),phPlay=$('#phPlay');
 let spin=0,lastT=performance.now();const recSpin=document.querySelector('#o-rec .vspin');
 /* the Selector runs across the screen during the solution -> Puck transition */
 const sitP=document.getElementById('o-sitp'),fall=document.getElementById('o-fall');
@@ -1127,10 +1141,6 @@ function sitters(i,t,u,pos,R,mob){
  const P=pos.puck,e=k*k,x=lerp(ph.x,P.x,k),y=lerp(top-R*.3,P.y,e)-Math.sin(k*Math.PI)*R*.55*(1-k);
  fall.style.opacity=k>.92?(1-k)/.08:1;fall.style.transform=`translate(${x}px,${y}px) rotate(${-k*560}deg) scale(${1-k*.25})`}
 function runSel(){}
-const skySvg=document.querySelector('#o-sky svg'),skyEl=document.getElementById('o-sky');
-function fitClock(R,cx,cy){const r=skySvg.getBoundingClientRect(),m=(skyEl.style.transform||'').match(/translateY\(([-\d.]+)px/),off=m?parseFloat(m[1]):0;
- const sc=Math.max(r.width/1600,r.height/420),ox=r.left+(r.width-1600*sc)/2,oy=r.top-off+(r.height-420*sc);
- const v=[(ox+685*sc-cx)/R,(oy+200*sc-cy)/R,16*sc/R,1];K.rec[6]=v;KM.rec[6]=v}
 function val(key,i,u,mob){const g=(j)=>{const m=mob&&KM[key]&&KM[key][j];return m||K[key][j]};const a=g(i),b=g(Math.min(N-1,i+1));return a.map((v,k)=>lerp(v,b[k],u))}
 function frame(now){
  const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
@@ -1145,17 +1155,17 @@ function frame(now){
  stage.classList.toggle('dark',!!DARK[u>.5?Math.min(N-1,i+1):i]);
  /* objects */
  spin+=dt*(i===3?110:40);
- const pos={};fitClock(R,cx,cy);
+ const pos={};
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
   e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
  recSpin.style.transform=`rotate(${spin}deg)`;
- sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`);}
+ sitters(i,t,u,pos,R,mob);
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
  const gB=i===4?ease(clamp(t/.3)):i===3?ease(u)*.2:i>4?1-u:0;$('#o-bars').style.setProperty('--g',gB);
  const gC=i===6?ease(clamp(t/.3)):i===5?u*.2:i>6?1:0;$('#o-chart').style.setProperty('--g',gC);
- {const act=i===6?Math.min(2,Math.floor(clamp((t-.05)/.6)*3)):-1;stgs.forEach((g,k)=>{g.classList.toggle('on',k<=act);const n=g.querySelector('[data-u]'),f=k<act?1:k===act?ease(clamp(((t-.05)/.6*3-k)/.7)):0;n.textContent=Math.round(+n.dataset.u*f).toLocaleString()})}
+ chartNums.forEach(b=>b.textContent=money(+b.dataset.m*gC));
  cnts.forEach(c=>{const k=i===4?ease(clamp(t/.3)):i>4?1:0;c.textContent=(+c.dataset.cnt*k).toFixed(1)});
  if(i===5)setNode(Math.min(3,Math.floor(clamp(t/.62)*4)));
  /* chapter text */
@@ -1171,12 +1181,23 @@ function frame(now){
   E.style.left=(x1+(right?10:left?-10:0))+'px';E.style.top=(y1+(Math.abs(Math.sin(a))>.9?(Math.sin(a)>0?14:-14):0))+'px';
   E.style.transform=`translate(${right?'0':left?'-100%':'-50%'},${Math.sin(a)>.9?'0':Math.sin(a)<-.9?'-100%':'-50%'})`;E.style.textAlign=left?'right':right?'left':'center'});
  /* progress */
- const pr=clamp(f/(N-.4))*100;dialArc.setAttribute('stroke-dasharray',`${pr} 100`);recProg.setAttribute('stroke-dasharray',`${pr} 100`);dialN.textContent=i;
+ const pr=clamp(f/(N-.4))*100;recProg.setAttribute('stroke-dasharray',`${pr} 100`);
  sline.style.transform=`scaleY(${clamp(f/N)})`;
- marq.parentNode.style.opacity=i===6?1-Math.min(1,clamp(t/.15)*(1-clamp((t-.75)/.2))):1;marq.style.transform=`translateX(${-((scrollY*.35)%(marq.offsetWidth/4))}px)`;
+marq.style.transform=`translateX(${-((scrollY*.35)%(marq.offsetWidth/4))}px)`;
  editorial(W,H);hero(H);
  requestAnimationFrame(frame)}
 
+/* hidden extra: tap the tonearm to drop the needle, with crackle */
+{const arm=document.getElementById('hxArm');let ac=null,src=null,g=null;
+ function crackle(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume();const sr=ac.sampleRate,len=sr*4,b=ac.createBuffer(1,len,sr),d=b.getChannelData(0);
+  for(let i=0;i<len;i++){d[i]+=(Math.random()*2-1)*.012+(Math.random()<.0009?(Math.random()*2-1)*.7:0);if(Math.random()<.00005){for(let k=0;k<60&&i+k<len;k++)d[i+k]+=(Math.random()*2-1)*.5*(1-k/60)}}
+  const t0=ac.currentTime+.8,hp=ac.createBiquadFilter();hp.type='highpass';hp.frequency.value=900;g=ac.createGain();g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(.9,t0+.1);
+  const drop=ac.createBufferSource(),db=ac.createBuffer(1,Math.floor(sr*.08),sr),dd=db.getChannelData(0);for(let i=0;i<dd.length;i++)dd[i]=(Math.random()*2-1)*Math.exp(-i/(sr*.012))*.9;drop.buffer=db;drop.connect(ac.destination);drop.start(t0);
+  src=ac.createBufferSource();src.buffer=b;src.loop=true;src.connect(hp).connect(g).connect(ac.destination);src.start(t0)}catch(e){}}
+ function stop(){try{if(g&&src){g.gain.cancelScheduledValues(ac.currentTime);g.gain.setValueAtTime(g.gain.value,ac.currentTime);g.gain.linearRampToValueAtTime(0,ac.currentTime+.3);const s=src;setTimeout(()=>{try{s.stop()}catch(e){}},400)}}catch(e){}src=null}
+ const tog=()=>{const on=!arm.classList.contains('on');arm.classList.toggle('on',on);on?crackle():stop()};
+ arm.addEventListener('click',tog);arm.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
+ addEventListener('scroll',()=>{if(src&&scrollY>innerHeight){arm.classList.remove('on');stop()}},{passive:true})}
 const hxDeck=document.querySelector('.hx-deck'),hxSpin=document.getElementById('hxSpin'),hxCopy=document.querySelector('.hx-copy');let hxA=0;
 function hero(H){const y=scrollY;if(y>H*1.2)return;hxA+=.35+y*.004;hxSpin.style.transform=`rotate(${hxA}deg)`;hxDeck.style.transform=`translateY(calc(-50% + ${y*.25}px)) scale(${1+y/H*.12})`;hxCopy.style.transform=`translateY(${y*-.12}px)`;hxCopy.style.opacity=1-clamp(y/(H*.8))*.6}
 /* ================= editorial sections ================= */
