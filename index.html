@@ -297,6 +297,7 @@ h2.big{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px;font-weig
 .proto .lead{color:#D9C4A4}
 .proto-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
 .phone{width:min(360px,86vw);aspect-ratio:390/844;border-radius:48px;padding:12px;background:#0e0806;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),inset 0 0 0 2px #3a2a22}
+.ph-start{position:relative;width:100%;height:100%;border-radius:38px;overflow:hidden;padding:0}.ph-start img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}.ph-start span{position:absolute;inset:auto 0 40%;display:flex;flex-direction:column;align-items:center;gap:4px;color:#FFF5E6}.ph-start b{padding:12px 20px;border-radius:999px;background:linear-gradient(180deg,var(--orange),var(--red));font-size:16px}.ph-start small{font-size:13px;opacity:.85}
 .phone iframe{width:100%;height:100%;border:0;border-radius:38px;background:var(--paper)}
 .feat-list{display:grid;gap:10px;margin:24px 0}
 .feat-list div{display:flex;gap:12px;align-items:flex-start}
@@ -577,7 +578,7 @@ footer .sun{height:10px;background:var(--stripe)}
     </div>
     <div class="btns"><a class="btn primary" href="https://harrisongreener.github.io/stack/" target="_blank" rel="noopener">Open full screen</a><a class="btn ghost" href="https://harrisongreener.github.io/stack/?nofilm" target="_blank" rel="noopener">Skip the intro film</a></div>
   </div>
-  <div class="phone"><iframe src="https://harrisongreener.github.io/stack/?nofilm" title="Stack prototype" loading="lazy" allow="autoplay"></iframe></div>
+  <div class="phone" id="phone"><button class="ph-start" id="phStart"><img src="assets/shots/my-stack.jpg" alt=""><span><b>Start the prototype</b><small>Runs live in this frame</small></span></button></div>
 </div></section>
 
 <footer><div class="sun"></div><div class="wrap" style="margin-top:26px">
@@ -651,6 +652,9 @@ addEventListener('keydown',e=>{if(!document.body.classList.contains('present-on'
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('present-on'))present(false)});
 document.addEventListener('click',e=>{if(!document.body.classList.contains('present-on'))return;if(e.target.closest('button,a,.risk,.node'))return;if(e.target.closest('.slide'))go(cur+1)});
 
+/* ---- prototype: only load when asked, so the app can't pull the page down to it ---- */
+$('#phStart').onclick=()=>{const y=scrollY;$('#phone').innerHTML='<iframe src="https://harrisongreener.github.io/stack/?nofilm" title="Stack prototype" allow="autoplay"></iframe>';requestAnimationFrame(()=>scrollTo(0,y))};
+if(location.hash==='')history.scrollRestoration='manual';
 /* ---- PDF: print the deck ---- */
 $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.forEach(enter);setTimeout(()=>print(),400)}));
 })();
