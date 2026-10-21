@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Stack · Pitch</title>
+<meta name="description" content="Stack: own your records, play them everywhere. Pitch video, deck and live prototype by Harrison Greener.">
+<link rel="icon" href="assets/stack-monogram-sunset.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Shrikhand&display=swap">
+<style>
+:root{
+  --gold:#F2AE3D;--orange:#EF8B2C;--sunset:#E8762C;--red:#C8452B;--mustard:#E9B949;--sky:#7FA7B7;
+  --cream:#F0E3CE;--paper:#F8EEDD;--espresso:#3A2216;--cocoa:#8A6E5E;--night:#2A1A12;--deep:#1D110B;
+  --font:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --display:"Shrikhand","Cooper Black",Georgia,serif;
+  --stripe:linear-gradient(#E9B949 0 25%,#EF8B2C 25% 50%,#C8452B 50% 75%,#7FA7B7 75%);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--espresso);font-family:var(--font);-webkit-font-smoothing:antialiased;line-height:1.45}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(58,34,22,.08)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.top img{height:26px;width:auto}
+.top nav{margin-left:auto;display:flex;gap:4px}
+.top nav a{text-decoration:none;font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px;color:var(--cocoa)}
+.top nav a:hover,.top nav a.on{background:rgba(58,34,22,.07);color:var(--espresso)}
+@media (max-width:640px){.top nav a{padding:8px 7px;font-size:13px}.top nav a.hide-s{display:none}.top img{height:22px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--night);color:var(--cream);padding:72px 0 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,76px);line-height:1;margin:0 0 18px;font-weight:800;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:#E6D3B5;max-width:30em;margin:0 0 26px}
+.hero .by{font-size:14px;color:#BFA88E;margin-top:22px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(180deg,var(--orange),var(--red));color:#FFF5E6}
+.btn.ghost{background:rgba(240,227,206,.1);color:var(--cream)}
+.btn.dark{background:var(--espresso);color:var(--cream)}
+.btn.light{background:rgba(58,34,22,.07)}
+.hero-art{position:relative;height:420px}
+.hero-rec{position:absolute;left:50%;top:50%;width:360px;height:360px;margin:-180px 0 0 -180px;animation:spin 7s linear infinite}
+.hero-sel{position:absolute;right:-6px;bottom:-8px;height:300px;width:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.4));animation:bob 3.2s ease-in-out infinite}
+.hero .sun{height:16px;background:var(--stripe);margin-top:64px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-2deg)}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-art{height:320px}.hero-rec{width:260px;height:260px;margin:-130px 0 0 -130px}.hero-sel{height:220px}}
+
+/* ---------- section heads ---------- */
+section.block{padding:84px 0}
+.kick{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--red);margin-bottom:10px}
+.kick i{width:22px;height:8px;border-radius:2px;background:var(--stripe)}
+h2.big{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px;font-weight:800;letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--cocoa);max-width:40em;margin:0}
+
+/* ---------- video ---------- */
+.video{margin-top:32px;position:relative;border-radius:24px;overflow:hidden;background:var(--deep);aspect-ratio:16/9;box-shadow:0 30px 60px -20px rgba(58,34,22,.45)}
+.video video{width:100%;height:100%;display:block;object-fit:cover}
+.video .poster{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--cream);background:radial-gradient(80% 90% at 70% 30%,rgba(239,139,44,.35),transparent 60%),var(--deep)}
+.video .poster img{position:absolute;right:6%;bottom:0;height:78%;width:auto;opacity:.9}
+.play{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,var(--orange),var(--red));box-shadow:0 10px 30px rgba(200,69,43,.5);margin:0 auto 14px}
+.play svg{width:32px;height:32px;margin-left:5px}
+.video .poster small{display:block;color:#BFA88E;font-size:14px}
+.video .poster b{font-size:20px}
+.vid-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.vid-row span{color:var(--cocoa);font-size:14px}
+
+/* ---------- deck ---------- */
+.deck-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.slides{display:flex;flex-direction:column;gap:28px}
+.slide{position:relative;overflow:hidden;border-radius:28px;background:var(--cream);min-height:min(620px,62vw);padding:clamp(28px,4.5vw,56px);display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(58,34,22,.06)}
+.slide.dark{background:var(--night);color:var(--cream)}
+.slide.dark .s-sub{color:#D9C4A4}
+.slide .n{position:absolute;right:26px;bottom:20px;font-size:13px;font-weight:600;opacity:.45}
+.slide h3{font-size:clamp(28px,3.6vw,48px);line-height:1.04;margin:0 0 12px;font-weight:800;letter-spacing:-.02em;max-width:18em}
+.slide h3 em{font-style:normal;color:var(--red)}
+.slide.dark h3 em{color:var(--gold)}
+.s-sub{font-size:clamp(15px,1.5vw,19px);color:var(--cocoa);max-width:36em;margin:0}
+.s-body{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin-top:18px}
+.slide .stripe{position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--stripe)}
+.src{font-size:12px;opacity:.6;margin-top:10px}
+@media (max-width:760px){.slide{aspect-ratio:auto;min-height:0}.s-body{margin-top:24px}}
+
+/* reveal animations */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.in .rv{opacity:1;transform:none}
+.in .rv.d1{transition-delay:.12s}.in .rv.d2{transition-delay:.24s}.in .rv.d3{transition-delay:.36s}.in .rv.d4{transition-delay:.48s}.in .rv.d5{transition-delay:.6s}.in .rv.d6{transition-delay:.72s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important}}
+
+/* selector guide */
+.guide{position:absolute;right:3%;bottom:0;height:62%;width:auto;pointer-events:none;transform:translateY(105%);transition:transform .9s var(--ease) .3s;filter:drop-shadow(0 14px 22px rgba(0,0,0,.25))}
+.in .guide{transform:none}
+.bubble{position:absolute;right:calc(3% + 9vw);bottom:44%;background:#FFF5E6;color:var(--espresso);padding:10px 14px;border-radius:16px 16px 4px 16px;font-weight:700;font-size:15px;max-width:15em;box-shadow:0 8px 20px rgba(0,0,0,.15);opacity:0;transform:scale(.8);transform-origin:right bottom;transition:all .5s var(--ease) 1.1s}
+.in .bubble{opacity:1;transform:none}
+@media (max-width:760px){.guide{height:150px;right:8px}.bubble{display:none}}
+
+/* 1: title */
+.t-rec{position:relative;width:min(38vw,330px);aspect-ratio:1}
+.t-rec svg{width:100%;height:100%;transform:translateY(-140%) rotate(-40deg);transition:transform 1.1s cubic-bezier(.3,1.4,.4,1)}
+.in .t-rec svg{transform:none;animation:spin 6s linear 1.2s infinite}
+.title-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;width:100%}
+.title-grid .lock{height:clamp(50px,7vw,88px);width:auto;margin-bottom:18px}
+.title-grid p{font-size:clamp(18px,2vw,24px);margin:0;color:#E6D3B5}
+@media (max-width:760px){.title-grid{grid-template-columns:1fr}.t-rec{width:220px}}
+
+/* 2: problem */
+.prob{display:flex;align-items:center;gap:clamp(16px,4vw,48px);justify-content:center;width:100%}
+.prob .it{text-align:center;font-weight:700}
+.prob .it svg{width:clamp(90px,14vw,160px);height:auto;margin:0 auto 10px}
+.prob .gap{position:relative;flex:1;max-width:320px;height:8px}
+.prob .gap i{position:absolute;top:0;height:6px;border-radius:3px;background:var(--cocoa);opacity:.5;width:42%;transition:width .9s var(--ease) .4s}
+.prob .gap i:first-child{left:0}.prob .gap i:last-child{right:0}
+.prob .gap b{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:20px;transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.4,1) 1s}
+.in .prob .gap b{transform:scale(1)}
+.prob-cap{text-align:center;margin-top:24px;font-size:clamp(16px,1.7vw,21px);font-weight:600}
+.prob-cap s{opacity:.6}
+
+/* 3: solution */
+.sol-line{display:flex;align-items:center;gap:clamp(12px,3vw,32px);justify-content:center;margin-bottom:28px}
+.sol-line .it{width:clamp(70px,10vw,110px)}
+.sol-line .bar{flex:1;max-width:300px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--red));transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .3s}
+.in .sol-line .bar{transform:none}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.pill{background:var(--paper);border-radius:20px;padding:20px}
+.pill b{display:block;font-size:19px;margin:8px 0 4px}
+.pill span{color:var(--cocoa);font-size:15px}
+.pill .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,var(--orange),var(--red));color:#fff}
+.pill .ic svg{width:22px;height:22px}
+@media (max-width:760px){.pillars{grid-template-columns:1fr}}
+
+/* 4: how it works */
+.flow{width:100%;max-width:880px}
+.flow svg{width:100%;height:auto;overflow:visible}
+.flow .dash{stroke-dasharray:6 8;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-14}}
+.flow .lbl{font:600 15px var(--font);fill:currentColor}
+.flow .lbl2{font:500 13px var(--font);fill:#BFA88E}
+
+/* 5: market */
+.mkt{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;width:100%;padding-right:15%}
+.big-n{font-size:clamp(56px,9vw,120px);font-weight:800;line-height:.95;letter-spacing:-.035em;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mkt .facts{display:flex;flex-direction:column;gap:12px}
+.fact{background:var(--paper);border-radius:18px;padding:16px 18px}
+.fact b{font-size:26px;font-weight:800;display:block}
+.fact>span{color:var(--cocoa);font-size:15px}
+.stackbars{display:flex;align-items:flex-end;gap:6px;height:150px;margin-top:18px}
+.stackbars i{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--gold),var(--red));height:0;transition:height .9s var(--ease)}
+.stackbars-l{display:flex;justify-content:space-between;font-size:12px;color:var(--cocoa);margin-top:6px}
+@media (max-width:760px){.mkt{grid-template-columns:1fr;padding-right:0}}
+
+/* 6: product tour */
+.tour{display:flex;gap:16px;width:100%;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tour-track{display:flex;gap:16px;animation:tour 40s linear infinite}
+.tour:hover .tour-track{animation-play-state:paused}
+.shot{flex:none;width:clamp(150px,17vw,200px);text-align:center}
+.shot img{border-radius:22px;border:5px solid var(--deep);box-shadow:0 14px 30px rgba(0,0,0,.3);aspect-ratio:390/844;object-fit:cover;width:100%}
+.shot span{display:block;font-size:13px;font-weight:600;margin-top:10px;color:#E6D3B5}
+@keyframes tour{to{transform:translateX(calc(-50% - 8px))}}
+
+/* 7: revenue loop */
+.rev{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:center;width:100%}
+.loop{position:relative;width:100%;max-width:420px;aspect-ratio:1;margin:0 auto}
+.loop svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 30s linear infinite}
+.loop .core{position:absolute;left:50%;top:50%;width:27%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;background:var(--night)}
+.loop .core img{width:62%}
+.node{position:absolute;width:31%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--paper);box-shadow:0 8px 20px rgba(58,34,22,.12);font-weight:700;font-size:clamp(12px,1.25vw,15px);line-height:1.15;padding:8px;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:transform .6s cubic-bezier(.3,1.5,.4,1),opacity .4s,background .3s,color .3s}
+.in .node{transform:translate(-50%,-50%) scale(1);opacity:1}
+.node small{font-weight:500;font-size:.8em;opacity:.75;margin-top:3px}
+.node.on{background:linear-gradient(180deg,var(--orange),var(--red));color:#FFF5E6}
+.node:nth-of-type(1){left:50%;top:13%}.node:nth-of-type(2){left:87%;top:50%}.node:nth-of-type(3){left:50%;top:87%}.node:nth-of-type(4){left:13%;top:50%}
+.rev-info{background:var(--paper);border-radius:22px;padding:22px;min-height:250px}
+.rev-info .tag{display:inline-block;font-size:13px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(200,69,43,.12);color:var(--red);margin-bottom:10px}
+.rev-info h4{font-size:24px;margin:0 0 6px}
+.rev-info p{margin:0 0 12px;color:var(--cocoa)}
+.rev-info ul{margin:0;padding-left:18px}
+.rev-info li{margin:4px 0}
+.supp{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.supp button{padding:8px 12px;border-radius:999px;background:rgba(58,34,22,.07);font-size:14px;font-weight:600}
+.supp button.on{background:var(--espresso);color:var(--cream)}
+@media (max-width:760px){.rev{grid-template-columns:1fr}}
+
+/* 8: pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
+.plan{background:var(--paper);border-radius:22px;padding:20px;position:relative}
+.plan.best{background:var(--night);color:var(--cream)}
+.plan.best .muted{color:#D9C4A4}
+.plan h5{margin:0;font-size:17px}
+.plan .p{font-size:36px;font-weight:800;margin:6px 0 2px;letter-spacing:-.02em}
+.plan .p small{font-size:15px;font-weight:600;opacity:.7}
+.muted{color:var(--cocoa);font-size:14px}
+.side-prices{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;margin-top:14px}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chip-row span{background:rgba(58,34,22,.07);padding:6px 10px;border-radius:999px;font-weight:600;font-size:14px}
+@media (max-width:760px){.price-grid,.side-prices{grid-template-columns:1fr}}
+
+/* 9: numbers */
+.nums{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;width:100%;align-items:end}
+.chart{display:flex;align-items:flex-end;gap:clamp(16px,4vw,46px);height:300px;padding:0 6px;border-bottom:2px solid rgba(58,34,22,.15)}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.col .tot{font-weight:800;font-size:clamp(16px,1.8vw,22px);margin-bottom:8px}
+.col .bars{width:100%;max-width:110px;display:flex;flex-direction:column-reverse;border-radius:10px 10px 0 0;overflow:hidden}
+.col .bars i{display:block;height:0;transition:height 1s var(--ease)}
+.col label{font-weight:700;margin-top:10px;font-size:14px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:13px;font-weight:600}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px}
+.assume{background:var(--paper);border-radius:20px;padding:18px 20px;font-size:14px}
+.assume h5{margin:0 0 8px;font-size:16px}
+.assume ul{margin:0;padding-left:18px;color:var(--cocoa)}
+.assume li{margin:3px 0}
+.assume .note{margin-top:10px;font-size:12.5px;opacity:.75}
+@media (max-width:760px){.nums{grid-template-columns:1fr}.chart{height:230px}}
+
+/* 10: competitors */
+.quad{position:relative;width:100%;max-width:600px;aspect-ratio:2.3;border-radius:22px;background:var(--paper)}
+.quad:before,.quad:after{content:"";position:absolute;background:rgba(58,34,22,.15)}
+.quad:before{left:50%;top:8%;bottom:8%;width:2px}
+.quad:after{top:50%;left:5%;right:5%;height:2px}
+.ax{position:absolute;font-size:13px;font-weight:700;color:var(--cocoa)}
+.ax.t{top:10px;left:50%;transform:translateX(-50%)}.ax.b{bottom:10px;left:50%;transform:translateX(-50%)}
+.ax.l{left:14px;top:50%;transform:translateY(-140%)}.ax.r{right:14px;top:50%;transform:translateY(-140%)}
+.dot{position:absolute;transform:translate(-50%,-50%) scale(0);transition:transform .6s cubic-bezier(.3,1.5,.4,1);display:flex;align-items:center;gap:7px;font-weight:700;font-size:14px;white-space:nowrap}
+.in .dot{transform:translate(-50%,-50%) scale(1)}
+.dot i{width:14px;height:14px;border-radius:50%;background:var(--cocoa)}
+.dot.us{font-size:17px}
+.dot.us i{width:30px;height:30px;background:url(assets/stack-monogram-sunset.svg) center/cover;box-shadow:0 0 0 6px rgba(239,139,44,.25);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(239,139,44,.08)}}
+.comp-notes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;margin-top:16px;font-size:13.5px}
+.comp-notes div{background:var(--paper);border-radius:14px;padding:12px}
+.comp-notes b{display:block;margin-bottom:2px}
+.comp-notes span{color:var(--cocoa)}
+@media (max-width:760px){.comp-notes{grid-template-columns:1fr 1fr}.quad{aspect-ratio:1.1}.dot{font-size:12px}.ax{font-size:11px}}
+
+/* 11: risks */
+.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
+.risk{perspective:1000px;height:250px;cursor:pointer}
+.risk .inner{position:relative;width:100%;height:100%;transition:transform .7s var(--ease);transform-style:preserve-3d}
+.risk.flip .inner{transform:rotateY(180deg)}
+.risk .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;padding:20px;display:flex;flex-direction:column}
+.risk .front{background:var(--paper)}
+.risk .back{background:var(--night);color:var(--cream);transform:rotateY(180deg)}
+.risk .face small{font-weight:700;font-size:13px;color:var(--red)}
+.risk .back small{color:var(--gold)}
+.risk .face b{font-size:20px;margin:6px 0}
+.risk .face p{margin:0;font-size:14.5px;opacity:.85}
+.risk .face .hint{margin-top:auto;font-size:12.5px;opacity:.55}
+@media (max-width:760px){.risks{grid-template-columns:1fr}.risk{height:200px}}
+
+/* 12: launch */
+.road{position:relative;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.road:before{content:"";position:absolute;left:4%;right:4%;top:23px;height:6px;border-radius:3px;background:rgba(58,34,22,.12)}
+.road:after{content:"";position:absolute;left:4%;right:4%;top:23px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--red));transform:scaleX(0);transform-origin:left;transition:transform 1.6s var(--ease) .3s}
+.in .road:after{transform:none}
+.stop{position:relative;z-index:1;text-align:left}
+.stop .pin{width:52px;height:52px;border-radius:50%;background:var(--night);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:18px;margin-bottom:12px;box-shadow:0 0 0 6px var(--cream)}
+.stop b{display:block;font-size:17px}
+.stop span{display:block;color:var(--cocoa);font-size:14px;margin-top:3px}
+@media (max-width:760px){.road{grid-template-columns:1fr 1fr;row-gap:24px}.road:before,.road:after{display:none}}
+
+/* 13: testing */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
+.q{background:#FFF5E6;border-radius:22px;padding:22px;position:relative;font-size:17px;font-weight:600}
+.q:before{content:"\201C";position:absolute;top:-8px;left:16px;font-family:var(--display);font-size:64px;color:var(--orange);line-height:1}
+.q p{margin:18px 0 12px}
+.q span{font-size:13px;font-weight:500;color:var(--cocoa)}
+.q.ph p{color:var(--cocoa);font-style:italic}
+@media (max-width:760px){.quotes{grid-template-columns:1fr}}
+
+/* 14: close */
+.close-grid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;width:100%}
+.close-grid h3{font-size:clamp(36px,5.5vw,72px)}
+.close-grid img.sel{height:clamp(200px,30vw,340px);width:auto}
+@media (max-width:760px){.close-grid{grid-template-columns:1fr}}
+
+/* present mode */
+.present-on{overflow:hidden}
+.present-on .slides{position:fixed;inset:0;z-index:100;background:var(--deep);display:block;gap:0}
+.present-on .slide{position:absolute;left:50%;top:50%;width:min(96vw,calc(92vh*16/9));height:auto;aspect-ratio:16/9;min-height:0;transform:translate(-50%,-50%);display:none;border-radius:20px}
+.present-on .slide.cur{display:flex}
+.pbar{display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:101;gap:8px;align-items:center;background:rgba(29,17,11,.8);color:var(--cream);padding:6px;border-radius:999px;backdrop-filter:blur(8px)}
+.present-on .pbar{display:flex}
+.pbar button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(240,227,206,.12)}
+.pbar span{font-size:14px;font-weight:600;min-width:64px;text-align:center}
+
+/* ---------- prototype ---------- */
+.proto{background:var(--night);color:var(--cream)}
+.proto .lead{color:#D9C4A4}
+.proto-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.phone{width:min(360px,86vw);aspect-ratio:390/844;border-radius:48px;padding:12px;background:#0e0806;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),inset 0 0 0 2px #3a2a22}
+.phone iframe{width:100%;height:100%;border:0;border-radius:38px;background:var(--paper)}
+.feat-list{display:grid;gap:10px;margin:24px 0}
+.feat-list div{display:flex;gap:12px;align-items:flex-start}
+.feat-list i{flex:none;width:28px;height:28px;border-radius:9px;background:linear-gradient(180deg,var(--orange),var(--red));display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;color:#fff}
+@media (max-width:860px){.proto-grid{grid-template-columns:1fr;justify-items:center}}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 60px;font-size:14px;color:var(--cocoa)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .sun{height:10px;background:var(--stripe)}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a href="#top" aria-label="Stack"><img src="assets/stack-lockup-brown.svg" alt="Stack"></a>
+  <nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a></nav>
+</div></header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Own it.<br><em>Play it everywhere.</em></h1>
+      <p>Stack turns the vinyl and CDs you own into a library you can play on your phone, share with family and friends, and buy and sell second-hand.</p>
+      <div class="btns">
+        <a class="btn primary" href="#video"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch the pitch</a>
+        <a class="btn ghost" href="#deck">Pitch deck</a>
+        <a class="btn ghost" href="#prototype">Try the prototype</a>
+      </div>
+      <div class="by">Designed and built by Harrison Greener</div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg class="hero-rec" viewBox="0 0 200 200"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs><circle cx="100" cy="100" r="98" fill="#140b07"/><g fill="none" stroke="#2f211a" stroke-width="1.2"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="66"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="50"/></g><path d="M30 60 A80 80 0 0 1 100 20" stroke="rgba(255,240,220,.08)" stroke-width="14" fill="none"/><image href="assets/stack-monogram-sunset.svg" x="62" y="62" width="76" height="76"/><circle cx="100" cy="100" r="2.4" fill="#140b07"/></svg>
+      <img class="hero-sel" src="assets/selector-happy.png" alt="">
+    </div>
+  </div>
+  <div class="sun"></div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="block" id="video"><div class="wrap">
+  <div class="kick"><i></i>The pitch</div>
+  <h2 class="big">Stack in three minutes</h2>
+  <p class="lead">The problem, the product, and how it makes money.</p>
+  <div class="video" id="vidBox">
+    <!-- When the video is ready: put it at assets/stack-pitch.mp4 and it will play here automatically -->
+    <video id="vid" controls playsinline preload="metadata" poster="" hidden></video>
+    <div class="poster" id="vidPoster">
+      <img src="assets/selector-front.png" alt="">
+      <div><div class="play"><svg viewBox="0 0 24 24" fill="#FFF5E6"><path d="M8 5v14l11-7z"/></svg></div><b>Pitch video coming soon</b><small>3 minutes</small></div>
+    </div>
+  </div>
+  <div class="vid-row"><span>This copy is compressed so it loads quickly.</span><a class="btn dark" id="ytLink" href="#" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>Watch in full quality on YouTube</a></div>
+</div></section>
+
+<!-- ================= DECK ================= -->
+<section class="block" id="deck" style="padding-top:20px"><div class="wrap">
+  <div class="deck-head">
+    <div><div class="kick"><i></i>Pitch deck</div><h2 class="big">The business behind Stack</h2><p class="lead">Scroll through, or press present to go full screen and use the arrow keys.</p></div>
+    <div class="btns"><button class="btn dark" id="presentBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Present</button><a class="btn light" href="#" data-pdf>Download PDF</a></div>
+  </div>
+
+  <div class="slides" id="slides">
+
+  <!-- 1 title -->
+  <article class="slide dark">
+    <div class="s-body" style="margin-top:0"><div class="title-grid">
+      <div><img class="lock rv" src="assets/stack-lockup-cream.svg" alt="Stack"><p class="rv d1">Own it. Play it everywhere.</p><p class="rv d2" style="font-size:16px;margin-top:22px;color:#BFA88E">Harrison Greener · Founder and designer</p></div>
+      <div class="t-rec"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="#140b07"/><g fill="none" stroke="#2f211a" stroke-width="1.2"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="58"/></g><image href="assets/stack-monogram-sunset.svg" x="60" y="60" width="80" height="80"/></svg></div>
+    </div></div>
+    <div class="stripe"></div><span class="n">1</span>
+  </article>
+
+  <!-- 2 problem -->
+  <article class="slide">
+    <h3 class="rv">You own the record. <em>You still pay to hear it.</em></h3>
+    <p class="s-sub rv d1">Vinyl and CDs are back, but they don't work with your phone. Collectors pay for streaming on top of the music they already own.</p>
+    <div class="s-body" style="flex-direction:column">
+      <div class="prob">
+        <div class="it rv d2"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1d110b"/><circle cx="60" cy="60" r="44" fill="none" stroke="#3a2a22"/><circle cx="60" cy="60" r="32" fill="none" stroke="#3a2a22"/><circle cx="60" cy="60" r="18" fill="#C8452B"/><circle cx="60" cy="60" r="3" fill="#1d110b"/></svg>Your records</div>
+        <div class="gap"><i></i><b>×</b><i></i></div>
+        <div class="it rv d3"><svg viewBox="0 0 120 120"><rect x="32" y="6" width="56" height="108" rx="12" fill="#1d110b"/><rect x="37" y="16" width="46" height="84" rx="4" fill="#F8EEDD"/><circle cx="60" cy="107" r="3" fill="#8A6E5E"/><path d="M52 50l14 8-14 8z" fill="#C8452B"/></svg>Your phone</div>
+      </div>
+      <div class="prob-cap rv d4">Own <i>Rumours</i> on vinyl? <s>Play it on the bus.</s> Pay Spotify again.</div>
+    </div>
+    <span class="n">2</span>
+  </article>
+
+  <!-- 3 solution -->
+  <article class="slide">
+    <h3 class="rv">Stack makes <em>owning the record</em> the thing that unlocks it everywhere.</h3>
+    <div class="s-body" style="flex-direction:column;justify-content:center">
+      <div class="sol-line"><svg class="it rv d1" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1d110b"/><circle cx="60" cy="60" r="40" fill="none" stroke="#3a2a22"/><circle cx="60" cy="60" r="18" fill="#C8452B"/></svg><span class="bar"></span><img class="it rv d2" src="assets/stack-monogram-sunset.svg" alt="Stack"><span class="bar" style="transition-delay:.7s"></span><svg class="it rv d3" viewBox="0 0 120 120"><rect x="32" y="6" width="56" height="108" rx="12" fill="#1d110b"/><rect x="37" y="16" width="46" height="84" rx="4" fill="#F8EEDD"/><path d="M52 50l14 8-14 8z" fill="#2FA37A"/></svg></div>
+      <div class="pillars">
+        <div class="pill rv d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><b>Your collection</b><span>Add records by barcode, Discogs or the Puck. Browse covers, a crate or a list.</span></div>
+        <div class="pill rv d3"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><b>Play anywhere</b><span>Stream every record you own, or your own recorded pressing, crackle and all.</span></div>
+        <div class="pill rv d4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.5-3.5 3-5.5 6-5.5s5.5 2 6 5.5M15 15c3 0 5 1.5 5.5 4.5"/></svg></span><b>Share it</b><span>Family Stacks, friends, listening rooms, and a second-hand Marketplace.</span></div>
+      </div>
+    </div>
+    <span class="n">3</span>
+  </article>
+
+  <!-- 4 how it works -->
+  <article class="slide dark">
+    <h3 class="rv">The Puck turns a spin <em>into your own copy</em></h3>
+    <p class="s-sub rv d1">It sits between your turntable and speakers. Sound passes straight through, and the Puck records your copy in hi-res while logging every play.</p>
+    <div class="s-body"><div class="flow rv d2"><svg viewBox="0 0 880 260">
+      <g transform="translate(40 60)"><rect width="170" height="120" rx="14" fill="#3a2418"/><circle cx="70" cy="60" r="44" fill="#140b07"/><circle cx="70" cy="60" r="16" fill="#C8452B"/><rect x="128" y="22" width="8" height="70" rx="4" fill="#BFA88E" transform="rotate(18 132 22)"/><text class="lbl" x="85" y="152" text-anchor="middle">Turntable or CD</text></g>
+      <path class="dash" d="M220 120H330" stroke="#EF8B2C" stroke-width="4" fill="none"/>
+      <g transform="translate(345 70)"><circle cx="55" cy="50" r="52" fill="#1c1b19" stroke="#C9B89F" stroke-width="5"/><image href="assets/stack-monogram-sunset.svg" x="27" y="22" width="56" height="56"/><circle cx="55" cy="94" r="3" fill="#F2AE3D"/><text class="lbl" x="55" y="142" text-anchor="middle">Stack Puck</text></g>
+      <path class="dash" d="M460 120H570" stroke="#EF8B2C" stroke-width="4" fill="none"/>
+      <g transform="translate(585 50)"><rect width="56" height="110" rx="8" fill="#3a2418"/><circle cx="28" cy="34" r="12" fill="#140b07"/><circle cx="28" cy="74" r="18" fill="#140b07"/><rect x="72" width="56" height="110" rx="8" fill="#3a2418"/><circle cx="100" cy="34" r="12" fill="#140b07"/><circle cx="100" cy="74" r="18" fill="#140b07"/><text class="lbl" x="64" y="172" text-anchor="middle">Your speakers</text></g>
+      <path class="dash" d="M400 172 V230 H750 V110" stroke="#7FA7B7" stroke-width="3" fill="none"/>
+      <g transform="translate(730 18)"><rect width="44" height="84" rx="9" fill="#F8EEDD"/><rect x="5" y="9" width="34" height="60" rx="3" fill="#E8762C"/><text class="lbl" x="22" y="-4" text-anchor="middle">Stack app</text></g>
+      <text class="lbl2" x="575" y="252" text-anchor="middle">Your copy, recorded once, playable anywhere</text>
+    </svg></div></div>
+    <span class="n">4</span>
+  </article>
+
+  <!-- 5 market -->
+  <article class="slide" data-anim="market">
+    <h3 class="rv">Vinyl is having its <em>best year in three decades</em></h3>
+    <div class="s-body"><div class="mkt">
+      <div class="rv d1"><div class="big-n">£<span data-count="174.4" data-dec="1">0</span>m</div><p class="s-sub" style="margin-top:8px">UK vinyl sales in 2025, the highest in around 30 years.</p>
+        <div class="stackbars" aria-hidden="true"><i data-h="38"></i><i data-h="46"></i><i data-h="52"></i><i data-h="61"></i><i data-h="70"></i><i data-h="83"></i><i data-h="100"></i></div><div class="stackbars-l"><span>Earlier years</span><span>2025</span></div></div>
+      <div class="facts">
+        <div class="fact rv d2"><b>+<span data-count="19.9" data-dec="1">0</span>%</b><span>Growth in UK vinyl sales from 2024 to 2025</span></div>
+        <div class="fact rv d3"><b>11 years</b><span>Of growth in a row for the UK recorded music market</span></div>
+        <div class="fact rv d4"><b>Collectors</b><span>Buy for the object, the artwork and the ownership. Stack gives that a digital life.</span></div>
+      </div>
+    </div></div>
+    <div class="src">Sources: BPI via Dork; Express &amp; Star (2025). Bar heights are illustrative of the trend.</div>
+    <img class="guide" src="assets/selector-34.png" alt="" style="height:46%"><span class="bubble">That's a lot of records with nowhere to play.</span>
+    <span class="n">5</span>
+  </article>
+
+  <!-- 6 product -->
+  <article class="slide dark">
+    <h3 class="rv">A working prototype, <em>not a mockup</em></h3>
+    <p class="s-sub rv d1">Everything here runs in the browser today. Try it at the bottom of this page.</p>
+    <div class="s-body"><div class="tour rv d2"><div class="tour-track" id="tourTrack"></div></div></div>
+    <span class="n">6</span>
+  </article>
+
+  <!-- 7 revenue -->
+  <article class="slide" data-anim="loop">
+    <h3 class="rv">One loop, <em>four ways it earns</em></h3>
+    <p class="s-sub rv d1">Each part feeds the next. Tap any part to see how it makes money.</p>
+    <div class="s-body"><div class="rev">
+      <div class="loop">
+        <svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="37" fill="none" stroke="url(#rg)" stroke-width="1.6" stroke-dasharray="3 3"/><defs><linearGradient id="rg"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg>
+        <div class="core"><img src="assets/stack-monogram-sunset.svg" alt=""></div>
+        <button class="node" data-r="puck">The Puck<small>Brings people in</small></button>
+        <button class="node" data-r="sub">Subscription<small>Keeps them</small></button>
+        <button class="node" data-r="social">Friends<small>Brings friends</small></button>
+        <button class="node" data-r="market">Marketplace<small>Keeps records moving</small></button>
+      </div>
+      <div><div class="rev-info" id="revInfo"></div>
+        <div class="supp"><span class="muted" style="align-self:center">Supporting:</span><button data-r="shops">Record shops</button><button data-r="supply">Stack Supply</button></div></div>
+    </div></div>
+    
+    <span class="n">7</span>
+  </article>
+
+  <!-- 8 pricing -->
+  <article class="slide">
+    <h3 class="rv">Simple pricing, <em>cheaper than renting</em></h3>
+    <div class="s-body" style="flex-direction:column">
+      <div class="price-grid">
+        <div class="plan rv d1"><h5>Solo</h5><div class="p">£4<small>/month</small></div><div class="muted">Just you. Every record you own, anywhere, plus the Selector.</div></div>
+        <div class="plan best rv d2"><h5>Duo</h5><div class="p">£7<small>/month</small></div><div class="muted">Two people, one home, one shared Stack.</div></div>
+        <div class="plan rv d3"><h5>Family</h5><div class="p">£14.99<small>/month</small></div><div class="muted">Up to four people. Everyone streams everything the family owns.</div></div>
+      </div>
+      <div class="side-prices">
+        <div class="plan rv d4"><h5>The Puck</h5><div class="chip-row"><span>1 for £30</span><span>2 for £50</span><span>3 for £75</span></div><div class="muted" style="margin-top:8px">Priced to get it into homes, not to make a big profit.</div></div>
+        <div class="plan rv d5"><h5>Marketplace</h5><div class="chip-row"><span>8% seller fee</span><span>Payment held until it arrives</span></div><div class="muted" style="margin-top:8px">The digital copy moves to the buyer with the record.</div></div>
+      </div>
+    </div>
+    <span class="n">8</span>
+  </article>
+
+  <!-- 9 numbers -->
+  <article class="slide" data-anim="chart">
+    <h3 class="rv">A rough three-year picture</h3>
+    <p class="s-sub rv d1">Revenue from a launch in Manchester, then the North West, then the UK.</p>
+    <div class="s-body"><div class="nums">
+      <div class="rv d2"><div class="chart" id="chart"></div>
+        <div class="legend"><span><i style="background:#C8452B"></i>Subscriptions</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div></div>
+      <div class="assume rv d3"><h5>Assumptions</h5><ul id="assume"></ul><div class="note">Illustrative figures for a university proposal, not a forecast.</div></div>
+    </div></div>
+    <span class="n">9</span>
+  </article>
+
+  <!-- 10 competitors -->
+  <article class="slide">
+    <h3 class="rv">Nobody joins <em>owning, listening and sharing</em></h3>
+    <div class="s-body" style="flex-direction:column">
+      <div class="quad rv d1">
+        <span class="ax t">Social</span><span class="ax b">On your own</span><span class="ax l">Rent it</span><span class="ax r">Own it</span>
+        <span class="dot" style="left:28%;top:36%;transition-delay:.5s"><i></i>Spotify</span>
+        <span class="dot" style="left:22%;top:64%;transition-delay:.6s"><i></i>Apple Music</span>
+        <span class="dot" style="left:70%;top:72%;transition-delay:.7s"><i></i>Discogs</span>
+        <span class="dot" style="left:60%;top:58%;transition-delay:.8s"><i></i>Bandcamp</span>
+        <span class="dot us" style="left:76%;top:24%;transition-delay:1.1s"><i></i>Stack</span>
+      </div>
+      <div class="comp-notes">
+        <div class="rv d2"><b>Spotify</b><span>Huge catalogue, but you never own anything.</span></div>
+        <div class="rv d3"><b>Discogs</b><span>Great catalogue and marketplace, but you can't listen.</span></div>
+        <div class="rv d4"><b>Bandcamp</b><span>Physical plus digital, but only from that one shop.</span></div>
+        <div class="rv d5"><b>Stack</b><span>Any record you own, playable, shareable and sellable.</span></div>
+      </div>
+    </div>
+    <span class="n">10</span>
+  </article>
+
+  <!-- 11 risks -->
+  <article class="slide">
+    <h3 class="rv">The risks, <em>and the answers</em></h3>
+    <p class="s-sub rv d1">Tap a card to flip it.</p>
+    <div class="s-body"><div class="risks">
+      <div class="risk rv d2"><div class="inner"><div class="face front"><small>Risk</small><b>Music rights</b><p>Owning a record doesn't give you the right to stream it, or to copy it.</p><span class="hint">Tap for the answer</span></div><div class="face back"><small>Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes the home for it, licensed, with royalties on every play.</p></div></div></div>
+      <div class="risk rv d3"><div class="inner"><div class="face front"><small>Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer</span></div><div class="face back"><small>Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p></div></div></div>
+      <div class="risk rv d4"><div class="inner"><div class="face front"><small>Risk</small><b>An empty marketplace</b><p>Buyers won't come without sellers, and sellers won't come without buyers.</p><span class="hint">Tap for the answer</span></div><div class="face back"><small>Answer</small><b>Launch city by city</b><p>Start in Manchester with partner record shops listing their second-hand stock from day one.</p></div></div></div>
+    </div></div>
+    <span class="n">11</span>
+  </article>
+
+  <!-- 12 launch -->
+  <article class="slide">
+    <h3 class="rv">Start in Manchester, <em>grow from record shops</em></h3>
+    <div class="s-body"><div class="road">
+      <div class="stop rv d1"><div class="pin">1</div><b>Manchester</b><span>Partner record shops, students and Record Store Day.</span></div>
+      <div class="stop rv d2"><div class="pin">2</div><b>The North West</b><span>Liverpool, Leeds and Sheffield shops join the Marketplace.</span></div>
+      <div class="stop rv d3"><div class="pin">3</div><b>The UK</b><span>Label partnerships and the Puck in stores nationwide.</span></div>
+      <div class="stop rv d4"><div class="pin">4</div><b>Beyond</b><span>Markets where vinyl is growing, with local labels.</span></div>
+    </div></div>
+    <span class="n">12</span>
+  </article>
+
+  <!-- 13 testing -->
+  <article class="slide dark">
+    <h3 class="rv">What testers said</h3>
+    <p class="s-sub rv d1">From product testing with the working prototype.</p>
+    <div class="s-body"><div class="quotes" style="color:var(--espresso)">
+      <div class="q ph rv d2"><p>Tester quote 1 goes here, for example about the two decks and crossfader.</p><span>Tester, age</span></div>
+      <div class="q ph rv d3"><p>Tester quote 2 goes here.</p><span>Tester, age</span></div>
+      <div class="q ph rv d4"><p>Tester quote 3 goes here.</p><span>Tester, age</span></div>
+    </div></div>
+    <span class="n">13</span>
+  </article>
+
+  <!-- 14 close -->
+  <article class="slide dark">
+    <div class="s-body" style="margin-top:0"><div class="close-grid">
+      <div><h3 class="rv">Own it.<br><em>Play it everywhere.</em></h3><p class="s-sub rv d1">Stack makes owning music feel better than renting it.</p><p class="rv d2" style="margin-top:22px;color:#BFA88E">Harrison Greener · harrisongreener.github.io/stack</p></div>
+      <img class="sel rv d2" src="assets/selector-front.png" alt="The Selector">
+    </div></div>
+    <div class="stripe"></div><span class="n">14</span>
+  </article>
+
+  </div>
+</div></section>
+
+<div class="pbar" id="pbar"><button id="pPrev" aria-label="Previous slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><span id="pNum">1 / 14</span><button id="pNext" aria-label="Next slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button id="pX" aria-label="Exit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+
+<!-- ================= PROTOTYPE ================= -->
+<section class="block proto" id="prototype"><div class="wrap proto-grid">
+  <div>
+    <div class="kick" style="color:var(--gold)"><i></i>Prototype</div>
+    <h2 class="big">Try Stack yourself</h2>
+    <p class="lead">This is the real prototype running live. Tap around, play a record, or open it full screen on your phone.</p>
+    <div class="feat-list">
+      <div><i>1</i><span>Flick through My Stack as covers, a crate or a list, and play a record.</span></div>
+      <div><i>2</i><span>Load a second record and slide the crossfader between two decks.</span></div>
+      <div><i>3</i><span>Check the leaderboards, Record Club and a friend's listening room.</span></div>
+      <div><i>4</i><span>Buy a second-hand record on the Marketplace.</span></div>
+    </div>
+    <div class="btns"><a class="btn primary" href="https://harrisongreener.github.io/stack/" target="_blank" rel="noopener">Open full screen</a><a class="btn ghost" href="https://harrisongreener.github.io/stack/?nofilm" target="_blank" rel="noopener">Skip the intro film</a></div>
+  </div>
+  <div class="phone"><iframe src="https://harrisongreener.github.io/stack/?nofilm" title="Stack prototype" loading="lazy" allow="autoplay"></iframe></div>
+</div></section>
+
+<footer><div class="sun"></div><div class="wrap" style="margin-top:26px">
+  <span>Stack is a university project designed and built by Harrison Greener.</span>
+  <span>Album artwork and audio belong to their artists and labels.</span>
+</div></footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
+
+/* ---- video: use assets/stack-pitch.mp4 if it exists; YouTube link set here ---- */
+const YT='';// paste the unlisted YouTube link here
+if(YT)$('#ytLink').href=YT;else $('#ytLink').style.opacity=.5;
+fetch('assets/stack-pitch.mp4',{method:'HEAD'}).then(r=>{if(r.ok){const v=$('#vid');v.src='assets/stack-pitch.mp4';v.hidden=false;$('#vidPoster').remove()}}).catch(()=>{});
+
+/* ---- product tour ---- */
+const shots=[['my-stack','My Stack'],['player','The player'],['two-decks','Two decks'],['family-crate','Family crate'],['friends-activity','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['listing','A listing'],['selector','The Selector']];
+const one=shots.map(([f,n])=>`<div class="shot"><img src="assets/shots/${f}.jpg" alt="${n}" loading="lazy"><span>${n}</span></div>`).join('');
+$('#tourTrack').innerHTML=one+one;
+
+/* ---- revenue loop ---- */
+const REV={
+ puck:{tag:'How people start',h:'The Puck',p:'A £30 device that records your own copy and proves you own the record. Priced low to get Stack into as many homes as possible.',l:['£30 for one, £50 for two, £75 for three','Small margin on each sale','Every Puck owner becomes a subscriber']},
+ sub:{tag:'Main income',h:'Subscription',p:'Monthly plans to stream everything you own, anywhere. This is the recurring income the business is built on.',l:['Solo £4, Duo £7, Family £14.99 a month','Royalties paid to labels on every play','Family and Duo plans bring more people into one account']},
+ social:{tag:'How it grows',h:'Friends',p:'Leaderboards, Record Club, profiles and listening rooms only work when your friends are on Stack too, so people invite each other.',l:['Invite a friend: you both get a month free','Listening rooms and Record Club every month','More friends means more Marketplace buyers']},
+ market:{tag:'Second income',h:'Marketplace',p:'Collectors buy and sell second-hand vinyl and CDs. Stack holds the payment until the record arrives, then the digital copy moves to the buyer.',l:['8% fee on every sale','Payment held until the buyer confirms','No extra copies are ever created']},
+ shops:{tag:'Supporting',h:'Record shops',p:'Independent shops list second-hand stock, sell the Puck and host Record Store Day events in the app.',l:['Commission on Puck sales in store','Shop listings fill the Marketplace at launch','Events bring local collectors in']},
+ supply:{tag:'Supporting',h:'Stack Supply',p:'Stack’s own clothing and record gear. A small income, but it builds the brand and community.',l:['Clothing, slipmats, crates and the Puck','Sold inside the app','Builds a recognisable brand']}};
+let rk='puck',rt=null;
+function showRev(k,user){rk=k;const r=REV[k];$('#revInfo').innerHTML=`<span class="tag">${r.tag}</span><h4>${r.h}</h4><p>${r.p}</p><ul>${r.l.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+ $$('.node,.supp button').forEach(b=>b.classList.toggle('on',b.dataset.r===k));if(user){clearInterval(rt);rt=null}}
+showRev('puck');
+$$('[data-r]').forEach(b=>b.addEventListener('click',()=>showRev(b.dataset.r,true)));
+const order=['puck','sub','social','market'];
+function autoLoop(){if(rt)return;rt=setInterval(()=>{showRev(order[(order.indexOf(rk)+1)%4])},3200)}
+
+/* ---- three-year model ---- */
+const A={acc:[5000,25000,80000],arpu:.6*4+.25*7+.15*14.99,puckTake:.4,puckAvg:40,gmvPerAcc:24,fee:.08};
+const yrs=A.acc.map((n,i)=>{const prev=i?A.acc[i-1]:0;return{y:'Year '+(i+1),sub:n*A.arpu*12,puck:(n-prev)*A.puckTake*A.puckAvg,mkt:n*A.gmvPerAcc*A.fee}});
+const maxT=Math.max(...yrs.map(y=>y.sub+y.puck+y.mkt));
+$('#chart').innerHTML=yrs.map(y=>{const t=y.sub+y.puck+y.mkt;return `<div class="col"><div class="tot" data-money="${t}">£0</div><div class="bars" data-t="${t}"><i style="background:#C8452B" data-v="${y.sub}"></i><i style="background:#EF8B2C" data-v="${y.puck}"></i><i style="background:#7FA7B7" data-v="${y.mkt}"></i></div><label>${y.y}</label></div>`}).join('');
+$('#assume').innerHTML=[`Paying accounts: ${A.acc.map(n=>n.toLocaleString()).join(', ')}`,`Plan mix 60% Solo, 25% Duo, 15% Family: about £${A.arpu.toFixed(2)} a month per account`,`40% of new accounts buy a Puck, average £${A.puckAvg} with bundles`,`Each account buys about £${A.gmvPerAcc} of second-hand records a year, 8% fee`,`Around 60% of subscription income is paid to labels as royalties`,`Record shops and Stack Supply not counted`].map(x=>`<li>${x}</li>`).join('');
+function growChart(){$$('#chart .bars').forEach(b=>{const t=+b.dataset.t;b.style.height=(t/maxT*250)+'px';b.querySelectorAll('i').forEach(i=>i.style.height=(+i.dataset.v/t*100)+'%')});
+ $$('#chart [data-money]').forEach(el=>countTo(el,+el.dataset.money,money))}
+
+/* ---- counters ---- */
+function countTo(el,to,fmt,dur=1400){const t0=performance.now();const step=now=>{const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(to*e);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+
+/* ---- reveal on view ---- */
+const done=new WeakSet();
+function enter(s){s.classList.add('in');if(done.has(s))return;done.add(s);
+ s.querySelectorAll('[data-count]').forEach(el=>{const d=+el.dataset.dec||0;countTo(el,+el.dataset.count,v=>v.toFixed(d))});
+ s.querySelectorAll('.stackbars i').forEach((i,k)=>setTimeout(()=>i.style.height=i.dataset.h+'%',200+k*110));
+ if(s.dataset.anim==='chart')setTimeout(growChart,300);
+ if(s.dataset.anim==='loop')autoLoop()}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)enter(e.target)}),{threshold:.28});
+$$('.slide').forEach(s=>io.observe(s));
+
+/* ---- risk cards ---- */
+$$('.risk').forEach(r=>r.addEventListener('click',()=>r.classList.toggle('flip')));
+
+/* ---- present mode ---- */
+const S=$$('.slide');let cur=0;
+function go(i){cur=Math.max(0,Math.min(S.length-1,i));S.forEach((s,k)=>s.classList.toggle('cur',k===cur));$('#pNum').textContent=`${cur+1} / ${S.length}`;enter(S[cur])}
+function present(on){document.body.classList.toggle('present-on',on);if(on){go(cur);try{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}catch(e){}}else{try{document.fullscreenElement&&document.exitFullscreen()}catch(e){}S[cur].scrollIntoView({block:'center'})}}
+$('#presentBtn').onclick=()=>{const r=S.findIndex(s=>{const b=s.getBoundingClientRect();return b.bottom>innerHeight*.4});cur=r<0?0:r;present(true)};
+$('#pPrev').onclick=()=>go(cur-1);$('#pNext').onclick=()=>go(cur+1);$('#pX').onclick=()=>present(false);
+addEventListener('keydown',e=>{if(!document.body.classList.contains('present-on'))return;if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}if(e.key==='Escape')present(false)});
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('present-on'))present(false)});
+document.addEventListener('click',e=>{if(!document.body.classList.contains('present-on'))return;if(e.target.closest('button,a,.risk,.node'))return;if(e.target.closest('.slide'))go(cur+1)});
+
+/* ---- PDF: print the deck ---- */
+$$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.forEach(enter);setTimeout(()=>print(),400)}));
+})();
+</script>
+<style media="print">
+@page{size:1600px 900px;margin:0}
+.top,.hero,#video,.deck-head,.proto,footer,.pbar{display:none!important}
+#deck{padding:0!important}#deck .wrap{max-width:none;padding:0}
+.slides{gap:0}
+.slide{width:1600px;height:900px;aspect-ratio:auto;border-radius:0;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.rv,.node,.dot,.guide,.bubble{opacity:1!important;transform:none!important;transition:none!important}
+.node{transform:translate(-50%,-50%)!important}.dot{transform:translate(-50%,-50%)!important}
+.tour-track{animation:none}
+</style>
+</body>
+</html>
