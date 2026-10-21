@@ -322,8 +322,7 @@ footer .sun{height:10px;background:var(--stripe)}
 .marq-t{display:inline-block;will-change:transform}
 .obj{position:absolute;left:0;top:0;will-change:transform,opacity;pointer-events:none;transform-origin:50% 50%}
 #o-rec,#o-puck,#o-phone,#o-tt,#o-spk,#o-sel,#o-sel2,#o-gap,#o-join,#o-bars,#o-chart,#o-loop,#o-flow{opacity:0}
-#o-rec{width:calc(var(--R)*2);height:calc(var(--R)*2);margin:calc(var(--R)*-1) 0 0 calc(var(--R)*-1);filter:drop-shadow(0 30px 50px rgba(0,0,0,.35))}
-#o-rec svg{width:100%;height:100%;display:block}
+#o-rec{width:calc(var(--R)*2);height:calc(var(--R)*2);margin:calc(var(--R)*-1) 0 0 calc(var(--R)*-1)}
 #o-puck{width:calc(var(--R)*.9);height:calc(var(--R)*.9);margin:calc(var(--R)*-.45) 0 0 calc(var(--R)*-.45)}
 #o-phone{width:calc(var(--R)*.72);height:calc(var(--R)*1.44);margin:calc(var(--R)*-.72) 0 0 calc(var(--R)*-.36);filter:drop-shadow(0 20px 30px rgba(0,0,0,.3))}
 #o-tt{width:calc(var(--R)*1.1);height:calc(var(--R)*.82);margin:calc(var(--R)*-.41) 0 0 calc(var(--R)*-.55)}
@@ -460,6 +459,26 @@ footer .sun{height:10px;background:var(--stripe)}
 .qs blockquote:nth-child(2){align-self:flex-end;text-align:right}
 .qs cite{display:block;font-style:normal;font-size:15px;font-weight:600;margin-top:10px;color:var(--red)}
 
+
+.vrec{position:relative;width:100%;height:100%;border-radius:50%;box-shadow:0 30px 60px -10px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
+.vspin{position:absolute;inset:0;will-change:transform}
+.vspin img{position:absolute;inset:0;width:100%;height:100%}
+.vspin .vlab{inset:33.5%;width:33%;height:33%}
+.vspin .vmono{inset:37.5%;width:25%;height:25%}
+.vsheen{position:absolute;inset:0;border-radius:50%;pointer-events:none;background:conic-gradient(from 20deg,rgba(255,255,255,0) 0deg,rgba(255,240,225,.16) 28deg,rgba(255,255,255,0) 62deg,rgba(255,255,255,0) 180deg,rgba(255,240,225,.12) 212deg,rgba(255,255,255,0) 246deg,rgba(255,255,255,0) 360deg);-webkit-mask:radial-gradient(circle,transparent 33%,#000 34%,#000 97%,transparent 98%);mask:radial-gradient(circle,transparent 33%,#000 34%,#000 97%,transparent 98%);mix-blend-mode:screen}
+.vsheen:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(60% 45% at 30% 22%,rgba(255,235,210,.10),transparent 70%)}
+.hero-rec .vspin{animation:spin 2.4s linear infinite}
+#o-rec .vrec{filter:none}
+#o-rec .vprog{position:absolute;inset:-3%;width:106%;height:106%}
+#o-run{height:calc(var(--R)*1.5);width:auto;margin:calc(var(--R)*-1.5) 0 0 0;opacity:0;filter:drop-shadow(0 16px 18px rgba(0,0,0,.3))}
+.dust{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(191,168,142,.55);pointer-events:none;opacity:0}
+.ed-risks{margin-top:2vh}.ed-risks .risk{height:300px}
+.ed-risks .face{padding:28px;border-radius:26px}.ed-risks .front{background:#3a2418;color:var(--cream)}.ed-risks .front small{color:var(--gold)}
+.ed-risks .back{background:linear-gradient(160deg,var(--orange),var(--red));color:#FFF5E6}.ed-risks .back small{color:#FFE7C2}
+.ed-risks .face b{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.01em}.ed-risks .face p{font-size:16px}
+.ed-risks .risk:hover .inner{transform:rotateY(8deg)}.ed-risks .risk.flip:hover .inner{transform:rotateY(172deg)}
+.fl-hint{color:#BFA88E;margin:-4vh 0 3vh;font-weight:600}
+.hero-rec{left:38%!important}.hero-sel{right:-70px!important;bottom:-14px!important;height:330px!important}@media (max-width:860px){.hero-rec{left:40%!important}.hero-sel{right:-10px!important;height:220px!important}}
 </style>
 </head>
 <body>
@@ -483,8 +502,8 @@ footer .sun{height:10px;background:var(--stripe)}
       <div class="by">Designed and built by Harrison Greener</div>
     </div>
     <div class="hero-art" aria-hidden="true">
-      <svg class="hero-rec" viewBox="0 0 200 200"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs><circle cx="100" cy="100" r="98" fill="#140b07"/><g fill="none" stroke="#2f211a" stroke-width="1.2"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="66"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="50"/></g><path d="M30 60 A80 80 0 0 1 100 20" stroke="rgba(255,240,220,.08)" stroke-width="14" fill="none"/><image href="assets/stack-monogram-sunset.svg" x="62" y="62" width="76" height="76"/><circle cx="100" cy="100" r="2.4" fill="#140b07"/></svg>
-      <img class="hero-sel" src="assets/selector-happy.png" alt="">
+      <div class="vrec hero-rec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div>
+      <img class="hero-sel" src="assets/selector-front.png" alt="">
     </div>
   </div>
   <div class="sun"></div>
@@ -639,7 +658,7 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="s-body"><div class="nums">
       <div class="rv d2"><div class="chart" id="chart"></div>
         <div class="legend"><span><i style="background:#C8452B"></i>Subscriptions</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div></div>
-      <div class="assume rv d3"><h5>Assumptions</h5><ul id="assume"></ul><div class="note">Illustrative figures for a university proposal, not a forecast.</div></div>
+      <div class="assume rv d3"><h5>Assumptions</h5><ul id="assume"></ul><div class="note">Illustrative figures, not a forecast.</div></div>
     </div></div>
     <span class="n">9</span>
   </article>
@@ -731,11 +750,9 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="obj" id="o-bars"></div>
     <div class="obj" id="o-chart"></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
-    <div class="obj" id="o-rec">
-      <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="99" fill="#140b07"/><g fill="none" stroke="#2f211a" stroke-width="1"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="85"/><circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="71"/><circle cx="100" cy="100" r="64"/><circle cx="100" cy="100" r="57"/><circle cx="100" cy="100" r="50"/></g><path d="M28 62 A80 80 0 0 1 100 20" stroke="rgba(255,240,220,.09)" stroke-width="16" fill="none"/><circle id="recProg" cx="100" cy="100" r="96" fill="none" stroke="url(#rpg)" stroke-width="2.4" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs><image href="assets/stack-monogram-sunset.svg" x="62" y="62" width="76" height="76"/><circle cx="100" cy="100" r="2.4" fill="#140b07"/></svg>
-    </div>
+    <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div><svg class="vprog" viewBox="0 0 200 200"><circle id="recProg" cx="100" cy="100" r="99" fill="none" stroke="url(#rpg)" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg></div>
     <div class="obj" id="o-puck"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1c1b19" stroke="#C9B89F" stroke-width="6"/><image href="assets/stack-monogram-sunset.svg" x="30" y="30" width="60" height="60"/><circle cx="60" cy="106" r="3" fill="#F2AE3D"/></svg></div>
-    <img class="obj" id="o-sel" src="assets/selector-happy.png" alt="">
+    <img class="obj" id="o-sel" src="assets/selector-front.png" alt=""><img class="obj" id="o-run" src="assets/selector-run.png" alt="">
     <img class="obj" id="o-sel2" src="assets/selector-34.png" alt="">
 
     <!-- chapter text -->
@@ -746,7 +763,7 @@ footer .sun{height:10px;background:var(--stripe)}
       <div class="ch" data-i="3"><span class="no">(3) The Puck</span><h3>A spin becomes<br><em>your own copy.</em></h3><p>The Puck sits between turntable and speakers. Sound passes straight through while it records your copy in hi-res and logs every play.</p></div>
       <div class="ch" data-i="4"><span class="no">(4) The market</span><h3><span class="mega">£<b data-cnt="174.4">0</b>m</span><em>UK vinyl sales in 2025.</em></h3><p>Up <b data-cnt="19.9">0</b>% in a year, and the highest in around 30 years. Collectors want to own music again.</p><p class="src">Sources: BPI via Dork; Express &amp; Star (2025).</p></div>
       <div class="ch" data-i="5"><span class="no">(5) How it earns</span><h3>One loop,<br><em>four ways in.</em></h3><div class="loopinfo" id="loopInfo"></div></div>
-      <div class="ch" data-i="6"><span class="no">(6) Three years</span><h3>From Manchester<br><em>to the UK.</em></h3><p id="chartTxt"></p><p class="src">Illustrative figures for a university proposal, not a forecast.</p></div>
+      <div class="ch" data-i="6"><span class="no">(6) Three years</span><h3>From Manchester<br><em>to the UK.</em></h3><p id="chartTxt"></p><p class="src">Illustrative figures, not a forecast.</p></div>
       <div class="ch" data-i="7"><span class="no">(7) Stack</span><h3>Own it.<br><em>Play it everywhere.</em></h3><p>The rest of the plan is below: pricing, competitors, risks and launch.</p></div>
     </div>
 
@@ -793,11 +810,7 @@ footer .sun{height:10px;background:var(--stripe)}
 <section class="ed ed-risk" id="risks"><div class="wrap">
   <span class="no px" data-speed=".06">(11) Risks</span>
   <h3 class="ed-h px" data-speed="-.04">The risks,<br><em>and the answers.</em></h3>
-  <div class="rk-list">
-    <div class="rk rv2"><span class="rn">11.1</span><div><b>Music rights</b><p>Owning a record doesn't give you the right to stream or copy it.</p></div><div class="ans"><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p></div></div>
-    <div class="rk rv2"><span class="rn">11.2</span><div><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p></div><div class="ans"><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p></div></div>
-    <div class="rk rv2"><span class="rn">11.3</span><div><b>An empty marketplace</b><p>Buyers won't come without sellers, and the other way round.</p></div><div class="ans"><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p></div></div>
-  </div>
+  <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
 
 <section class="ed ed-road" id="launch"><div class="wrap">
@@ -838,7 +851,7 @@ footer .sun{height:10px;background:var(--stripe)}
 </div></section>
 
 <footer><div class="sun"></div><div class="wrap" style="margin-top:26px">
-  <span>Stack is a university project designed and built by Harrison Greener.</span>
+  <span>Designed and built by Harrison Greener.</span>
   <span>Album artwork and audio belong to their artists and labels.</span>
 </div></footer>
 
@@ -993,7 +1006,14 @@ svgL.innerHTML=CAL.map(()=>'<line x1="0" y1="0" x2="0" y2="0"/><circle r="3.5"/>
 const lineEls=$$('#lines line'),dotEls=$$('#lines circle');
 const chs=$$('.ch'),cnts=$$('.ch [data-cnt]');
 const marq=$('.marq-t'),dialArc=$('#dialArc'),dialN=$('#dialN'),recProg=$('#recProg'),sline=$('#sline'),bgfill=$('#bgfill'),phPlay=$('#phPlay');
-let spin=0,lastT=performance.now();
+let spin=0,lastT=performance.now();const recSpin=document.querySelector('#o-rec .vspin');
+/* the Selector runs across the screen during the solution -> Puck transition */
+const run=document.getElementById('o-run');const dusts=[...Array(6)].map(()=>{const d=document.createElement('i');d.className='dust';stage.appendChild(d);return d});
+function runSel(i,t,W,H,R){const on=i===2&&t>.5;const k=on?clamp((t-.5)/.5):0;
+ if(!on){run.style.opacity=0;dusts.forEach(d=>d.style.opacity=0);return}
+ const x=lerp(-R*1.4,W+R*.4,k),step=k*26*Math.PI,bob=Math.abs(Math.sin(step))*R*.12,lean=8+Math.sin(step*2)*3,gy=H*(W<760?.62:.94);
+ run.style.opacity=1;run.style.transform=`translate(${x}px,${gy-bob}px) rotate(${lean}deg) scaleY(${1-Math.abs(Math.cos(step))*.04})`;
+ dusts.forEach((d,j)=>{const ph=((k*13+j/6)%1),dx=x-ph*R*.9,s=.4+ph*1.4;d.style.opacity=(1-ph)*.7;d.style.transform=`translate(${dx}px,${gy-8-ph*R*.15}px) scale(${s})`})}
 
 function val(key,i,u,mob){const g=(j)=>{const m=mob&&KM[key]&&KM[key][j];return m||K[key][j]};const a=g(i),b=g(Math.min(N-1,i+1));return a.map((v,k)=>lerp(v,b[k],u))}
 function frame(now){
@@ -1011,7 +1031,9 @@ function frame(now){
  spin+=dt*(i===3?110:40);
  const pos={};
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
-  e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})${k==='rec'?` rotate(${spin}deg)`:''}`}
+  e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
+ recSpin.style.transform=`rotate(${spin}deg)`;
+ runSel(i,t,W,H,R);
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
