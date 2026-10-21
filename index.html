@@ -470,7 +470,8 @@ footer .sun{height:10px;background:var(--stripe)}
 .hero-rec .vspin{animation:spin 2.4s linear infinite}
 #o-rec .vrec{filter:none}
 #o-rec .vprog{position:absolute;inset:-3%;width:106%;height:106%}
-#o-run{height:calc(var(--R)*1.5);width:auto;margin:calc(var(--R)*-1.5) 0 0 0;opacity:0;filter:drop-shadow(0 16px 18px rgba(0,0,0,.3))}
+#o-run{height:calc(var(--R)*1.5);width:calc(var(--R)*.81);background:url(assets/sel-run.png) 0 0/800% 100% no-repeat;margin:calc(var(--R)*-1.5) 0 0 0;opacity:0;filter:drop-shadow(0 16px 18px rgba(0,0,0,.3))}
+.sitter{height:calc(var(--R)*1.05)!important;width:auto;margin:calc(var(--R)*-.86) 0 0 calc(var(--R)*-.33)!important;opacity:0}
 .dust{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(191,168,142,.55);pointer-events:none;opacity:0}
 .ed-risks{margin-top:2vh}.ed-risks .risk{height:300px}
 .ed-risks .face{padding:28px;border-radius:26px}.ed-risks .front{background:#3a2418;color:var(--cream)}.ed-risks .front small{color:var(--gold)}
@@ -478,7 +479,7 @@ footer .sun{height:10px;background:var(--stripe)}
 .ed-risks .face b{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.01em}.ed-risks .face p{font-size:16px}
 .ed-risks .risk:hover .inner{transform:rotateY(8deg)}.ed-risks .risk.flip:hover .inner{transform:rotateY(172deg)}
 .fl-hint{color:#BFA88E;margin:-4vh 0 3vh;font-weight:600}
-.hero-rec{left:38%!important}.hero-sel{right:-70px!important;bottom:-14px!important;height:330px!important}@media (max-width:860px){.hero-rec{left:40%!important}.hero-sel{right:-10px!important;height:220px!important}}
+.hero-rec{left:46%!important}.hero-sel{right:auto!important;left:calc(46% + 70px);bottom:auto!important;top:calc(50% - 205px);height:230px!important;animation:none!important}@media (max-width:860px){.hero-rec{left:50%!important}.hero-sel{left:calc(50% + 40px);top:calc(50% - 150px);height:170px!important}}
 </style>
 </head>
 <body>
@@ -503,7 +504,7 @@ footer .sun{height:10px;background:var(--stripe)}
     </div>
     <div class="hero-art" aria-hidden="true">
       <div class="vrec hero-rec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div>
-      <img class="hero-sel" src="assets/selector-front.png" alt="">
+      <img class="hero-sel" src="assets/sel-sitwave.png" alt="">
     </div>
   </div>
   <div class="sun"></div>
@@ -752,8 +753,8 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
     <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div><svg class="vprog" viewBox="0 0 200 200"><circle id="recProg" cx="100" cy="100" r="99" fill="none" stroke="url(#rpg)" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg></div>
     <div class="obj" id="o-puck"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1c1b19" stroke="#C9B89F" stroke-width="6"/><image href="assets/stack-monogram-sunset.svg" x="30" y="30" width="60" height="60"/><circle cx="60" cy="106" r="3" fill="#F2AE3D"/></svg></div>
-    <img class="obj" id="o-sel" src="assets/selector-front.png" alt=""><img class="obj" id="o-run" src="assets/selector-run.png" alt="">
-    <img class="obj" id="o-sel2" src="assets/selector-34.png" alt="">
+    <img class="obj" id="o-sel" src="assets/sel-talk.png" alt=""><div class="obj" id="o-run"></div><img class="obj sitter" id="o-sitp" src="assets/sel-sit.png" alt="">
+    <img class="obj sitter" id="o-sel2" src="assets/sel-sit.png" alt="">
 
     <!-- chapter text -->
     <div class="chs" id="chs">
@@ -963,14 +964,13 @@ const K={
  bars: [[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.12,1,1],[0,.4,1,0],Z,Z],
  loop: [Z,Z,Z,Z,[0,0,.5,0],[0,0,.8,1],[0,0,1.1,0],Z],
  chart:[Z,Z,Z,Z,Z,[0,.3,.9,0],[.25,.1,1,1],[0,.3,.9,0]],
- sel2: [Z,Z,Z,Z,[1.15,-.75,.62,1],[2.2,-.75,.62,0],Z,Z],
  sel:  [Z,Z,Z,Z,Z,Z,[2.2,.25,.8,0],[1.05,.2,.8,1]]};
 const KM={/* phone overrides: tighter horizontally */
  rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-1.1,-1.05,.22,1],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
- sel2:[null,null,null,null,[1.15,.5,.7,1],null,null,null],sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,.15,.95,1],null]};
+ sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,.15,.95,1],null]};
 const el={};Object.keys(K).forEach(k=>el[k]=$('#o-'+k));
 
 /* market bars */
@@ -1009,10 +1009,18 @@ const marq=$('.marq-t'),dialArc=$('#dialArc'),dialN=$('#dialN'),recProg=$('#recP
 let spin=0,lastT=performance.now();const recSpin=document.querySelector('#o-rec .vspin');
 /* the Selector runs across the screen during the solution -> Puck transition */
 const run=document.getElementById('o-run');const dusts=[...Array(6)].map(()=>{const d=document.createElement('i');d.className='dust';stage.appendChild(d);return d});
+const sitP=document.getElementById('o-sitp'),sitB=document.getElementById('o-sel2');
+function sitters(i,t,u,pos,R,mob){
+ /* on top of the phone while the solution lands, hops off before he runs */
+ const ph=pos.phone;let o=i===2?(1-clamp((t-.42)/.06))*clamp(t/.12):0;const hop=i===2?Math.max(0,(t-.38)/.04):0;
+ sitP.style.opacity=o;sitP.style.transform=`translate(${ph.x}px,${ph.y-R*.72*ph.s-hop*R*.3}px) scale(${ph.s})`;
+ /* on the tallest market bar once it has grown */
+ const b=pos.bars,g=+getComputedStyle(document.getElementById('o-bars')).getPropertyValue('--g')||0;const ob=i===4?clamp((g-.85)/.15)*(1-clamp((t-.6)/.08)):0;
+ sitB.style.opacity=ob;sitB.style.transform=`translate(${b.x+R*1.06}px,${b.y+R*1.1*(1-g)+(1-ob)*-R*.4}px)`}
 function runSel(i,t,W,H,R){const on=i===2&&t>.5;const k=on?clamp((t-.5)/.5):0;
  if(!on){run.style.opacity=0;dusts.forEach(d=>d.style.opacity=0);return}
  const x=lerp(-R*1.4,W+R*.4,k),step=k*26*Math.PI,bob=Math.abs(Math.sin(step))*R*.12,lean=8+Math.sin(step*2)*3,gy=H*(W<760?.62:.94);
- run.style.opacity=1;run.style.transform=`translate(${x}px,${gy-bob}px) rotate(${lean}deg) scaleY(${1-Math.abs(Math.cos(step))*.04})`;
+ run.style.opacity=1;run.style.backgroundPosition=`${(Math.floor(k*64)%8)*100/7}% 0`;run.style.transform=`translate(${x}px,${gy-bob*.4}px) rotate(${lean*.3}deg)`;
  dusts.forEach((d,j)=>{const ph=((k*13+j/6)%1),dx=x-ph*R*.9,s=.4+ph*1.4;d.style.opacity=(1-ph)*.7;d.style.transform=`translate(${dx}px,${gy-8-ph*R*.15}px) scale(${s})`})}
 
 function val(key,i,u,mob){const g=(j)=>{const m=mob&&KM[key]&&KM[key][j];return m||K[key][j]};const a=g(i),b=g(Math.min(N-1,i+1));return a.map((v,k)=>lerp(v,b[k],u))}
@@ -1033,7 +1041,7 @@ function frame(now){
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
   e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
  recSpin.style.transform=`rotate(${spin}deg)`;
- runSel(i,t,W,H,R);
+ runSel(i,t,W,H,R);sitters(i,t,u,pos,R,mob);
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
