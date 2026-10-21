@@ -495,8 +495,8 @@ footer .sun{height:10px;background:var(--stripe)}
 .hx-rec{position:absolute;inset:0;animation:recin 1.6s cubic-bezier(.2,.8,.2,1) both}
 .hx-rec .vrec{box-shadow:0 60px 120px -20px rgba(0,0,0,.8),0 0 0 2px rgba(255,255,255,.03)}
 @keyframes recin{from{transform:translateX(40%) rotate(-50deg);opacity:0}to{transform:none;opacity:1}}
-.hx-arm{position:absolute;left:-14%;top:-6%;width:30%;height:auto;transform-origin:75% 11.5%;transform:rotate(-38deg);animation:armin 1.4s cubic-bezier(.3,1.2,.4,1) 1s forwards;filter:drop-shadow(0 20px 20px rgba(0,0,0,.5))}
-@keyframes armin{to{transform:rotate(-8deg)}}
+.hx-arm{position:absolute;left:-14%;top:-6%;width:30%;height:auto;transform-origin:75% 11.5%;transform:rotate(38deg);animation:armin 1.4s cubic-bezier(.3,1.2,.4,1) 1s forwards;filter:drop-shadow(0 20px 20px rgba(0,0,0,.5))}
+@keyframes armin{to{transform:rotate(9deg)}}
 .hx-copy{position:relative;z-index:2;padding:110px max(24px,calc((100vw - 1120px)/2 + 24px)) 90px;max-width:1100px}
 .hx-kick{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:#E9CFA8;margin-bottom:22px}
 .hx-kick img{width:26px;height:26px}
@@ -514,6 +514,12 @@ footer .sun{height:10px;background:var(--stripe)}
 .hx-sun{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--stripe);z-index:3}
 @media (max-width:760px){.hx{align-items:flex-end}.hx-deck{right:-40vw;top:24%;width:100vw}.hx-copy{padding:0 22px 90px}.hx-h{font-size:clamp(44px,15vw,84px)}.hx-arm{display:none}.hx-scroll{display:none}}
 @media (prefers-reduced-motion:reduce){.hx-in,.hx-rec,.hx-arm,.hx-arcs .arc{animation:none!important;opacity:1;transform:none;stroke-dashoffset:0}}
+
+.vhole{position:absolute;left:50%;top:50%;width:3.2%;height:3.2%;margin:-1.6% 0 0 -1.6%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#3a3530,#0b0908 60%);box-shadow:0 0 0 1.5px rgba(255,240,220,.35),inset 0 1px 2px rgba(0,0,0,.8)}
+#o-sky{left:0;top:auto;bottom:0;width:100%;height:42vh;opacity:0;z-index:4}
+#o-sky svg{position:absolute;inset:0;width:100%;height:100%}
+#o-rec{z-index:1}#o-chart{z-index:5}
+@media (max-width:760px){#o-sky{height:30vh;bottom:46vh}}
 </style>
 </head>
 <body>
@@ -528,11 +534,11 @@ footer .sun{height:10px;background:var(--stripe)}
   <div class="hx-glow"></div>
   <svg class="hx-arcs" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke-width="10" stroke-linecap="round"><path class="arc" d="M-60 1060 A 900 900 0 0 1 1060 -60" stroke="#E9B949"/><path class="arc" d="M-60 1120 A 960 960 0 0 1 1120 -60" stroke="#EF8B2C"/><path class="arc" d="M-60 1180 A 1020 1020 0 0 1 1180 -60" stroke="#C8452B"/><path class="arc" d="M-60 1240 A 1080 1080 0 0 1 1240 -60" stroke="#7FA7B7"/></g></svg>
   <div class="hx-deck" aria-hidden="true">
-    <div class="hx-rec"><div class="vrec"><div class="vspin" id="hxSpin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div></div>
+    <div class="hx-rec"><div class="vrec"><div class="vspin" id="hxSpin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div><div class="vsheen"></div></div></div>
     <svg class="hx-arm" viewBox="0 0 200 520"><defs><linearGradient id="armg" x1="0" x2="1"><stop offset="0" stop-color="#8d8a85"/><stop offset=".5" stop-color="#e9e5de"/><stop offset="1" stop-color="#9b9790"/></linearGradient></defs><circle cx="150" cy="60" r="46" fill="#2a2420" stroke="#4a3f38" stroke-width="4"/><circle cx="150" cy="60" r="24" fill="url(#armg)"/><path d="M150 60 L 150 360 Q 150 420 105 455" stroke="url(#armg)" stroke-width="13" fill="none" stroke-linecap="round"/><rect x="72" y="440" width="58" height="34" rx="6" fill="#1c1916" transform="rotate(38 101 457)"/><rect x="128" y="10" width="44" height="30" rx="6" fill="#3a3330"/></svg>
   </div>
   <div class="hx-copy">
-    <span class="hx-kick hx-in" style="--d:.15s"><img src="assets/stack-monogram-sunset.svg" alt="">Stack · the home for the records you own</span>
+    
     <h1 class="hx-h"><span class="hx-l"><span class="hx-in" style="--d:.3s">Own it.</span></span><span class="hx-l"><em class="hx-in" style="--d:.45s">Play it</em></span><span class="hx-l"><em class="hx-in" style="--d:.6s">everywhere.</em></span></h1>
     <p class="hx-p hx-in" style="--d:.8s">The vinyl and CDs on your shelf, playable on your phone, shared with your family, and sold on when you're done.</p>
     <div class="btns hx-in" style="--d:.95s">
@@ -784,12 +790,34 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="obj" id="o-gap"><i></i><b>×</b><i></i></div>
     <div class="obj" id="o-join"><i></i></div>
     <div class="obj" id="o-phone"><svg viewBox="0 0 60 120"><rect width="60" height="120" rx="12" fill="#1d110b"/><rect x="5" y="10" width="50" height="94" rx="4" fill="#F8EEDD"/><circle cx="30" cy="112" r="3" fill="#8A6E5E"/><path id="phPlay" d="M24 48l14 9-14 9z" fill="#C8452B"/></svg></div>
-    <img class="obj sitter" id="o-sitp" src="assets/sel-sit2.png" alt=""><div class="obj" id="o-bars"></div>
+    <img class="obj sitter" id="o-sitp" src="assets/sel-sit2.png" alt=""><div class="obj" id="o-sky"><svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+ <g class="far" fill="#C9A98A">
+  <rect x="40" y="250" width="120" height="170"/><rect x="170" y="210" width="80" height="210"/><rect x="560" y="230" width="140" height="190"/><rect x="1180" y="200" width="110" height="220"/><rect x="1300" y="240" width="160" height="180"/><rect x="1470" y="220" width="90" height="200"/>
+  <path d="M880 420V190l40-30 40 30v230z"/><rect x="720" y="260" width="120" height="160"/>
+ </g>
+ <g class="near" fill="#3A2216">
+  <!-- terraced houses -->
+  <path d="M0 420V330l40-30 40 30 40-30 40 30 40-30 40 30 40-30 40 30v90z"/><rect x="28" y="288" width="10" height="22"/><rect x="108" y="288" width="10" height="22"/><rect x="188" y="288" width="10" height="22"/><rect x="268" y="288" width="10" height="22"/>
+  <!-- mill with chimney -->
+  <rect x="330" y="270" width="190" height="150"/><g fill="#F0E3CE" opacity=".22"><rect x="345" y="290" width="18" height="26" rx="9"/><rect x="375" y="290" width="18" height="26" rx="9"/><rect x="405" y="290" width="18" height="26" rx="9"/><rect x="435" y="290" width="18" height="26" rx="9"/><rect x="465" y="290" width="18" height="26" rx="9"/><rect x="345" y="335" width="18" height="26" rx="9"/><rect x="375" y="335" width="18" height="26" rx="9"/><rect x="405" y="335" width="18" height="26" rx="9"/><rect x="435" y="335" width="18" height="26" rx="9"/><rect x="465" y="335" width="18" height="26" rx="9"/></g>
+  <path d="M495 270V120h18l6 150z"/>
+  <!-- town hall clock tower -->
+  <rect x="600" y="300" width="170" height="120"/><path d="M660 300V170h50v130z"/><path d="M660 170l25-90 25 90z"/><circle cx="685" cy="200" r="13" fill="#F0E3CE" opacity=".35"/><path d="M615 300l10-20 10 20M735 300l10-20 10 20"/>
+  <!-- Beetham tower -->
+  <path d="M1010 420V95h46v-8h10v333z"/><path d="M1000 95h70v10h-70z"/><g fill="#F0E3CE" opacity=".14"><rect x="1016" y="120" width="34" height="3"/><rect x="1016" y="150" width="34" height="3"/><rect x="1016" y="180" width="34" height="3"/><rect x="1016" y="210" width="34" height="3"/><rect x="1016" y="240" width="34" height="3"/><rect x="1016" y="270" width="34" height="3"/></g>
+  <!-- warehouse + gasholder -->
+  <rect x="800" y="320" width="180" height="100"/><path d="M1100 420v-80h170v80z"/><g fill="none" stroke="#3A2216" stroke-width="6"><path d="M1290 420v-110h150v110M1290 340h150M1290 375h150M1320 310v110M1365 310v110M1410 310v110"/></g>
+  <path d="M1460 420v-60l35-28 35 28 35-28 35 28v60z"/>
+  <!-- tram -->
+  <g class="tram"><rect x="0" y="388" width="120" height="26" rx="6" fill="#E9B949"/><rect x="8" y="393" width="104" height="9" rx="2" fill="#3A2216" opacity=".8"/><path d="M60 388v-14" stroke="#3A2216" stroke-width="3"/></g>
+  <rect x="0" y="412" width="1600" height="8"/>
+ </g>
+</svg></div><div class="obj" id="o-bars"></div>
     <div class="obj" id="o-chart"></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
-    <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""></div><div class="vsheen"></div></div><svg class="vprog" viewBox="0 0 200 200"><circle id="recProg" cx="100" cy="100" r="99" fill="none" stroke="url(#rpg)" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg></div>
+    <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div><div class="vsheen"></div></div><svg class="vprog" viewBox="0 0 200 200"><circle id="recProg" cx="100" cy="100" r="99" fill="none" stroke="url(#rpg)" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 100 100)"/><defs><linearGradient id="rpg" x1="0" x2="1"><stop offset="0" stop-color="#F2AE3D"/><stop offset="1" stop-color="#C8452B"/></linearGradient></defs></svg></div>
     <div class="obj" id="o-puck"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1c1b19" stroke="#C9B89F" stroke-width="6"/><image href="assets/stack-monogram-sunset.svg" x="30" y="30" width="60" height="60"/><circle cx="60" cy="106" r="3" fill="#F2AE3D"/></svg></div>
-    <img class="obj" id="o-sel" src="assets/sel-talk.png" alt="">
+    
     
 
     <!-- chapter text -->
@@ -992,7 +1020,7 @@ const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 /* key states per chapter: [x,y,scale,opacity] in units of R from the stage centre */
 const Z=[0,0,1,0];
 const K={
- rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[-1.25,-1.15,.26,1],[-.3,0,1.15,1]],
+ rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[-1.2,1.18,.8,1],[-.3,0,1.15,1]],
  phone:[[1.6,0,.8,0],[1.45,0,1,1],[1.5,0,1,1],[1.9,-.9,.6,0],Z,Z,Z,Z],
  gap:  [Z,[0,0,1,1],[0,0,1,0],Z,Z,Z,Z,Z],
  join: [Z,[0,0,1,0],[0,0,1,1],Z,Z,Z,Z,Z],
@@ -1002,10 +1030,10 @@ const K={
  flow: [Z,Z,Z,[0,0,.84,1],Z,Z,Z,Z],
  bars: [[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.12,1,1],[0,.4,1,0],Z,Z],
  loop: [Z,Z,Z,Z,[0,0,.5,0],[0,0,.8,1],[0,0,1.1,0],Z],
- chart:[Z,Z,Z,Z,Z,[0,.3,.9,0],[.25,.1,1,1],[0,.3,.9,0]],
- sel:  [Z,Z,Z,Z,Z,Z,[2.2,.35,.6,0],[1.25,.4,.6,1]]};
+ chart:[Z,Z,Z,Z,Z,[.5,.3,.9,0],[.6,-.05,.9,1],[.6,.3,.9,0]],
+};
 const KM={/* phone overrides: tighter horizontally */
- rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-1.1,-1.05,.22,1],null],
+ rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[-.2,1.45,.8,1],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
@@ -1076,7 +1104,7 @@ function frame(now){
  for(const k in K){const [x,y,s,o]=val(k,i,u,mob);pos[k]={x:cx+x*R,y:cy+y*R,s};const e=el[k];if(!e)continue;
   e.style.opacity=o;e.style.transform=`translate(${cx+x*R}px,${cy+y*R}px) scale(${s})`}
  recSpin.style.transform=`rotate(${spin}deg)`;
- sitters(i,t,u,pos,R,mob);
+ sitters(i,t,u,pos,R,mob);{const sk=document.getElementById('o-sky'),k=i===6?Math.min(ease(clamp(t/.25)),1-ease(clamp((t-.62)/.3))):i===5?ease(u)*0:0;sk.style.opacity=k;sk.style.transform=`translateY(${(1-k)*40}px)`;sk.querySelector('.tram').setAttribute('transform',`translate(${(t*1700)%1800-150} 0)`)}
  $('#o-join').style.setProperty('--j',i===1?u:i===2?1:0);
  phPlay.setAttribute('fill',(i>=2||(i===1&&u>.5))?'#2FA37A':'#C8452B');
  /* bars grow in market chapter, chart in numbers chapter */
