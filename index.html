@@ -556,13 +556,18 @@ footer .sun{height:10px;background:var(--stripe)}
 .ln-rec{position:absolute;z-index:3;left:0;top:0;width:10px;height:10px;box-shadow:none}
 .ln-stg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:760px){.ln-top{grid-template-columns:1fr;padding-top:11vh;gap:3vh}.ln-sky{height:30vh}}
+.snd{display:inline-flex;align-items:center;gap:8px;margin-left:auto;margin-right:6px;padding:7px 12px;border-radius:999px;background:var(--espresso);color:var(--cream);font-weight:700;font-size:13px}
+.snd .eqb{display:flex;align-items:flex-end;gap:2px;height:12px}.snd .eqb i{width:3px;height:4px;background:var(--gold);border-radius:1px}
+.snd.on .eqb i{animation:eqb .9s ease-in-out infinite}.snd.on .eqb i:nth-child(2){animation-delay:.2s}.snd.on .eqb i:nth-child(3){animation-delay:.4s}
+@keyframes eqb{50%{height:12px}}.top nav{margin-left:0!important}
+@media (max-width:640px){.snd b{display:none}.snd{padding:8px}}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
   <a href="#top" aria-label="Stack"><img src="assets/stack-lockup-brown.svg" alt="Stack"></a>
-  <nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a></nav>
+  <button class="snd" id="sndBtn" aria-pressed="false"><span class="eqb"><i></i><i></i><i></i></span><b>Sound on</b></button><nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a></nav>
 </div></header>
 
 <!-- ================= HERO ================= -->
@@ -1056,10 +1061,52 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  function f(){const H=innerHeight,r=sec.getBoundingClientRect(),p=clamp(-r.top/(sec.offsetHeight-H));
   if(r.bottom>0&&r.top<H){const act=Math.min(2,Math.floor(clamp((p-.05)/.75)*3));
    stg.forEach((g,k)=>{g.classList.toggle('on',k<=act);const n=g.querySelector('[data-u]'),q=k<act?1:k===act?ease(clamp(((p-.05)/.75*3-k)/.7)):0;n.textContent=Math.round(+n.dataset.u*q).toLocaleString()});
-   tram.setAttribute('transform',`translate(${p*1750-150} 0)`);
+   tram.setAttribute('transform',`translate(${p*1750-150} 0)`);{const z=Math.floor(p*3);if(z!==f._z){if(f._z!=null)window.SFX&&SFX('ding');f._z=z}}const nact=Math.min(2,Math.floor(clamp((p-.05)/.75)*3));if(nact!==f._a){if(f._a!=null&&nact>f._a)window.SFX&&SFX('tick');f._a=nact}
    const b=svg.getBoundingClientRect(),pb=svg.parentNode.parentNode.getBoundingClientRect(),sc=Math.max(b.width/1600,b.height/420),ox=b.left-pb.left+(b.width-1600*sc)/2,oy=b.top-pb.top+(b.height-420*sc),d=32*sc;
    rec.style.width=rec.style.height=d+'px';rec.style.transform=`translate(${ox+685*sc-d/2}px,${oy+200*sc-d/2}px)`;a+=1.2;spin.style.transform=`rotate(${a}deg)`}
   requestAnimationFrame(f)}requestAnimationFrame(f)})();
+</script>
+<script>
+/* ===== sound: a 70s jazz-funk loop made live in the browser (no recordings, so no copyright), plus small effects ===== */
+(()=>{let ac=null,master=null,on=false,next=0,step=0,timer=null;const BPM=94,SPB=60/BPM/4;
+ const N=m=>440*Math.pow(2,(m-69)/12);
+ const CH=[[50,53,57,60,64],[43,53,57,59,64],[48,52,55,59,62],[45,49,55,58,61]];// Dm9 G13 Cmaj9 A7b9
+ const BASS=[[38,0],[38,3],[45,6],[50,8],[48,11],[45,14]];
+ function init(){ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=0;
+  const comp=ac.createDynamicsCompressor();master.connect(comp).connect(ac.destination);
+  const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=5200;window.__mix=lp;lp.connect(master)}
+ const out=()=>window.__mix;
+ function noise(d){const b=ac.createBuffer(1,ac.sampleRate*d,ac.sampleRate),x=b.getChannelData(0);for(let i=0;i<x.length;i++)x[i]=Math.random()*2-1;const s=ac.createBufferSource();s.buffer=b;return s}
+ function env(t,a,d,v){const g=ac.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);return g}
+ function rhodes(t,m,len,v){const o=ac.createOscillator(),mo=ac.createOscillator(),mg=ac.createGain(),g=env(t,.01,len,v);o.frequency.value=N(m);mo.frequency.value=N(m)*2;mg.gain.value=N(m)*.6;
+  mo.connect(mg).connect(o.frequency);mg.gain.setValueAtTime(N(m)*.9,t);mg.gain.exponentialRampToValueAtTime(N(m)*.05,t+.4);
+  const tr=ac.createGain(),lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=5;lg.gain.value=.25;lfo.connect(lg).connect(tr.gain);tr.gain.value=.75;
+  o.connect(g).connect(tr).connect(out());[o,mo,lfo].forEach(x=>{x.start(t);x.stop(t+len+.1)})}
+ function bass(t,m,len){const o=ac.createOscillator(),f=ac.createBiquadFilter(),g=env(t,.005,len,.42);o.type='sawtooth';o.frequency.value=N(m);f.type='lowpass';f.frequency.setValueAtTime(900,t);f.frequency.exponentialRampToValueAtTime(220,t+len);o.connect(f).connect(g).connect(out());o.start(t);o.stop(t+len+.05)}
+ function kick(t){const o=ac.createOscillator(),g=env(t,.002,.32,.9);o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(42,t+.15);o.connect(g).connect(out());o.start(t);o.stop(t+.4)}
+ function hat(t,v,d=.05){const n=noise(d+.02),f=ac.createBiquadFilter(),g=env(t,.001,d,v);f.type='highpass';f.frequency.value=7500;n.connect(f).connect(g).connect(out());n.start(t)}
+ function snare(t){const n=noise(.25),f=ac.createBiquadFilter(),g=env(t,.001,.18,.32);f.type='bandpass';f.frequency.value=1900;f.Q.value=.8;n.connect(f).connect(g).connect(out());n.start(t)}
+ function sched(){while(next<ac.currentTime+.15){const t=next,sw=(step%2)?SPB*.18:0,bar=Math.floor(step/16)%4,s16=step%16;
+   if(s16===0||s16===10)kick(t);if(s16===7&&bar%2)kick(t+sw);
+   if(s16===4||s16===12)snare(t);
+   if(s16%2===0)hat(t+sw,s16%4===0?.07:.045);else if(Math.random()<.35)hat(t+sw,.025,.03);
+   if(s16===0)CH[bar].forEach((m,k)=>rhodes(t+k*.012,m+12,SPB*7,.06));
+   if(s16===10)CH[bar].slice(1).forEach((m,k)=>rhodes(t+sw+k*.01,m+12,SPB*4,.045));
+   BASS.forEach(([m,p])=>{if(p===s16){const r=CH[bar][0]-CH[0][0];bass(t+sw,m+r,SPB*1.6)}});
+   next+=SPB;step++}}
+ function start(){if(!ac)init();ac.resume();on=true;next=ac.currentTime+.05;master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(.55,ac.currentTime+1.2);timer=setInterval(sched,25)}
+ function stop(){on=false;clearInterval(timer);master.gain.linearRampToValueAtTime(0,ac.currentTime+.5)}
+ /* effects */
+ const FX={
+  beeps(){[0,1,2,3].forEach(k=>{const t=ac.currentTime+k*.09,o=ac.createOscillator(),g=env(t,.005,.08,.16);o.type='square';o.frequency.setValueAtTime(1500-k*260,t);o.frequency.exponentialRampToValueAtTime(900-k*200,t+.08);o.connect(g).connect(master);o.start(t);o.stop(t+.12)})},
+  boop(){const t=ac.currentTime,o=ac.createOscillator(),g=env(t,.005,.25,.2);o.type='sine';o.frequency.setValueAtTime(400,t);o.frequency.exponentialRampToValueAtTime(160,t+.25);o.connect(g).connect(master);o.start(t);o.stop(t+.3)},
+  ding(){[1318,1760].forEach((f,k)=>{const t=ac.currentTime+k*.18,o=ac.createOscillator(),g=env(t,.003,.7,.12);o.frequency.value=f;o.connect(g).connect(master);o.start(t);o.stop(t+.8)})},
+  tick(){const t=ac.currentTime,o=ac.createOscillator(),g=env(t,.002,.06,.12);o.type='triangle';o.frequency.value=1200;o.connect(g).connect(master);o.start(t);o.stop(t+.1)},
+  whoosh(){const t=ac.currentTime,n=noise(.6),f=ac.createBiquadFilter(),g=env(t,.2,.35,.12);f.type='bandpass';f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(2400,t+.5);n.connect(f).connect(g).connect(master);n.start(t)}};
+ window.SFX=k=>{if(on&&FX[k])try{FX[k]()}catch(e){}};
+ const btn=document.getElementById('sndBtn');btn.onclick=()=>{on?stop():start();btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);btn.querySelector('b').textContent=on?'Sound off':'Sound on'};
+ document.addEventListener('visibilitychange',()=>{if(ac&&on){document.hidden?ac.suspend():ac.resume()}});
+})();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -1136,7 +1183,7 @@ function sitters(i,t,u,pos,R,mob){
  /* sits on top of the phone, then slips off and tumbles down behind the Puck */
  const sitO=i===2?clamp((t-.12)/.12)*(1-clamp((t-.56)/.02)):0;
  sitP.style.opacity=sitO;sitP.style.transform=`translate(${ph.x}px,${top}px)`;
- const k=i===2?clamp((t-.56)/.42):0;
+ const k=i===2?clamp((t-.56)/.42):0;if(k>0&&!sitters._f){sitters._f=1;window.SFX&&SFX('beeps')}if(k===0)sitters._f=0;if(k>.93&&!sitters._b){sitters._b=1;window.SFX&&SFX('boop')}if(k<.9)sitters._b=0;
  if(k<=0||k>=1){fall.style.opacity=0;return}
  const P=pos.puck,e=k*k,x=lerp(ph.x,P.x,k),y=lerp(top-R*.3,P.y,e)-Math.sin(k*Math.PI)*R*.55*(1-k);
  fall.style.opacity=k>.92?(1-k)/.08:1;fall.style.transform=`translate(${x}px,${y}px) rotate(${-k*560}deg) scale(${1-k*.25})`}
@@ -1169,6 +1216,7 @@ function frame(now){
  cnts.forEach(c=>{const k=i===4?ease(clamp(t/.3)):i>4?1:0;c.textContent=(+c.dataset.cnt*k).toFixed(1)});
  if(i===5)setNode(Math.min(3,Math.floor(clamp(t/.62)*4)));
  /* chapter text */
+ if(frame._i!==i){if(frame._i!=null)window.SFX&&SFX('whoosh');frame._i=i}
  chs.forEach((c,k)=>{let o=0,dy=0;if(k===i){const oi=k===0?1:ease(clamp(t/.16)),oo=k===N-1?1:1-ease(clamp((t-.52)/.14));o=Math.min(oi,oo);dy=(1-oi)*40-(1-oo)*40}
   c.style.opacity=o;c.style.transform=mob?`translateY(${dy}px)`:`translateY(calc(-50% + ${dy}px))`});
  /* callouts */
