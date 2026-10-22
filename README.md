@@ -8,3 +8,5 @@ The pitch site for **Stack**, designed and built by Harrison Greener: the 3-minu
 - **Deck:** scroll through it, or press Present for full screen with the arrow keys. Download PDF uses the browser's print to PDF.
 
 Figures in the three-year model are illustrative assumptions, not a forecast. Album artwork and audio belong to their artists and labels.
+
+App screenshots in the product tour show album artwork that belongs to its artists and labels, used for demonstration only. Spotify, Apple Music, Discogs and Bandcamp logos belong to their owners and are used only to compare products; Stack is not affiliated with them.
