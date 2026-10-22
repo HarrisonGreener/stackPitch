@@ -596,6 +596,36 @@ footer .sun{height:10px;background:var(--stripe)}
 .num-chart.in .cb{height:calc(var(--hh)*1%)}.num-chart .cb i{display:block}
 .num-chart b{font-weight:800;font-size:clamp(18px,2vw,28px);margin-bottom:8px}.num-chart label{font-weight:700;font-size:14px;margin-top:10px;color:var(--cocoa)}
 .mlegend{margin:16px 0 30px;display:flex;gap:16px;flex-wrap:wrap;font-weight:600;font-size:14px}.mlegend span{display:inline-flex;align-items:center;gap:6px}.mlegend i{width:12px;height:12px;border-radius:3px}
+.ed-mk{padding:14vh 0 0;background:var(--paper)}
+.mk-tip{color:var(--cocoa);font-weight:600;margin:-4vh 0 4vh}
+.mk-split{display:grid;grid-template-columns:1fr 1fr;min-height:76vh}
+.mk-side{position:relative;overflow:hidden;cursor:pointer;padding:6vh max(24px,calc((100% - 1120px)/2 + 24px)) 6vh 40px;user-select:none;-webkit-tap-highlight-color:transparent}
+.mk-phys{background:#C99A62 repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 90px);padding-left:max(24px,calc((200% - 1120px)/2 + 24px))}
+.mk-dig{background:#2A1A12;color:var(--cream)}
+.mk-dig:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(240,227,206,.08) 1.5px,transparent 1.5px);background-size:22px 22px}
+.mk-txt{position:relative;z-index:5;max-width:380px;padding:22px 24px;border-radius:20px;pointer-events:none}
+.mk-phys .mk-txt{background:#FFF8EC;color:var(--espresso);box-shadow:0 10px 30px rgba(58,34,22,.25);transform:rotate(-1.2deg)}
+.mk-dig .mk-txt{background:rgba(29,17,11,.85);border:1px solid rgba(240,227,206,.12);backdrop-filter:blur(6px)}
+.mk-txt small{font-weight:700;color:var(--red);font-size:13px}.mk-dig .mk-txt small{color:var(--gold)}
+.mk-txt h4{margin:2px 0 10px;font-size:clamp(22px,2.2vw,30px)}.mk-txt ul{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
+.stk{position:absolute;z-index:3;pointer-events:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.28));animation:slap .35s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes slap{from{transform:translate(-50%,-50%) rotate(var(--r)) scale(1.6);opacity:0}to{transform:translate(-50%,-50%) rotate(var(--r)) scale(1);opacity:1}}
+.emo{position:absolute;z-index:3;pointer-events:none;display:flex;align-items:center;gap:6px;animation:pop .45s cubic-bezier(.3,1.7,.5,1) both}
+.emo img{display:block}
+.emo .bub{background:#EF8B2C;color:#fff;font-weight:700;font-size:14px;padding:8px 12px;border-radius:18px 18px 18px 4px;white-space:nowrap}
+.emo .bub.b{background:#3a2418;border-radius:18px 18px 4px 18px}
+.emo .lk{position:absolute;right:-6px;bottom:-4px;background:#C8452B;color:#fff;font-size:11px;font-weight:800;border-radius:10px;padding:1px 6px}
+@keyframes pop{from{transform:translate(-50%,-50%) scale(.2);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+@media (max-width:760px){.mk-split{grid-template-columns:1fr}.mk-side{min-height:60vh;padding:5vh 22px!important}}
+.stk img{display:block;width:100%}
+.stk i{position:absolute;inset:0;-webkit-mask-size:100% 100%;mask-size:100% 100%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 45%,rgba(255,255,255,.1) 52%,transparent 62%);background-size:220% 100%;background-position:var(--sx) 0;mix-blend-mode:screen}
+.stk:after{content:"";position:absolute;inset:0}
+.mk-more{position:absolute;z-index:6;left:50%;bottom:28px;transform:translateX(-50%);pointer-events:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;background:rgba(29,17,11,.82);color:#FFF3E0;white-space:nowrap;animation:nudge 1.8s ease-in-out infinite;transition:opacity .4s}
+.mk-dig .mk-more{background:#EF8B2C}
+.mk-more.go{opacity:0;animation:none}
+@keyframes nudge{50%{transform:translate(-50%,-5px)}}
+.cd .lg{width:40px;height:40px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}.cd small{left:50px!important}
+@media (max-width:760px){.cd .lg{width:28px;height:28px}}
 </style>
 </head>
 <body>
@@ -921,10 +951,10 @@ footer .sun{height:10px;background:var(--stripe)}
   <div class="cgrid" id="cgrid">
     <svg class="axes" viewBox="0 0 1000 520" preserveAspectRatio="none"><path class="draw" d="M500 20V500M40 260H960" stroke="currentColor" stroke-opacity=".25" stroke-width="2" fill="none" pathLength="100"/></svg>
     <span class="ax" style="left:50%;top:0;transform:translate(-50%,-110%)">Social</span><span class="ax" style="left:50%;bottom:0;transform:translate(-50%,110%)">On your own</span><span class="ax" style="left:0;top:50%;transform:translateY(-150%)">Rent it</span><span class="ax" style="right:0;top:50%;transform:translateY(-150%)">Own it</span>
-    <span class="cd" style="--x:27%;--y:34%;--d:.1s"><i></i>Spotify<small>Huge catalogue, you never own anything</small></span>
-    <span class="cd" style="--x:22%;--y:68%;--d:.2s"><i></i>Apple Music<small>Rented, and on your own</small></span>
-    <span class="cd" style="--x:72%;--y:76%;--d:.3s"><i></i>Discogs<small>Great catalogue, but you can't listen</small></span>
-    <span class="cd" style="--x:60%;--y:58%;--d:.4s"><i></i>Bandcamp<small>Physical plus digital, one shop only</small></span>
+    <span class="cd" style="--x:27%;--y:34%;--d:.1s"><img class="lg" src="assets/logos/spotify.png" alt="">Spotify<small>Huge catalogue, you never own anything</small></span>
+    <span class="cd" style="--x:22%;--y:68%;--d:.2s"><img class="lg" src="assets/logos/applemusic.png" alt="">Apple Music<small>Rented, and on your own</small></span>
+    <span class="cd" style="--x:72%;--y:76%;--d:.3s"><img class="lg" src="assets/logos/discogs.png" alt="">Discogs<small>Great catalogue, but you can't listen</small></span>
+    <span class="cd" style="--x:60%;--y:58%;--d:.4s"><img class="lg" src="assets/logos/bandcamp.png" alt="">Bandcamp<small>Physical plus digital, one shop only</small></span>
     <span class="cd us" style="--x:78%;--y:22%;--d:.7s"><i></i>Stack<small>Any record you own: playable, shareable, sellable</small></span>
   </div>
 </div></section>
@@ -961,8 +991,15 @@ footer .sun{height:10px;background:var(--stripe)}
 </svg></div>
   
 </div></section>
+<section class="ed ed-mk" id="marketing">
+  <div class="wrap mk-hd"><span class="no">(11) Marketing</span><h3 class="ed-h">Out in the world,<br><em>and on every phone.</em></h3></div>
+  <div class="mk-split">
+    <div class="mk-side mk-phys" data-k="p"><div class="mk-txt"><small>Physical</small><h4>Out in the world</h4><ul><li>Stickers and posters in partner record shops</li><li>Record Store Day events and listening parties</li><li>The Puck on shop counters</li><li>Stack Supply clothing and tote bags</li></ul></div><span class="mk-more">Tap here to add more stickers</span></div>
+    <div class="mk-side mk-dig" data-k="d"><div class="mk-txt"><small>Digital</small><h4>On every phone</h4><ul><li>TikTok and Instagram campaigns</li><li>Music creators and DJs showing their Stacks</li><li>Shareable Stack Wrapped and Record Club picks</li><li>Invite a friend, both get a month free</li></ul></div><span class="mk-more">Tap here to add more</span></div>
+  </div>
+</section>
 <section class="ed ed-money" id="money"><div class="wrap">
-  <span class="no px" data-speed=".06">(11) Revenue forecast</span>
+  <span class="no px" data-speed=".06">(12) Revenue forecast</span>
   <h3 class="ed-h px" data-speed="-.04">How Stack<br><em>makes money.</em></h3>
   <div class="num-chart" id="numChart"></div><div class="legend mlegend"><span><i style="background:#C8452B"></i>Sharing plans</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div>
   <table class="num-t" id="numT"></table>
@@ -972,7 +1009,7 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="calc-out" id="calcOut"></div></div>
 </div></section>
 <section class="ed ed-risk" id="risks"><div class="wrap">
-  <span class="no px" data-speed=".06">(12) Risks</span>
+  <span class="no px" data-speed=".06">(13) Risks</span>
   <h3 class="ed-h px" data-speed="-.04">The risks,<br><em>and the answers.</em></h3>
   <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
@@ -1207,6 +1244,18 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  const sl=document.getElementById('calcU');function draw(){const c=calc(+sl.value,0),t=tot(c);document.getElementById('calcN').textContent=n0(c.U);
   document.getElementById('calcOut').innerHTML=[['Sharing plans',c.sub,n0(c.homes)+' shared homes'],['Puck sales',c.puck,n0(c.pucks)+' Pucks'],['Marketplace fees',c.mkt,money(c.gmv)+' of records sold']].map(([n,v,d],k)=>`<div class="co"><i style="background:${COL[k]}"></i><span>${n}<small>${d}</small></span><b>${money(v)}</b><em style="width:${v/t*100}%;background:${COL[k]}"></em></div>`).join('')+`<div class="co tot"><span>A year</span><b>${money(t)}</b></div>`}
  sl.addEventListener('input',draw);draw()})();
+</script>
+<script>
+/* marketing: tap to sticker-bomb (physical) or pop emoji Selectors (digital) */
+(()=>{const P=['p1','p2','p3','p4','p5','p6','p7','p8','p9'],E=['e1','e2','e3','e4','e5','e6'],TXT=['Spinning tonight 🎶','Dropped the needle','My Stack hit 100!','Record Club pick?','Just sold one on Stack','Wrapped is out!','Join me on Stack'];
+ const R=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)];
+ function add(side,x,y){const kind=side.dataset.k,box=side.getBoundingClientRect();if(x==null){x=R(.08,.92)*box.width;y=R(.1,.9)*box.height}
+  let el;if(kind==='p'){el=document.createElement('span');el.className='stk';const src='assets/stk/'+pick(P)+'.png';el.innerHTML=`<img src="${src}"><i style="-webkit-mask-image:url(${src});mask-image:url(${src});--sx:${R(-30,30)}%"></i>`;el.style.width=R(90,170)+'px';el.style.setProperty('--r',R(-28,28)+'deg')}
+  else{el=document.createElement('div');el.className='emo';const sz=R(54,86),txt=Math.random()<.45;el.innerHTML=`<span style="position:relative"><img src="assets/stk/${pick(E)}.png" style="width:${sz}px">${Math.random()<.35?`<i class="lk">♥ ${Math.floor(R(2,99))}</i>`:''}</span>${txt?`<span class="bub${Math.random()<.5?' b':''}">${pick(TXT)}</span>`:''}`;window.SFX&&SFX('tick')}
+  if(kind==='p')window.SFX&&SFX('boop');
+  el.style.left=x+'px';el.style.top=y+'px';side.appendChild(el);const h=side.querySelector('.mk-more');if(h&&side._n>=2)h.classList.add('go');side._n=(side._n||0)+1;const all=side.querySelectorAll('.stk,.emo');if(all.length>45)all[0].remove()}
+ document.querySelectorAll('.mk-side').forEach(sd=>{sd.addEventListener('pointerdown',e=>{const r=sd.getBoundingClientRect();add(sd,e.clientX-r.left,e.clientY-r.top)});
+  let seeded=false;new IntersectionObserver(es=>{if(es[0].isIntersecting&&!seeded){seeded=true;for(let k=0;k<2;k++)setTimeout(()=>add(sd),k*260)}},{threshold:.3}).observe(sd)})})();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
