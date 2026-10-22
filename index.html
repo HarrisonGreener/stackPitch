@@ -644,6 +644,7 @@ footer .sun{height:10px;background:var(--stripe)}
 #o-puck{width:calc(var(--R)*1.5)!important;height:calc(var(--R)*1.5)!important;margin:calc(var(--R)*-.75) 0 0 calc(var(--R)*-.75)!important;cursor:grab}
 #o-puck.live{pointer-events:auto}#o-puck canvas{width:100%;height:100%;display:block;touch-action:none}
 .pk-hint{position:absolute;left:50%;top:100%;transform:translateX(-50%);font-size:12px;font-weight:700;color:#E9CFA8;white-space:nowrap;opacity:.8;transition:opacity .4s;pointer-events:none}
+.tshot img{border:0!important;border-radius:0!important;box-shadow:none!important;aspect-ratio:auto!important;object-fit:contain!important;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
 </style>
 </head>
 <body>
@@ -893,7 +894,7 @@ footer .sun{height:10px;background:var(--stripe)}
   <article class="slide dark">
     <div class="s-body" style="margin-top:0"><div class="close-grid">
       <div><h3 class="rv">Own it.<br><em>Play it everywhere.</em></h3><p class="s-sub rv d1">Stack makes owning music feel better than renting it.</p><p class="rv d2" style="margin-top:22px;color:#BFA88E">Harrison Greener · harrisongreener.github.io/stack</p></div>
-      <img class="sel rv d2" src="assets/selector-front.png" alt="The Selector">
+      <img class="sel rv d2" src="assets/selector-front.png" alt="DJ Selector">
     </div></div>
     <div class="stripe"></div><span class="n">14</span>
   </article>
@@ -1096,8 +1097,8 @@ footer .sun{height:10px;background:var(--stripe)}
 </div></section>
 
 <section class="game" id="game">
-  <div class="wrap game-h"><span class="no" style="color:var(--gold)">(∞) One more thing</span><h3>Help the Selector<br><em>dodge the crates.</em></h3><p>Press space, or tap, to jump.</p></div>
-  <div class="game-box"><canvas id="gameC" aria-label="Mini game: the Selector jumps over record crates. Press space or tap to jump."></canvas>
+  <div class="wrap game-h"><span class="no" style="color:var(--gold)">(∞) One more thing</span><h3>Help DJ Selector<br><em>dodge the crates.</em></h3><p>Press space, or tap, to jump.</p></div>
+  <div class="game-box"><canvas id="gameC" aria-label="Mini game: DJ Selector jumps over record crates. Press space or tap to jump."></canvas>
    <div class="game-ui"><b id="gScore">0</b><span>records dodged</span><span class="best">Best <b id="gBest">0</b></span></div>
    <div class="game-msg" id="gMsg"><b>Press space to start</b><span>or tap the screen</span></div></div>
 </section>
@@ -1117,8 +1118,8 @@ if(YT)$('#ytLink').href=YT;else $('#ytLink').style.opacity=.5;
 fetch('assets/stack-pitch.mp4',{method:'HEAD'}).then(r=>{if(r.ok){const v=$('#vid');v.src='assets/stack-pitch.mp4';v.hidden=false;$('#vidPoster').remove()}}).catch(()=>{});
 
 /* ---- product tour ---- */
-const shots=[['my-stack','My Stack'],['player','The player'],['two-decks','Two decks'],['family-crate','Family crate'],['friends-activity','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['listing','A listing'],['selector','The Selector']];
-const one=shots.map(([f,n])=>`<div class="shot"><img src="assets/shots/${f}.jpg" alt="${n}" loading="lazy"><span>${n}</span></div>`).join('');
+const shots=[['my-stack','My Stack'],['two-decks','Two decks'],['selector','DJ Selector'],['mixtape','Mixtapes'],['family','Family Stack'],['friends','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['message','Message a seller'],['supply','Stack Supply'],['account','Account and stats']];
+const one=shots.map(([f,n])=>`<div class="shot"><img src="assets/shots2/${f}.webp" alt="${n}" loading="lazy"><span>${n}</span></div>`).join('');
 $('#tourTrack').innerHTML=one+one;
 
 /* ---- revenue loop ---- */
@@ -1247,7 +1248,7 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 })();
 </script>
 <script>
-/* ===== mini game: the Selector jumps record crates ===== */
+/* ===== mini game: DJ Selector jumps record crates ===== */
 (()=>{const cv=document.getElementById('gameC'),box=cv.parentNode,g=cv.getContext('2d'),msg=document.getElementById('gMsg'),sc=document.getElementById('gScore'),bestEl=document.getElementById('gBest');
  const run=new Image();run.src='assets/sel-run.png';const fall=new Image();fall.src='assets/sel-fall.png';
  let W=0,H=0,dpr=1,state='idle',y=0,vy=0,obs=[],spd=0,dist=0,score=0,best=0,t0=0,last=0,nextGap=0,inView=false,hitT=0;
@@ -1443,7 +1444,7 @@ const lineEls=$$('#lines line'),dotEls=$$('#lines circle');
 const chs=$$('.ch'),cnts=$$('.ch [data-cnt]');
 const marq=$('.marq-t'),bgfill=$('#bgfill'),phPlay=$('#phPlay');
 let spin=0,lastT=performance.now();const recSpin=document.querySelector('#o-rec .vspin');
-/* the Selector runs across the screen during the solution -> Puck transition */
+/* DJ Selector runs across the screen during the solution -> Puck transition */
 const sitP=document.getElementById('o-sitp'),fall=document.getElementById('o-fall');
 function sitters(i,t,u,pos,R,mob){
  const ph=pos.phone,top=ph.y-R*.72*ph.s;
@@ -1515,8 +1516,8 @@ const hxDeck=document.querySelector('.hx-deck'),hxSpin=document.getElementById('
 function hero(H){const y=scrollY;if(y>H*1.2)return;hxA+=.35+y*.004;hxSpin.style.transform=`rotate(${hxA}deg)`;hxDeck.style.transform=`translateY(calc(-50% + ${y*.25}px)) scale(${1+y/H*.12})`;hxCopy.style.transform=`translateY(${y*-.12}px)`;hxCopy.style.opacity=1-clamp(y/(H*.8))*.6}
 /* ================= editorial sections ================= */
 const pxs=$$('.px'),tour=$('#tour'),rail=$('#tourRail'),road=$('#roadPath'),roadBox=$('#road2');
-const shots=[['my-stack','My Stack'],['player','The player'],['two-decks','Two decks'],['family-crate','Family crate'],['friends-activity','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['listing','A listing'],['selector','The Selector']];
-rail.innerHTML=shots.map(([f,n],k)=>`<div class="tshot" style="--r:${k%2?2:-2}deg"><img src="assets/shots/${f}.jpg" alt="${n}" loading="lazy"><span>${n}</span></div>`).join('');
+const shots=[['my-stack','My Stack'],['two-decks','Two decks'],['selector','DJ Selector'],['mixtape','Mixtapes'],['family','Family Stack'],['friends','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['message','Message a seller'],['supply','Stack Supply'],['account','Account and stats']];
+rail.innerHTML=shots.map(([f,n],k)=>`<div class="tshot" style="--r:${k%2?2:-2}deg"><img src="assets/shots2/${f}.webp" alt="${n}" loading="lazy"><span>${n}</span></div>`).join('');
 const tshots=$$('.tshot');
 function editorial(W,H){
  pxs.forEach(e=>{const r=e.getBoundingClientRect();if(r.bottom<-200||r.top>H+200)return;const d=(r.top+r.height/2-H/2);e.style.transform=`translateY(${d*(+e.dataset.speed)}px)`});
