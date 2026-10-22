@@ -633,6 +633,14 @@ footer .sun{height:10px;background:var(--stripe)}
 .emo .lk{display:flex!important;align-items:center;gap:3px;border-radius:0!important;font-family:"Press Start 2P",monospace;font-size:8px!important;padding:3px 4px!important;box-shadow:0 0 0 2px #FFECC8}
 .emo .lk img{width:12px}
 .stk i{opacity:.7}
+.toc{position:relative;margin-right:4px}
+.toc-b{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(58,34,22,.08);font-weight:700;font-size:13px;color:var(--espresso)}
+.toc-m{position:absolute;right:0;top:calc(100% + 10px);width:min(320px,86vw);max-height:min(72vh,620px);overflow:auto;background:#FFF8EC;border-radius:18px;box-shadow:0 20px 50px rgba(58,34,22,.28);padding:8px;z-index:80}
+.toc-m a{display:flex;align-items:baseline;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14.5px;color:var(--espresso)}
+.toc-m a:hover,.toc-m a:focus{background:rgba(239,139,44,.14);outline:none}
+.toc-m a span{min-width:26px;font-size:12.5px;font-weight:700;color:var(--red)}
+.toc-m hr{border:0;border-top:1px solid rgba(58,34,22,.12);margin:6px 8px}
+@media (max-width:640px){.toc-b{padding:8px}.toc-b{font-size:0;gap:0}.toc-b svg{width:16px;height:16px}}
 </style>
 </head>
 <body>
@@ -640,7 +648,7 @@ footer .sun{height:10px;background:var(--stripe)}
 <div class="pgbar" aria-hidden="true"><i id="pgbar"></i></div>
 <header class="top"><div class="wrap">
   <a href="#top" aria-label="Stack"><img src="assets/stack-lockup-brown.svg" alt="Stack"></a>
-  <button class="snd" id="sndBtn" aria-pressed="false"><span class="eqb"><i></i><i></i><i></i></span><b>Sound on</b></button><nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a></nav>
+  <button class="snd" id="sndBtn" aria-pressed="false"><span class="eqb"><i></i><i></i><i></i></span><b>Sound on</b></button><div class="toc" id="toc"><button class="toc-b" id="tocB" aria-expanded="false" aria-controls="tocM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Contents</button><div class="toc-m" id="tocM" hidden></div></div><nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a></nav>
 </div></header>
 
 <!-- ================= HERO ================= -->
@@ -1264,6 +1272,25 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  document.querySelectorAll('.mk-side').forEach(sd=>{sd.addEventListener('pointerdown',e=>{const r=sd.getBoundingClientRect();add(sd,e.clientX-r.left,e.clientY-r.top)});
   let seeded=false;new IntersectionObserver(es=>{if(es[0].isIntersecting&&!seeded){seeded=true;for(let k=0;k<2;k++)setTimeout(()=>add(sd),k*260)}},{threshold:.3}).observe(sd)})})();
 </script>
+<script>
+/* contents dropdown */
+(()=>{const b=document.getElementById('tocB'),m=document.getElementById('tocM'),story=document.getElementById('story');
+ const CH=['Stack','The problem','The solution','The Puck','The market','How it earns','Pricing'];
+ const SEC=[['tour','The product'],['testers','Testing'],['competitors','Competitors'],['launch','Launch'],['marketing','Marketing'],['money','Revenue forecast'],['risks','Risks']];
+ let html='<a href="#top" data-y="top"><span></span>Home</a><a href="#video" data-y="video"><span></span>The pitch video</a><hr>';
+ CH.forEach((n,i)=>{if(i)html+=`<a href="#story" data-ch="${i}"><span>${i}</span>${n}</a>`});
+ SEC.forEach(([id,n],k)=>html+=`<a href="#${id}" data-y="${id}"><span>${7+k}</span>${n}</a>`);
+ html+='<hr><a href="#prototype" data-y="prototype"><span></span>Try the prototype</a><a href="#game" data-y="game"><span></span>The mini-game</a>';m.innerHTML=html;
+ const open=v=>{m.hidden=!v;b.setAttribute('aria-expanded',v)};
+ b.addEventListener('click',e=>{e.stopPropagation();open(m.hidden)});
+ document.addEventListener('click',e=>{if(!m.hidden&&!m.contains(e.target))open(false)});
+ addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+ const go=y=>{const L=window.__lenis;L?L.scrollTo(y,{duration:1.4}):scrollTo({top:y,behavior:'smooth'})};
+ m.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();e.stopPropagation();open(false);
+  let y;if(a.dataset.ch!=null){const N=CH.length,span=story.offsetHeight-innerHeight;y=story.offsetTop+span*((+a.dataset.ch+.3)/N)}
+  else{const el=document.getElementById(a.dataset.y);y=el.getBoundingClientRect().top+scrollY-(a.dataset.y==='top'?0:60)}
+  go(y)})})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 /* ================= scroll-driven story ================= */
@@ -1418,7 +1445,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('.rv2,.cgrid,.rk,.num-chart').forEach(e=>io.observe(e));
 
 /* smooth, weighted scrolling where available */
-if(window.Lenis&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const lenis=new Lenis({lerp:.09,smoothWheel:true});const loop=t=>{lenis.raf(t);requestAnimationFrame(loop)};requestAnimationFrame(loop);
+if(window.Lenis&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const lenis=new Lenis({lerp:.09,smoothWheel:true});window.__lenis=lenis;const loop=t=>{lenis.raf(t);requestAnimationFrame(loop)};requestAnimationFrame(loop);
  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&document.querySelector(h)){e.preventDefault();lenis.scrollTo(h,{offset:-60})}}))}
 requestAnimationFrame(frame);
 })();
