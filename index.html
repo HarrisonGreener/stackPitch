@@ -1128,7 +1128,7 @@ document.addEventListener('click',e=>{if(!document.body.classList.contains('pres
 
 /* ---- prototype: only load when asked, so the app can't pull the page down to it ---- */
 $('#phStart').onclick=()=>{const y=scrollY;$('#phone').innerHTML='<iframe src="https://harrisongreener.github.io/stack/?nofilm" title="Stack prototype" allow="autoplay"></iframe>';requestAnimationFrame(()=>scrollTo(0,y))};
-if(location.hash==='')history.scrollRestoration='manual';
+history.scrollRestoration='manual';scrollTo(0,0);
 /* ---- PDF: print the deck ---- */
 $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.forEach(enter);setTimeout(()=>print(),400)}));
 })();
@@ -1205,7 +1205,7 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 (()=>{const cv=document.getElementById('gameC'),box=cv.parentNode,g=cv.getContext('2d'),msg=document.getElementById('gMsg'),sc=document.getElementById('gScore'),bestEl=document.getElementById('gBest');
  const run=new Image();run.src='assets/sel-run.png';const fall=new Image();fall.src='assets/sel-fall.png';
  let W=0,H=0,dpr=1,state='idle',y=0,vy=0,obs=[],spd=0,dist=0,score=0,best=0,t0=0,last=0,nextGap=0,inView=false,hitT=0;
- try{best=+localStorage.getItem('stack-game-best')||0}catch(e){}bestEl.textContent=best;
+ try{localStorage.removeItem('stack-game-best')}catch(e){}bestEl.textContent=best;
  function size(){const r=box.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr}
  addEventListener('resize',size);size();
  const GROUND=()=>H-46,SH=()=>Math.min(120,H*.34),SW=()=>SH()*(256/420);
@@ -1231,7 +1231,7 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
    nextGap-=spd*dt;if(nextGap<=0){const k=KINDS[Math.floor(Math.random()*KINDS.length)],s=Math.min(1.25,H/300);obs.push({x:W+20,w:k.w*s,h:k.h*s,t:k.t,passed:false});nextGap=spd*(.75+Math.random()*.9)}
    obs.forEach(o=>{o.x-=spd*dt;if(!o.passed&&o.x+o.w<px){o.passed=true;score++;sc.textContent=score;window.SFX&&SFX('tick')}});obs=obs.filter(o=>o.x>-200);
    const hb={x:px+sw*.22,y:gy-y-sh*.92,w:sw*.56,h:sh*.88};
-   for(const o of obs){if(hb.x<o.x+o.w-4&&hb.x+hb.w>o.x+4&&hb.y+hb.h>gy-o.h+4){state='over';hitT=now;window.SFX&&SFX('boop');if(score>best){best=score;bestEl.textContent=best;try{localStorage.setItem('stack-game-best',best)}catch(e){}}
+   for(const o of obs){if(hb.x<o.x+o.w-4&&hb.x+hb.w>o.x+4&&hb.y+hb.h>gy-o.h+4){state='over';hitT=now;window.SFX&&SFX('boop');if(score>best){best=score;bestEl.textContent=best;}
      msg.innerHTML=`<b>${score} record${score===1?'':'s'} dodged</b><span>Press space or tap to go again</span>`;msg.classList.remove('hide');break}}}
   obs.forEach(o=>drawObs(o,gy));
   // selector
