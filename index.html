@@ -1167,7 +1167,7 @@ $$('.risk').forEach(r=>r.addEventListener('click',()=>r.classList.toggle('flip')
 const S=$$('.slide');let cur=0;
 function go(i){cur=Math.max(0,Math.min(S.length-1,i));S.forEach((s,k)=>s.classList.toggle('cur',k===cur));$('#pNum').textContent=`${cur+1} / ${S.length}`;enter(S[cur])}
 function present(on){document.body.classList.toggle('present-on',on);if(on){go(cur);try{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}catch(e){}}else{try{document.fullscreenElement&&document.exitFullscreen()}catch(e){}S[cur].scrollIntoView({block:'center'})}}
-$('#presentBtn').onclick=()=>{const r=S.findIndex(s=>{const b=s.getBoundingClientRect();return b.bottom>innerHeight*.4});cur=r<0?0:r;present(true)};
+$('#presentBtn').onclick=()=>{window.open('deck.html','_blank');return;const r=S.findIndex(s=>{const b=s.getBoundingClientRect();return b.bottom>innerHeight*.4});cur=r<0?0:r;present(true)};
 $('#pPrev').onclick=()=>go(cur-1);$('#pNext').onclick=()=>go(cur+1);$('#pX').onclick=()=>present(false);
 addEventListener('keydown',e=>{if(!document.body.classList.contains('present-on'))return;if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}if(e.key==='Escape')present(false)});
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('present-on'))present(false)});
@@ -1177,7 +1177,7 @@ document.addEventListener('click',e=>{if(!document.body.classList.contains('pres
 $('#phStart').onclick=()=>{const y=scrollY;$('#phone').innerHTML='<iframe src="https://harrisongreener.github.io/stack/?nofilm" title="Stack prototype" allow="autoplay"></iframe>';requestAnimationFrame(()=>scrollTo(0,y))};
 history.scrollRestoration='manual';scrollTo(0,0);
 /* ---- PDF: print the deck ---- */
-$$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.forEach(enter);setTimeout(()=>print(),400)}));
+$$('[data-pdf]').forEach(a=>{a.href='assets/stack-pitch-deck.pdf';a.setAttribute('download','Stack-pitch-deck.pdf')});
 })();
 </script>
 <style media="print">
