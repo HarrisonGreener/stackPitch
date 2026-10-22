@@ -7,7 +7,7 @@
 <meta name="description" content="Stack: own your records, play them everywhere. Pitch video, deck and live prototype by Harrison Greener.">
 <link rel="icon" href="assets/stack-monogram-sunset.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Shrikhand&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Shrikhand&family=Press+Start+2P&display=swap">
 <style>
 :root{
   --gold:#F2AE3D;--orange:#EF8B2C;--sunset:#E8762C;--red:#C8452B;--mustard:#E9B949;--sky:#7FA7B7;
@@ -626,6 +626,13 @@ footer .sun{height:10px;background:var(--stripe)}
 @keyframes nudge{50%{transform:translate(-50%,-5px)}}
 .cd .lg{width:40px;height:40px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}.cd small{left:50px!important}
 @media (max-width:760px){.cd .lg{width:28px;height:28px}}
+.emo img{image-rendering:pixelated;image-rendering:crisp-edges}
+.emo .ic{width:42px;height:auto}
+.emo .bub{font-family:"Press Start 2P",monospace;font-size:10px!important;line-height:1.5;border-radius:0!important;padding:9px 11px!important;box-shadow:0 0 0 3px #FFECC8,4px 4px 0 3px rgba(0,0,0,.4)}
+.emo .bub.b{background:#1d110b!important}
+.emo .lk{display:flex!important;align-items:center;gap:3px;border-radius:0!important;font-family:"Press Start 2P",monospace;font-size:8px!important;padding:3px 4px!important;box-shadow:0 0 0 2px #FFECC8}
+.emo .lk img{width:12px}
+.stk i{opacity:.7}
 </style>
 </head>
 <body>
@@ -1247,11 +1254,11 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 </script>
 <script>
 /* marketing: tap to sticker-bomb (physical) or pop emoji Selectors (digital) */
-(()=>{const P=['p1','p2','p3','p4','p5','p6','p7','p8','p9'],E=['e1','e2','e3','e4','e5','e6'],TXT=['Spinning tonight 🎶','Dropped the needle','My Stack hit 100!','Record Club pick?','Just sold one on Stack','Wrapped is out!','Join me on Stack'];
+(()=>{const P=['p1','p2','p3','p4','p5','p6','p7','p8','p9'],E=['e1','e2','e3','e4','e5','e6'],IC=['i-heart','i-note','i-rec'],TXT=['Spinning tonight','Dropped the needle','My Stack hit 100!','Record Club pick?','Just sold one on Stack','Wrapped is out!','Join me on Stack'];
  const R=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)];
  function add(side,x,y){const kind=side.dataset.k,box=side.getBoundingClientRect();if(x==null){x=R(.08,.92)*box.width;y=R(.1,.9)*box.height}
   let el;if(kind==='p'){el=document.createElement('span');el.className='stk';const src='assets/stk/'+pick(P)+'.png';el.innerHTML=`<img src="${src}"><i style="-webkit-mask-image:url(${src});mask-image:url(${src});--sx:${R(-30,30)}%"></i>`;el.style.width=R(90,170)+'px';el.style.setProperty('--r',R(-28,28)+'deg')}
-  else{el=document.createElement('div');el.className='emo';const sz=R(54,86),txt=Math.random()<.45;el.innerHTML=`<span style="position:relative"><img src="assets/stk/${pick(E)}.png" style="width:${sz}px">${Math.random()<.35?`<i class="lk">♥ ${Math.floor(R(2,99))}</i>`:''}</span>${txt?`<span class="bub${Math.random()<.5?' b':''}">${pick(TXT)}</span>`:''}`;window.SFX&&SFX('tick')}
+  else{el=document.createElement('div');el.className='emo';const sz=[78,104,130][Math.floor(Math.random()*3)],txt=Math.random()<.45;el.innerHTML=`<span style="position:relative"><img src="assets/stk/${pick(E)}.png" style="width:${sz}px">${Math.random()<.4?`<i class="lk"><img src="assets/stk/i-heart.png">${Math.floor(R(2,99))}</i>`:''}</span>${txt?`<span class="bub${Math.random()<.5?' b':''}">${pick(TXT)}</span>`:Math.random()<.4?`<img class="ic" src="assets/stk/${pick(IC)}.png">`:''}`;window.SFX&&SFX('tick')}
   if(kind==='p')window.SFX&&SFX('boop');
   el.style.left=x+'px';el.style.top=y+'px';side.appendChild(el);const h=side.querySelector('.mk-more');if(h&&side._n>=2)h.classList.add('go');side._n=(side._n||0)+1;const all=side.querySelectorAll('.stk,.emo');if(all.length>45)all[0].remove()}
  document.querySelectorAll('.mk-side').forEach(sd=>{sd.addEventListener('pointerdown',e=>{const r=sd.getBoundingClientRect();add(sd,e.clientX-r.left,e.clientY-r.top)});
