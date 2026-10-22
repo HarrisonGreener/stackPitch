@@ -570,6 +570,20 @@ footer .sun{height:10px;background:var(--stripe)}
 .game-msg{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;gap:4px;pointer-events:none}.game-msg b{font-size:22px}.game-msg span{color:#BFA88E;font-size:14px}.game-msg.hide{display:none}
 .pgbar{position:fixed;right:0;top:0;bottom:0;width:6px;z-index:60;pointer-events:none}
 .pgbar i{position:absolute;left:0;right:0;bottom:0;height:100%;background:linear-gradient(#E9B949,#EF8B2C 35%,#C8452B 70%,#7FA7B7);transform-origin:bottom;will-change:transform}
+.hx-copy{width:100%;max-width:none!important;padding-right:24px!important}.hx-copy>*{max-width:min(900px,62vw)}.hx-h{max-width:none!important}
+@media (max-width:760px){.hx-copy>*{max-width:none}}
+.ed-money{background:var(--paper)}
+.num-t{width:100%;border-collapse:collapse;font-size:clamp(14px,1.3vw,17px)}
+.num-t th,.num-t td{padding:12px 8px;border-bottom:1px solid rgba(58,34,22,.14);text-align:right}
+.num-t th:first-child,.num-t td:first-child{text-align:left}.num-t th{font-size:13px;color:var(--cocoa);font-weight:700}
+.num-t tr.tot td{font-weight:800;font-size:1.15em;border-bottom:0}
+.num-how{margin-top:5vh;padding:26px 28px;border-radius:24px;background:var(--cream)}.num-how h4,.calc h4{margin:0 0 12px;font-size:22px}
+.num-a{margin:0;padding-left:18px;color:var(--cocoa);font-size:15px;line-height:1.5}.num-a li{margin:8px 0}.num-a b{color:var(--espresso)}
+.calc{margin-top:28px;padding:26px 28px;border-radius:24px;background:var(--night);color:var(--cream)}.calc .muted{color:#BFA88E;margin:0}
+.calc-row{display:flex;align-items:center;gap:16px;margin:20px 0 22px}.calc-row input{flex:1;accent-color:#EF8B2C;height:6px}.calc-row b{font-size:clamp(24px,3vw,38px);font-weight:800;min-width:5em;text-align:right}
+.calc-out{display:grid;gap:10px}.co{position:relative;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(240,227,206,.06);overflow:hidden}
+.co i{width:12px;height:12px;border-radius:3px;flex:none}.co span{flex:1;font-weight:700}.co small{display:block;font-weight:500;color:#BFA88E;font-size:12.5px}.co b{font-size:22px;font-weight:800}
+.co em{position:absolute;left:0;bottom:0;height:3px;transition:width .3s}.co.tot{background:linear-gradient(90deg,#EF8B2C,#C8452B)}.co.tot b{font-size:28px}
 </style>
 </head>
 <body>
@@ -734,8 +748,8 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="s-body" style="flex-direction:column">
       <div class="price-grid">
         <div class="plan rv d1"><h5>Solo</h5><div class="p">Free</div><div class="muted">Your own records, anywhere, in lossless, with no ads.</div></div>
-        <div class="plan best rv d2"><h5>Duo</h5><div class="p">£7<small>/month</small></div><div class="muted">Two people, one home, one shared Stack.</div></div>
-        <div class="plan rv d3"><h5>Family</h5><div class="p">£14.99<small>/month</small></div><div class="muted">Up to four people. Everyone streams everything the family owns.</div></div>
+        <div class="plan best rv d2"><h5>Duo</h5><div class="p">£10<small>/month</small></div><div class="muted">Two people, one home, one shared Stack.</div></div>
+        <div class="plan rv d3"><h5>Family</h5><div class="p">£19.99<small>/month</small></div><div class="muted">Up to four people. Everyone streams everything the family owns.</div></div>
       </div>
       <div class="side-prices">
         <div class="plan rv d4"><h5>The Puck</h5><div class="chip-row"><span>1 for £30</span><span>2 for £50</span><span>3 for £75</span></div><div class="muted" style="margin-top:8px">Priced to get it into homes, not to make a big profit.</div></div>
@@ -873,8 +887,8 @@ footer .sun{height:10px;background:var(--stripe)}
   <h3 class="ed-h px" data-speed="-.04">Your music is free.<br><em>Sharing it is what you pay for.</em></h3>
   <div class="rows">
     <div class="row rv2"><span class="k">Solo</span><span class="v">Free</span><span class="d">Your own records, played anywhere, in lossless, with no ads. You already paid for the music.</span></div>
-    <div class="row rv2"><span class="k">Duo</span><span class="v">£7<small>/month</small></span><span class="d">Two people, one home, one shared Stack.</span></div>
-    <div class="row rv2"><span class="k">Family</span><span class="v">£14.99<small>/month</small></span><span class="d">Up to four people. Everyone streams everything the family owns.</span></div>
+    <div class="row rv2"><span class="k">Duo</span><span class="v">£10<small>/month</small></span><span class="d">Two people, one home, one shared Stack.</span></div>
+    <div class="row rv2"><span class="k">Family</span><span class="v">£19.99<small>/month</small></span><span class="d">Up to four people. Everyone streams everything the family owns.</span></div>
     <div class="row rv2"><span class="k">The Puck</span><span class="v">from £30</span><span class="d">£50 for two, £75 for three. Priced to get it into homes.</span></div>
     <div class="row rv2"><span class="k">Marketplace</span><span class="v">8%</span><span class="d">Seller fee. Payment is held until the record arrives, then the digital copy moves to the buyer.</span></div>
     <div class="row rv2"><span class="k">Stack Supply</span><span class="v">Shop</span><span class="d">Stack’s own clothing, slipmats, crates and the Puck, sold in the app.</span></div>
@@ -889,8 +903,18 @@ footer .sun{height:10px;background:var(--stripe)}
   </div>
 </section>
 
+<section class="ed ed-money" id="money"><div class="wrap">
+  <span class="no px" data-speed=".06">(10) Revenue forecast</span>
+  <h3 class="ed-h px" data-speed="-.04">How Stack<br><em>makes money.</em></h3>
+  <table class="num-t" id="numT"></table>
+  <div class="num-how"><h4>How Year 1 adds up</h4><ul class="num-a" id="numA"></ul></div>
+  <div class="calc"><h4>Model it yourself</h4><p class="muted">Drag to change how many people use Stack, and see what each stream earns in a year. Same assumptions as the table.</p>
+    <div class="calc-row"><input type="range" id="calcU" min="10000" max="1000000" step="10000" value="40000" aria-label="People on Stack"><b id="calcN"></b><span class="muted">people</span></div>
+    <div class="calc-out" id="calcOut"></div></div>
+</div></section>
+
 <section class="ed ed-comp" id="competitors"><div class="wrap">
-  <span class="no px" data-speed=".06">(10) Competitors</span>
+  <span class="no px" data-speed=".06">(11) Competitors</span>
   <h3 class="ed-h px" data-speed="-.04">Nobody joins owning,<br><em>listening and sharing.</em></h3>
   <div class="cgrid" id="cgrid">
     <svg class="axes" viewBox="0 0 1000 520" preserveAspectRatio="none"><path class="draw" d="M500 20V500M40 260H960" stroke="currentColor" stroke-opacity=".25" stroke-width="2" fill="none" pathLength="100"/></svg>
@@ -904,13 +928,13 @@ footer .sun{height:10px;background:var(--stripe)}
 </div></section>
 
 <section class="ed ed-risk" id="risks"><div class="wrap">
-  <span class="no px" data-speed=".06">(11) Risks</span>
+  <span class="no px" data-speed=".06">(12) Risks</span>
   <h3 class="ed-h px" data-speed="-.04">The risks,<br><em>and the answers.</em></h3>
   <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
 
 <section class="ed ed-ln" id="launch"><div class="ln-pin">
-  <div class="wrap ln-top"><div><span class="no">(12) Launch</span><h3 class="ed-h">Start in Manchester,<br><em>grow from record shops.</em></h3></div>
+  <div class="wrap ln-top"><div><span class="no">(13) Launch</span><h3 class="ed-h">Start in Manchester,<br><em>grow from record shops.</em></h3></div>
    <div class="ln-stg" id="lnStg"></div></div>
   <div class="ln-sky" id="lnSky"><svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
  <g class="far" fill="#C9A98A">
@@ -945,7 +969,7 @@ footer .sun{height:10px;background:var(--stripe)}
 
 
 <section class="ed ed-q" id="testers"><div class="wrap">
-  <span class="no px" data-speed=".06">(13) Testing</span>
+  <span class="no px" data-speed=".06">(14) Testing</span>
   <div class="qs">
     <blockquote class="rv2 px" data-speed=".05">“Tester quote 1 goes here, for example about the two decks and crossfader.”<cite>Tester, age</cite></blockquote>
     <blockquote class="rv2 px" data-speed="-.03">“Tester quote 2 goes here.”<cite>Tester, age</cite></blockquote>
@@ -1002,7 +1026,7 @@ $('#tourTrack').innerHTML=one+one;
 /* ---- revenue loop ---- */
 const REV={
  puck:{tag:'How people start',h:'The Puck',p:'A £30 device that records your own copy and proves you own the record. Priced low to get Stack into as many homes as possible.',l:['£30 for one, £50 for two, £75 for three','Small margin on each sale','Every Puck owner becomes a subscriber']},
- sub:{tag:'Main income',h:'Sharing plans',p:'Playing your own records is free. People pay to share one Stack with the people they live with.',l:['Solo free, Duo £7, Family £14.99','Royalties paid to labels on every play','Family and Duo plans bring more people into one account']},
+ sub:{tag:'Main income',h:'Sharing plans',p:'Playing your own records is free. People pay to share one Stack with the people they live with.',l:['Solo free, Duo £10, Family £19.99','Royalties paid to labels on every play','Family and Duo plans bring more people into one account']},
  social:{tag:'How it grows',h:'Friends',p:'Leaderboards, Record Club, profiles and listening rooms only work when your friends are on Stack too, so people invite each other.',l:['Invite a friend: you both get a month free','Listening rooms and Record Club every month','More friends means more Marketplace buyers']},
  market:{tag:'Second income',h:'Marketplace',p:'Collectors buy and sell second-hand vinyl and CDs. Stack holds the payment until the record arrives, then the digital copy moves to the buyer.',l:['8% fee on every sale','Payment held until the buyer confirms','No extra copies are ever created']},
  shops:{tag:'Supporting',h:'Record shops',p:'Independent shops list second-hand stock, sell the Puck and host Record Store Day events in the app.',l:['Commission on Puck sales in store','Shop listings fill the Marketplace at launch','Events bring local collectors in']},
@@ -1016,7 +1040,7 @@ const order=['puck','sub','social','market'];
 function autoLoop(){if(rt)return;rt=setInterval(()=>{showRev(order[(order.indexOf(rk)+1)%4])},3200)}
 
 /* ---- three-year model ---- */
-const A={acc:[5000,25000,80000],arpu:.6*7+.4*14.99,puckTake:.4,puckAvg:40,gmvPerAcc:24,fee:.08};
+const A={acc:[5000,25000,80000],arpu:.6*10+.4*19.99,puckTake:.4,puckAvg:40,gmvPerAcc:24,fee:.08};
 const yrs=A.acc.map((n,i)=>{const prev=i?A.acc[i-1]:0;return{y:'Year '+(i+1),sub:n*A.arpu*12,puck:(n-prev)*A.puckTake*A.puckAvg,mkt:n*A.gmvPerAcc*A.fee}});
 const maxT=Math.max(...yrs.map(y=>y.sub+y.puck+y.mkt));
 $('#chart').innerHTML=yrs.map(y=>{const t=y.sub+y.puck+y.mkt;return `<div class="col"><div class="tot" data-money="${t}">£0</div><div class="bars" data-t="${t}"><i style="background:#C8452B" data-v="${y.sub}"></i><i style="background:#EF8B2C" data-v="${y.puck}"></i><i style="background:#7FA7B7" data-v="${y.mkt}"></i></div><label>${y.y}</label></div>`}).join('');
@@ -1071,7 +1095,7 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 <script>
 /* launch section: pinned skyline, stages light up, tram moves, record in the clock */
 (()=>{const $=q=>document.querySelector(q),$$=q=>[...document.querySelectorAll(q)];const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
- const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',650000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
+ const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',640000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
  $('#lnStg').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
  const sec=$('#launch'),stg=$$('#lnStg .stg'),svg=$('#lnSky svg'),tram=$('#lnSky .tram');
  function f(){const H=innerHeight,r=sec.getBoundingClientRect(),p=clamp(-r.top/(sec.offsetHeight-H));
@@ -1167,6 +1191,22 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  requestAnimationFrame(frame);
 })();
 </script>
+<script>
+/* revenue table, Year 1 breakdown and users calculator (same model as the forecast chart) */
+(()=>{const arpu=.6*10+.4*19.99,COL=['#C8452B','#EF8B2C','#7FA7B7'],USERS=[40000,200000,640000];
+ const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':v>=1e3?'£'+Math.round(v/1e3)+'k':'£'+Math.round(v),n0=v=>Math.round(v).toLocaleString();
+ const calc=(U,prevU)=>{const homes=U*.125,newHomes=(U-prevU)*.125,pucks=newHomes*.4,gmv=homes*24;return{U,homes,sub:homes*arpu*12,pucks,puck:pucks*40,gmv,mkt:gmv*.08}};
+ const Y=USERS.map((u,i)=>calc(u,i?USERS[i-1]:0)),tot=y=>y.sub+y.puck+y.mkt;
+ document.getElementById('numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack',Y.map(y=>n0(y.U))],['Shared homes paying',Y.map(y=>n0(y.homes))],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(tot(y))}</td>`).join('')}</tr>`;
+ const y=Y[0];
+ document.getElementById('numA').innerHTML=`<li><b>Sharing plans:</b> 1 in 8 people share a Stack at home. ${n0(y.U)} × 12.5% = ${n0(y.homes)} homes × £${arpu.toFixed(2)} a month (60% Duo at £10, 40% Family at £19.99) × 12 = <b>${money(y.sub)}</b></li>
+ <li><b>Puck:</b> 40% of new shared homes buy one. ${n0(y.homes)} × 40% = ${n0(y.pucks)} Pucks × £40 average with bundles = <b>${money(y.puck)}</b></li>
+ <li><b>Marketplace:</b> each shared home buys about £24 of second-hand records a year. ${n0(y.homes)} × £24 = ${money(y.gmv)} sold × 8% fee = <b>${money(y.mkt)}</b></li>
+ <li><b>Solo is free</b>, so the other 87.5% of people pay nothing to play their own records. Stack Supply and record shop commission come on top.</li>`;
+ const sl=document.getElementById('calcU');function draw(){const c=calc(+sl.value,0),t=tot(c);document.getElementById('calcN').textContent=n0(c.U);
+  document.getElementById('calcOut').innerHTML=[['Sharing plans',c.sub,n0(c.homes)+' shared homes'],['Puck sales',c.puck,n0(c.pucks)+' Pucks'],['Marketplace fees',c.mkt,money(c.gmv)+' of records sold']].map(([n,v,d],k)=>`<div class="co"><i style="background:${COL[k]}"></i><span>${n}<small>${d}</small></span><b>${money(v)}</b><em style="width:${v/t*100}%;background:${COL[k]}"></em></div>`).join('')+`<div class="co tot"><span>A year</span><b>${money(t)}</b></div>`}
+ sl.addEventListener('input',draw);draw()})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 /* ================= scroll-driven story ================= */
@@ -1208,7 +1248,7 @@ const LPOS=[[50,10],[90,50],[50,90],[10,50]];
 $('#o-loop').insertAdjacentHTML('beforeend',LN.map((n,i)=>`<div class="lnode" style="left:${LPOS[i][0]}%;top:${LPOS[i][1]}%">${n[1]}<small>${n[2]}</small></div>`).join(''));
 const lnodes=$$('#o-loop .lnode');
 const LI={puck:['A £30 device that records your copy and proves you own the record. Priced low to get Stack into homes.',['1 for £30, 2 for £50, 3 for £75','Every Puck owner becomes a subscriber']],
- sub:['Playing your own records is free, for good. People pay when they share a Stack with the people they live with.',['Solo free, Duo £7, Family £14.99','Recurring income from every shared home']],
+ sub:['Playing your own records is free, for good. People pay when they share a Stack with the people they live with.',['Solo free, Duo £10, Family £19.99','Recurring income from every shared home']],
  social:['Leaderboards, Record Club and listening rooms only work with friends, so people invite each other.',['Invite a friend: you both get a month free','More friends, more Marketplace buyers']],
  market:['Buy and sell second-hand vinyl and CDs. Payment is held until it arrives, then the digital copy moves over.',['8% fee on every sale','No extra copies are ever created']]};
 let lastNode=-1;
@@ -1216,7 +1256,7 @@ function setNode(k){if(k===lastNode)return;lastNode=k;lnodes.forEach((n,i)=>n.cl
  $('#loopInfo').innerHTML=`<b>${LN[k][1]}</b><p>${d[0]}</p><ul>${d[1].map(x=>`<li>${x}</li>`).join('')}</ul><p class="also">Also earning: <span>Stack Supply</span><span>Record shop partners</span></p>`}
 setNode(0);
 /* three-year chart */
-const A={acc:[5000,25000,80000],arpu:.6*7+.4*14.99,puckTake:.4,puckAvg:40,gmv:24,fee:.08};
+const A={acc:[5000,25000,80000],arpu:.6*10+.4*19.99,puckTake:.4,puckAvg:40,gmv:24,fee:.08};
 const Y=A.acc.map((n,i)=>{const p=i?A.acc[i-1]:0;return{sub:n*A.arpu*12,puck:(n-p)*A.puckTake*A.puckAvg,mkt:n*A.gmv*A.fee}});
 const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
 const mx=Math.max(...Y.map(y=>y.sub+y.puck+y.mkt));
