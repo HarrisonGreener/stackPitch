@@ -131,3 +131,25 @@ figcaption{margin-top:10px;font-weight:700;font-size:16px;color:var(--cocoa)}
 .print.turn img{height:400px!important}.print.turn{top:200px!important;width:800px!important}
 .end .cv-s{right:-470px!important}.end .cv h1{font-size:110px!important}
 @media screen{.print{display:none!important}}
+/* breathing room */
+.bgs{top:410px}.bgc{height:170px}.bgc.photo{background-position:center 18%}
+.prs{top:400px}.pr{height:120px}.ratio{top:690px}.cap{top:774px}
+.mer3{top:420px!important}.mer3 img{height:330px!important}
+.rules{top:470px}.emj{top:450px}
+.turn:not(.print){height:430px}
+.hd{width:640px}.pal{top:330px}.turn:not(.print){height:390px}.turn:not(.print) img{height:360px}
+.aps{top:340px}.aps img{height:380px}.phs img{height:430px}.phs{bottom:80px}.dev{top:340px}
+.stripe{bottom:80px}
+.bgs{top:480px}.bgc{height:150px}
+.prs{top:460px}.pr{height:100px}.pr b{font-size:34px}.ratio{top:700px;height:64px}.cap{top:776px}
+.print.turn{width:700px!important}.print.turn img{height:360px!important}
+.exs{width:720px}.exs img{height:130px}
+.stks{width:720px;right:60px}.stks img{width:200px}
+
+.bgs{grid-template-columns:repeat(6,1fr)!important;grid-template-rows:150px 150px}
+.bgc img{width:62%!important;margin-bottom:18px}.bgc span{mix-blend-mode:normal!important;color:inherit!important;opacity:.75;bottom:12px;left:16px}
+.bgc.photo{grid-column:5/7!important;grid-row:1/3;height:auto!important;background-size:cover;background-position:center 30%!important;place-items:end start}
+.bgc.photo .pnl{margin:16px;padding:10px 14px;border-radius:12px}.bgc.photo .pnl img{width:130px;margin:0}
+.phcap{position:absolute;right:96px;top:796px;width:500px;margin:0;font-size:15px;color:var(--cocoa);text-align:right}
+.bgc.photo .pnl img{width:96px!important;margin:0!important}.bgc.photo .pnl{padding:8px 11px}
+.phcap{top:440px!important}
