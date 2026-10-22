@@ -314,7 +314,7 @@ footer .sun{height:10px;background:var(--stripe)}
 .present-on .slides{display:block}
 
 /* ===== story ===== */
-.story{position:relative;height:calc(8 * 130vh)}
+.story{position:relative;height:calc(7 * 130vh)}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--espresso);--fg:var(--espresso)}
 .stage.dark{color:var(--cream)}
 .bgfill{position:absolute;inset:0;background:var(--night)}
@@ -584,6 +584,18 @@ footer .sun{height:10px;background:var(--stripe)}
 .calc-out{display:grid;gap:10px}.co{position:relative;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(240,227,206,.06);overflow:hidden}
 .co i{width:12px;height:12px;border-radius:3px;flex:none}.co span{flex:1;font-weight:700}.co small{display:block;font-weight:500;color:#BFA88E;font-size:12.5px}.co b{font-size:22px;font-weight:800}
 .co em{position:absolute;left:0;bottom:0;height:3px;transition:width .3s}.co.tot{background:linear-gradient(90deg,#EF8B2C,#C8452B)}.co.tot b{font-size:28px}
+#o-plans{width:calc(var(--R)*3.3);margin:calc(var(--R)*-1.05) 0 0 calc(var(--R)*-1.65);display:grid;grid-template-columns:repeat(3,1fr);gap:12px;opacity:0}
+.pl{background:#3a2418;color:var(--cream);border-radius:20px;padding:18px 16px;display:flex;flex-direction:column;gap:4px}
+.pl small{color:#BFA88E;font-weight:600;font-size:12.5px}.pl h5{margin:0;font-size:20px}.pl b{font-size:clamp(26px,2.6vw,38px);font-weight:800;letter-spacing:-.02em}.pl b i{font-style:normal;font-size:.4em;opacity:.7;letter-spacing:0}.pl span{font-size:13.5px;color:#E6D3B5}
+.pl.best{background:linear-gradient(170deg,#EF8B2C,#C8452B)}.pl.best small,.pl.best span{color:#FFF0DC}
+.pl.wide{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:10px 22px;background:rgba(240,227,206,.08);padding:14px 18px}.pl.wide b{font-size:15px;color:var(--gold);margin-right:4px}
+@media (max-width:760px){#o-plans{grid-template-columns:1fr 1fr 1fr;gap:6px}.pl{padding:10px 8px}.pl span{display:none}.pl.wide span{display:inline;font-size:11px}.pl h5{font-size:14px}.pl b{font-size:18px}}
+.num-chart{display:flex;align-items:flex-end;gap:8%;height:min(380px,46vw);border-bottom:2px solid rgba(58,34,22,.18);margin-bottom:10px}
+.num-chart .cc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.num-chart .cb{width:100%;max-width:160px;display:flex;flex-direction:column-reverse;border-radius:12px 12px 0 0;overflow:hidden;height:0;transition:height 1.4s var(--ease)}
+.num-chart.in .cb{height:calc(var(--hh)*1%)}.num-chart .cb i{display:block}
+.num-chart b{font-weight:800;font-size:clamp(18px,2vw,28px);margin-bottom:8px}.num-chart label{font-weight:700;font-size:14px;margin-top:10px;color:var(--cocoa)}
+.mlegend{margin:16px 0 30px;display:flex;gap:16px;flex-wrap:wrap;font-weight:600;font-size:14px}.mlegend span{display:inline-flex;align-items:center;gap:6px}.mlegend i{width:12px;height:12px;border-radius:3px}
 </style>
 </head>
 <body>
@@ -856,7 +868,7 @@ footer .sun{height:10px;background:var(--stripe)}
     <div class="obj" id="o-join"><i></i></div>
     <div class="obj" id="o-phone"><svg viewBox="0 0 60 120"><rect width="60" height="120" rx="12" fill="#1d110b"/><rect x="5" y="10" width="50" height="94" rx="4" fill="#F8EEDD"/><circle cx="30" cy="112" r="3" fill="#8A6E5E"/><path id="phPlay" d="M24 48l14 9-14 9z" fill="#C8452B"/></svg></div>
     <img class="obj sitter" id="o-sitp" src="assets/sel-sit2.png" alt=""><div class="obj" id="o-bars"></div>
-    <div class="obj" id="o-chart"></div>
+    <div class="obj" id="o-chart"></div><div class="obj" id="o-plans"><div class="pl"><small>Just you</small><h5>Solo</h5><b>Free</b><span>Every record you own, anywhere, in lossless, with no ads</span></div><div class="pl best"><small>2 people, one home</small><h5>Duo</h5><b>£10<i>/month</i></b><span>One shared Stack for two</span></div><div class="pl"><small>Up to 4 people</small><h5>Family</h5><b>£19.99<i>/month</i></b><span>Everyone streams everything the family owns</span></div><div class="pl wide"><span><b>The Puck</b> from £30</span><span><b>Marketplace</b> 8% seller fee</span><span><b>Stack Supply</b> clothing and record gear</span></div></div>
     <div class="obj" id="o-loop"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#EF8B2C" stroke-width=".7" stroke-dasharray="2 2.4"/></svg></div>
     <div class="obj" id="o-rec"><div class="vrec"><div class="vspin"><img src="assets/vinyl.png" alt=""><img class="vlab" src="assets/label.png" alt=""><img class="vmono" src="assets/stack-monogram-sunset.svg" alt=""><i class="vhole"></i></div><div class="vsheen"></div></div></div>
     <div class="obj" id="o-puck"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#1c1b19" stroke="#C9B89F" stroke-width="6"/><image href="assets/stack-monogram-sunset.svg" x="30" y="30" width="60" height="60"/><circle cx="60" cy="106" r="3" fill="#F2AE3D"/></svg></div>
@@ -871,8 +883,7 @@ footer .sun{height:10px;background:var(--stripe)}
       <div class="ch" data-i="3"><span class="no">(3) The Puck</span><h3>A spin becomes<br><em>your own copy.</em></h3><p>The Puck sits between turntable and speakers. Sound passes straight through while it records your copy in hi-res and logs every play.</p></div>
       <div class="ch" data-i="4"><span class="no">(4) The market</span><h3><span class="mega">£<b data-cnt="174.4">0</b>m</span><em>UK vinyl sales in 2025.</em></h3><p>Up <b data-cnt="19.9">0</b>% in a year, and the highest in around 30 years. Collectors want to own music again.</p><p class="src">Sources: BPI via Dork; Express &amp; Star (2025).</p></div>
       <div class="ch" data-i="5"><span class="no">(5) How it earns</span><h3>One loop,<br><em>four ways in.</em></h3><div class="loopinfo" id="loopInfo"></div></div>
-      <div class="ch" data-i="6"><span class="no">(6) Three years</span><h3>From Manchester<br><em>to the UK.</em></h3><p id="chartTxt"></p><p class="src">Illustrative figures, not a forecast.</p></div>
-      <div class="ch" data-i="7"><span class="no">(7) Stack</span><h3>Own it.<br><em>Play it everywhere.</em></h3><p>The rest of the plan is below: pricing, competitors, risks and launch.</p></div>
+      <div class="ch" data-i="6"><span class="no">(6) Pricing</span><h3>Your music is free.<br><em>Sharing it is what you pay for.</em></h3><p>Playing the records you own costs nothing. Homes pay to share one Stack, and the Puck and Marketplace earn on top.</p></div>
     </div>
 
     <!-- dial -->
@@ -882,39 +893,30 @@ footer .sun{height:10px;background:var(--stripe)}
 </section>
 
 <!-- ================= EDITORIAL SECTIONS ================= -->
-<section class="ed ed-price" id="pricing"><div class="wrap">
-  <span class="no px" data-speed=".06">(8) Pricing</span>
-  <h3 class="ed-h px" data-speed="-.04">Your music is free.<br><em>Sharing it is what you pay for.</em></h3>
-  <div class="rows">
-    <div class="row rv2"><span class="k">Solo</span><span class="v">Free</span><span class="d">Your own records, played anywhere, in lossless, with no ads. You already paid for the music.</span></div>
-    <div class="row rv2"><span class="k">Duo</span><span class="v">£10<small>/month</small></span><span class="d">Two people, one home, one shared Stack.</span></div>
-    <div class="row rv2"><span class="k">Family</span><span class="v">£19.99<small>/month</small></span><span class="d">Up to four people. Everyone streams everything the family owns.</span></div>
-    <div class="row rv2"><span class="k">The Puck</span><span class="v">from £30</span><span class="d">£50 for two, £75 for three. Priced to get it into homes.</span></div>
-    <div class="row rv2"><span class="k">Marketplace</span><span class="v">8%</span><span class="d">Seller fee. Payment is held until the record arrives, then the digital copy moves to the buyer.</span></div>
-    <div class="row rv2"><span class="k">Stack Supply</span><span class="v">Shop</span><span class="d">Stack’s own clothing, slipmats, crates and the Puck, sold in the app.</span></div>
-    <div class="row rv2"><span class="k">Record shops</span><span class="v">Partners</span><span class="d">Commission on Pucks sold in store, and shop stock listed on the Marketplace.</span></div>
-  </div>
-</div></section>
+
+
+
+
+
+
+
 
 <section class="ed ed-tour" id="tour">
   <div class="tour-pin" id="tourPin">
-    <div class="tour-head wrap"><span class="no">(9) The prototype</span><h3 class="ed-h">A working app,<br><em>not a mockup.</em></h3></div>
+    <div class="tour-head wrap"><span class="no">(7) The product</span><h3 class="ed-h">A working app,<br><em>not a mockup.</em></h3></div>
     <div class="tour-rail" id="tourRail"></div>
   </div>
 </section>
-
-<section class="ed ed-money" id="money"><div class="wrap">
-  <span class="no px" data-speed=".06">(10) Revenue forecast</span>
-  <h3 class="ed-h px" data-speed="-.04">How Stack<br><em>makes money.</em></h3>
-  <table class="num-t" id="numT"></table>
-  <div class="num-how"><h4>How Year 1 adds up</h4><ul class="num-a" id="numA"></ul></div>
-  <div class="calc"><h4>Model it yourself</h4><p class="muted">Drag to change how many people use Stack, and see what each stream earns in a year. Same assumptions as the table.</p>
-    <div class="calc-row"><input type="range" id="calcU" min="10000" max="1000000" step="10000" value="40000" aria-label="People on Stack"><b id="calcN"></b><span class="muted">people</span></div>
-    <div class="calc-out" id="calcOut"></div></div>
+<section class="ed ed-q" id="testers"><div class="wrap">
+  <span class="no px" data-speed=".06">(8) Testing</span>
+  <div class="qs">
+    <blockquote class="rv2 px" data-speed=".05">“Tester quote 1 goes here, for example about the two decks and crossfader.”<cite>Tester, age</cite></blockquote>
+    <blockquote class="rv2 px" data-speed="-.03">“Tester quote 2 goes here.”<cite>Tester, age</cite></blockquote>
+    <blockquote class="rv2 px" data-speed=".08">“Tester quote 3 goes here.”<cite>Tester, age</cite></blockquote>
+  </div>
 </div></section>
-
 <section class="ed ed-comp" id="competitors"><div class="wrap">
-  <span class="no px" data-speed=".06">(11) Competitors</span>
+  <span class="no px" data-speed=".06">(9) Competitors</span>
   <h3 class="ed-h px" data-speed="-.04">Nobody joins owning,<br><em>listening and sharing.</em></h3>
   <div class="cgrid" id="cgrid">
     <svg class="axes" viewBox="0 0 1000 520" preserveAspectRatio="none"><path class="draw" d="M500 20V500M40 260H960" stroke="currentColor" stroke-opacity=".25" stroke-width="2" fill="none" pathLength="100"/></svg>
@@ -926,15 +928,8 @@ footer .sun{height:10px;background:var(--stripe)}
     <span class="cd us" style="--x:78%;--y:22%;--d:.7s"><i></i>Stack<small>Any record you own: playable, shareable, sellable</small></span>
   </div>
 </div></section>
-
-<section class="ed ed-risk" id="risks"><div class="wrap">
-  <span class="no px" data-speed=".06">(12) Risks</span>
-  <h3 class="ed-h px" data-speed="-.04">The risks,<br><em>and the answers.</em></h3>
-  <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
-</div></section>
-
 <section class="ed ed-ln" id="launch"><div class="ln-pin">
-  <div class="wrap ln-top"><div><span class="no">(13) Launch</span><h3 class="ed-h">Start in Manchester,<br><em>grow from record shops.</em></h3></div>
+  <div class="wrap ln-top"><div><span class="no">(10) Launch</span><h3 class="ed-h">Start in Manchester,<br><em>grow from record shops.</em></h3></div>
    <div class="ln-stg" id="lnStg"></div></div>
   <div class="ln-sky" id="lnSky"><svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
  <g class="far" fill="#C9A98A">
@@ -966,15 +961,20 @@ footer .sun{height:10px;background:var(--stripe)}
 </svg></div>
   
 </div></section>
-
-
-<section class="ed ed-q" id="testers"><div class="wrap">
-  <span class="no px" data-speed=".06">(14) Testing</span>
-  <div class="qs">
-    <blockquote class="rv2 px" data-speed=".05">“Tester quote 1 goes here, for example about the two decks and crossfader.”<cite>Tester, age</cite></blockquote>
-    <blockquote class="rv2 px" data-speed="-.03">“Tester quote 2 goes here.”<cite>Tester, age</cite></blockquote>
-    <blockquote class="rv2 px" data-speed=".08">“Tester quote 3 goes here.”<cite>Tester, age</cite></blockquote>
-  </div>
+<section class="ed ed-money" id="money"><div class="wrap">
+  <span class="no px" data-speed=".06">(11) Revenue forecast</span>
+  <h3 class="ed-h px" data-speed="-.04">How Stack<br><em>makes money.</em></h3>
+  <div class="num-chart" id="numChart"></div><div class="legend mlegend"><span><i style="background:#C8452B"></i>Sharing plans</span><span><i style="background:#EF8B2C"></i>Puck sales</span><span><i style="background:#7FA7B7"></i>Marketplace fees</span></div>
+  <table class="num-t" id="numT"></table>
+  <div class="num-how"><h4>How Year 1 adds up</h4><ul class="num-a" id="numA"></ul></div>
+  <div class="calc"><h4>Model it yourself</h4><p class="muted">Drag to change how many people use Stack, and see what each stream earns in a year. Same assumptions as the table.</p>
+    <div class="calc-row"><input type="range" id="calcU" min="10000" max="1000000" step="10000" value="40000" aria-label="People on Stack"><b id="calcN"></b><span class="muted">people</span></div>
+    <div class="calc-out" id="calcOut"></div></div>
+</div></section>
+<section class="ed ed-risk" id="risks"><div class="wrap">
+  <span class="no px" data-speed=".06">(12) Risks</span>
+  <h3 class="ed-h px" data-speed="-.04">The risks,<br><em>and the answers.</em></h3>
+  <p class="fl-hint">Tap a card to flip it.</p><div class="risks ed-risks"><div class="risk rv2" style="transition-delay:0.0s"><div class="inner"><div class="face front"><small>11.1 Risk</small><b>Music rights</b><p>Owning a record doesn’t give you the right to stream or copy it.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.1 Answer</small><b>Partner with labels</b><p>Many records already come with a download code. Stack becomes its home, licensed, with royalties on every play.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.12s"><div class="inner"><div class="face front"><small>11.2 Risk</small><b>Hardware costs</b><p>Making, certifying and shipping the Puck is expensive.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.2 Answer</small><b>Start small, keep it optional</b><p>Barcode and Discogs import work without it. The Puck launches in small batches through record shops.</p><span class="hint">Tap to flip back ↻</span></div></div></div><div class="risk rv2" style="transition-delay:0.24s"><div class="inner"><div class="face front"><small>11.3 Risk</small><b>An empty marketplace</b><p>Buyers won’t come without sellers, and the other way round.</p><span class="hint">Tap for the answer ↻</span></div><div class="face back"><small>11.3 Answer</small><b>Launch city by city</b><p>Manchester first, with partner record shops listing second-hand stock from day one.</p><span class="hint">Tap to flip back ↻</span></div></div></div></div></div>
 </div></section>
 
 <div class="pbar" id="pbar"><button id="pPrev" aria-label="Previous slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><span id="pNum">1 / 14</span><button id="pNext" aria-label="Next slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button id="pX" aria-label="Exit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
@@ -1198,6 +1198,7 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
  const calc=(U,prevU)=>{const homes=U*.125,newHomes=(U-prevU)*.125,pucks=newHomes*.4,gmv=homes*24;return{U,homes,sub:homes*arpu*12,pucks,puck:pucks*40,gmv,mkt:gmv*.08}};
  const Y=USERS.map((u,i)=>calc(u,i?USERS[i-1]:0)),tot=y=>y.sub+y.puck+y.mkt;
  document.getElementById('numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack',Y.map(y=>n0(y.U))],['Shared homes paying',Y.map(y=>n0(y.homes))],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(tot(y))}</td>`).join('')}</tr>`;
+ const mx=Math.max(...Y.map(tot));document.getElementById('numChart').innerHTML=Y.map((y,i)=>{const t=tot(y);return `<div class="cc"><b>${money(t)}</b><div class="cb" style="--hh:${t/mx*86}">${[['sub',0],['puck',1],['mkt',2]].map(([k,c])=>`<i style="background:${COL[c]};height:${Math.max(1.5,y[k]/t*100)}%"></i>`).join('')}</div><label>Year ${i+1}</label></div>`}).join('');
  const y=Y[0];
  document.getElementById('numA').innerHTML=`<li><b>Sharing plans:</b> 1 in 8 people share a Stack at home. ${n0(y.U)} × 12.5% = ${n0(y.homes)} homes × £${arpu.toFixed(2)} a month (60% Duo at £10, 40% Family at £19.99) × 12 = <b>${money(y.sub)}</b></li>
  <li><b>Puck:</b> 40% of new shared homes buy one. ${n0(y.homes)} × 40% = ${n0(y.pucks)} Pucks × £40 average with bundles = <b>${money(y.puck)}</b></li>
@@ -1214,13 +1215,13 @@ $$('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();S.
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const story=$('#story'),stage=$('#stage');if(!story)return;
-const N=8;
-const BG=['#2A1A12','#F0E3CE','#F0E3CE','#2A1A12','#F8EEDD','#F0E3CE','#F8EEDD','#2A1A12'],DARK=[1,0,0,1,0,0,0,1];
+const N=7;
+const BG=['#2A1A12','#F0E3CE','#F0E3CE','#2A1A12','#F8EEDD','#F0E3CE','#2A1A12'],DARK=[1,0,0,1,0,0,1];
 const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 /* key states per chapter: [x,y,scale,opacity] in units of R from the stage centre */
 const Z=[0,0,1,0];
 const K={
- rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[.3,.4,.25,0],[-.3,0,1.15,1]],
+ rec:  [[0,0,1.15,1],[-.95,0,.72,1],[-1.1,0,.6,1],[-1.69,0,.31,1],[-.2,-.55,.7,1],[0,0,.4,1],[0,.2,.3,0],[0,.2,.3,0]],
  phone:[[1.6,0,.8,0],[1.45,0,1,1],[1.5,0,1,1],[1.9,-.9,.6,0],Z,Z,Z,Z],
  gap:  [Z,[0,0,1,1],[0,0,1,0],Z,Z,Z,Z,Z],
  join: [Z,[0,0,1,0],[0,0,1,1],Z,Z,Z,Z,Z],
@@ -1230,14 +1231,15 @@ const K={
  flow: [Z,Z,Z,[0,0,.84,1],Z,Z,Z,Z],
  bars: [[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.5,1,0],[0,.12,1,1],[0,.4,1,0],Z,Z],
  loop: [Z,Z,Z,Z,[0,0,.5,0],[0,0,.8,1],[0,0,1.1,0],Z],
- chart:[Z,Z,Z,Z,Z,[.25,.3,.9,0],[.3,.05,1,1],[.25,.3,.9,0]],
+ chart:[Z,Z,Z,Z,Z,Z,Z,Z],
+ plans:[Z,Z,Z,Z,Z,[0,.4,.9,0],[0,.1,1,1],[0,.1,1,1]],
 };
 const KM={/* phone overrides: tighter horizontally */
- rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[0,.3,.25,0],null],
+ rec:[null,[-.95,0,.7,1],[-1.1,0,.55,1],[-1.25,0,.2,1],null,null,[1.05,-1.05,.4,1],null],
  phone:[null,[.95,0,.85,1],[1.1,0,.85,1],null,null,null,null,null],
  tt:[null,null,null,[-1.25,0,.65,1],null,null,null,null],spk:[null,null,null,[1.25,0,.65,1],null,null,null,null],
  puck:[null,null,null,[0,0,.75,1],null,null,null,null],flow:[null,null,null,[0,0,.65,1],null,null,null,null],
- sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,[0,.15,.95,1],null]};
+ sel:[null,null,null,null,null,null,null,[.75,.35,.75,1]],chart:[null,null,null,null,null,null,null,null],plans:[null,null,null,null,null,null,[0,.05,1,1],[0,.05,1,1]]};
 const el={};Object.keys(K).forEach(k=>el[k]=$('#o-'+k));
 
 /* market bars */
@@ -1261,7 +1263,7 @@ const Y=A.acc.map((n,i)=>{const p=i?A.acc[i-1]:0;return{sub:n*A.arpu*12,puck:(n-
 const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
 const mx=Math.max(...Y.map(y=>y.sub+y.puck+y.mkt));
 $('#o-chart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b data-m="${t}">£0</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
-$('#chartTxt').innerHTML=`Sharing plans (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.acc.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
+if($('#chartTxt'))$('#chartTxt').innerHTML=`Sharing plans (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.acc.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
 const chartNums=$$('#o-chart [data-m]');
 
 /* callouts: [chapter, anchor object, angle (deg), length (R), title, sub] */
@@ -1348,7 +1350,7 @@ function hero(H){const y=scrollY;if(y>H*1.2)return;hxA+=.35+y*.004;hxSpin.style.
 /* ================= editorial sections ================= */
 const pxs=$$('.px'),tour=$('#tour'),rail=$('#tourRail'),road=$('#roadPath'),roadBox=$('#road2');
 const shots=[['my-stack','My Stack'],['player','The player'],['two-decks','Two decks'],['family-crate','Family crate'],['friends-activity','Friends'],['leaderboards','Leaderboards'],['marketplace','Marketplace'],['listing','A listing'],['selector','The Selector']];
-rail.innerHTML=shots.map(([f,n],k)=>`<div class="tshot" style="--r:${k%2?2:-2}deg"><img src="assets/shots/${f}.jpg" alt="${n}" loading="lazy"><span><i>9.${k+1}</i>${n}</span></div>`).join('');
+rail.innerHTML=shots.map(([f,n],k)=>`<div class="tshot" style="--r:${k%2?2:-2}deg"><img src="assets/shots/${f}.jpg" alt="${n}" loading="lazy"><span><i>7.${k+1}</i>${n}</span></div>`).join('');
 const tshots=$$('.tshot');
 function editorial(W,H){
  pxs.forEach(e=>{const r=e.getBoundingClientRect();if(r.bottom<-200||r.top>H+200)return;const d=(r.top+r.height/2-H/2);e.style.transform=`translateY(${d*(+e.dataset.speed)}px)`});
