@@ -138,3 +138,10 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 .refs{position:absolute;left:96px;right:96px;top:250px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px}
 .refs li{font-size:19px;line-height:1.5;padding-left:2em;text-indent:-2em;word-break:break-word}
 .ack{position:absolute;left:96px;bottom:90px;margin:0;font-size:16px;opacity:.6}
+
+/* before and after */
+.ba{position:absolute;right:96px;top:70px;bottom:70px;display:flex;align-items:center;gap:40px}
+.ba figure{margin:0;height:100%;display:flex;flex-direction:column;align-items:center}
+.ba img{height:calc(100% - 64px);filter:drop-shadow(0 30px 40px rgba(58,34,22,.3))}
+.ba figcaption{margin-top:14px;text-align:center;font-size:17px;color:var(--cocoa)}.ba figcaption b{display:block;font-size:22px;color:var(--esp)}
+.ba .arr{font-size:56px;font-weight:800;color:var(--orange);margin-bottom:64px}
