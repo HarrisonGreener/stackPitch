@@ -197,3 +197,6 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 .lg{position:absolute;left:96px;right:96px;top:330px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .lg div{background:#3a2418;border-radius:22px;padding:22px 26px;border-top:5px solid var(--orange)}.lg b{font-size:22px;display:block;margin-bottom:8px}.lg p{margin:0;font-size:17px;line-height:1.45;opacity:.85}
 .uf{top:80px}.uf div{padding-top:12px;padding-bottom:12px}
+.refs{top:215px;gap:4px}.refs li{font-size:12.5px;line-height:1.32}.ack{bottom:70px;font-size:14px}
+.refs{top:255px;gap:9px}.refs li{font-size:15px;line-height:1.38}
+.refs{top:240px;gap:6px}.refs li{font-size:14px;line-height:1.35}
