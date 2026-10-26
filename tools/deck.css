@@ -150,3 +150,23 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 .chl{list-style:none;margin:0;padding:0;width:600px}
 .chl li{display:flex;align-items:baseline;gap:8px;font-size:20px;padding:11px 0;border-top:1px solid rgba(58,34,22,.14);color:var(--cocoa)}
 .chl li b{color:var(--esp)}.chl li span{margin-left:auto;font-size:15px;font-weight:700;color:var(--orange)}
+
+.chg{grid-template-columns:repeat(4,1fr)!important}.chg .f p{font-size:19px}.chg .b b{font-size:23px}.chg .b p{font-size:17px}
+/* puck economics */
+.pe{position:absolute;right:96px;top:110px;width:640px;display:flex;flex-direction:column;gap:18px}
+.bom{background:#3a2418;border-radius:24px;padding:24px 28px}.bom small,.pm small{display:block;font-weight:700;font-size:15px;color:var(--gold);margin-bottom:8px}
+.bom div{display:flex;justify-content:space-between;font-size:19px;padding:9px 0;border-bottom:1px solid rgba(240,227,206,.12)}.bom div b{font-weight:700}
+.bom .t{border:0;padding-top:14px;font-size:24px}.bom .t b{color:var(--gold)}
+.pm{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:14px}.pm div{background:linear-gradient(160deg,#EF8B2C,#C8452B);border-radius:22px;padding:20px 22px;color:#fff}
+.pm small{color:#FFE7C2}.pm b{display:block;font-size:38px;font-weight:800;letter-spacing:-.02em}.pm span{display:block;font-size:15px;line-height:1.35;margin-top:6px;opacity:.9}
+/* first 90 days */
+.nn{position:absolute;left:96px;right:96px;top:340px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.nn>div{background:var(--paper);border-radius:24px;padding:28px 30px;border-top:6px solid var(--orange)}
+.nn small{font-weight:700;font-size:16px;color:var(--red)}.nn h5{margin:6px 0 14px;font-size:28px;letter-spacing:-.02em}
+.nn ul{margin:0;padding-left:20px;font-size:18px;line-height:1.45;color:var(--cocoa)}.nn li{margin-bottom:8px}.nn li:last-child{color:var(--esp);font-weight:700;list-style:none;margin-left:-20px;margin-top:14px}
+/* ask */
+.ms{margin-top:40px;background:var(--esp);color:var(--cream);border-radius:22px;padding:22px 26px;width:640px}.ms small{display:block;font-weight:700;font-size:15px;color:var(--gold);margin-bottom:6px}.ms b{font-size:22px;line-height:1.35}
+.uf{top:110px;width:720px}.uf div{padding-top:16px;padding-bottom:16px}.uf em{font-size:30px}
+.refs{top:220px;gap:10px}.refs li{font-size:16px;line-height:1.4}.ack{bottom:80px}
+.pe .cp{width:700px}
+.refs{top:250px}
