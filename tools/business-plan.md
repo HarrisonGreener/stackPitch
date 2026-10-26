@@ -2,7 +2,7 @@
 
 Stack lets people play the vinyl and CDs they already own on any device, share them with their household, and sell them on when they are done. Owning the record is free to play; Stack earns when people share (Duo £10 and Family £19.99 a month), buy the Puck (from £30), or trade on the Marketplace (8% seller fee).
 
-A working prototype has been tested with 11 people aged 20 to 65, leading to six changes. Stack launches in Manchester through independent record shops. The plan forecasts £929k revenue in Year 1, roughly break-even, rising to £4.6m in Year 2 and £14.5m in Year 3. I am asking for £100,000 to make the first Pucks, run the Manchester pilot and reach monthly break-even in Q3 of Year 1.
+A working prototype has been tested with 11 people aged 20 to 65, leading to six changes. Stack launches in Manchester through independent record shops. After a six-month pilot, the plan forecasts £246k revenue in Year 1, rising to £1.4m in Year 2 and £4.6m in Year 3, with break-even in Q3 of Year 2. I am asking for £200,000 to make the first Pucks, run the Manchester pilot and reach break-even.
 
 ## Opportunity and customer problem
 
@@ -25,7 +25,7 @@ Further changes came from my own daily testing, such as making Solo free so peop
 
 ## Market size, competitors and positioning
 
-The UK recorded music market is worth £1.57bn, of which vinyl is £174.4m (BPI, 2026; Marsden, 2026). Stack's obtainable market is far smaller: 40,000 people in Manchester in Year 1, growing to 640,000 across the UK by Year 3.
+The UK recorded music market is worth £1.57bn, of which vinyl is £174.4m (BPI, 2026; Marsden, 2026). Stack's obtainable market is far smaller: an average of 10,000 people in Manchester in Year 1, growing to 200,000 across the UK by Year 3.
 
 Competitors each solve one part of the problem:
 
@@ -78,7 +78,7 @@ This follows Sarasvathy's (2001) effectual logic: start from existing contacts, 
 
 ## Operations, people, legal, ethical and data obligations, sustainability
 
-**Operations and people.** I designed and built the prototype and will run product and shop partnerships during the pilot. The first two hires in Year 1 are a developer to build the licensed streaming back end, and a partnerships lead to sign shops. Pucks are made in small batches by a contract manufacturer and sold through partner shops and the app.
+**Operations and people.** I designed and built the prototype and will run product and shop partnerships during the pilot. The first hire in Year 1 is a developer to build the licensed streaming back end; a partnerships lead, a second developer and support follow in Year 2. Pucks are made in small batches by a contract manufacturer and sold through partner shops and the app.
 
 **Legal, ethical and data obligations:**
 
@@ -91,25 +91,26 @@ This follows Sarasvathy's (2001) effectual logic: start from existing contacts, 
 
 ## Finances, funding, risks and milestones
 
-**Pricing and sales assumptions.** One in eight people on Stack shares at home (5,000 homes in Year 1), split 60% Duo and 40% Family, an average of £14 a month. Forty per cent of new sharing homes buy Pucks, spending £40 on average. Each sharing home buys £24 of second-hand records a year. People-on-Stack figures are yearly averages.
+**Pricing and sales assumptions.** One in eight people on Stack shares at home (1,250 homes on average in Year 1), split 60% Duo and 40% Family, an average of £14 a month. Forty per cent of homes that join each year buy Pucks, spending £40 on average. Each sharing home buys £24 of second-hand records a year. People-on-Stack figures are yearly averages. Growth is steady rather than sudden: from 1,000 people at the end of the pilot to about 20,000 by the end of Year 1, 100,000 by the end of Year 2 and 300,000 by the end of Year 3, adding one region at a time through partner shops.
 
-**Costs.** I assume rights holders take 70% of sharing revenue, slightly above the roughly two-thirds Spotify pays (Del Fabbro, 2025), which keeps the forecast cautious. Card fees are 1.5% + 20p (Hammond, 2026); other costs are estimates.
+**Costs.** I assume rights holders take two-thirds of sharing revenue, in line with what Spotify pays (Del Fabbro, 2025). Card fees are 1.5% + 20p (Hammond, 2026); other costs are estimates.
 
 | | Year 1 | Year 2 | Year 3 |
 | --- | --- | --- | --- |
-| Revenue | £929k | £4.57m | £14.47m |
-| Rights holders (70% of sharing) | £588k | £2.94m | £9.41m |
-| Puck parts and shipping | £72k | £288k | £792k |
-| Team | £118k | £291k | £498k |
-| Marketing | £60k | £200k | £500k |
-| Hosting, payments and overheads | £97k | £434k | £1.33m |
-| **Profit** | **−£6k** | **£414k** | **£1.95m** |
+| Average people on Stack | 10,000 | 60,000 | 200,000 |
+| Revenue | £246k | £1.42m | £4.63m |
+| Rights holders (two-thirds of sharing) | £140k | £840k | £2.80m |
+| Puck parts and shipping | £31k | £130k | £342k |
+| Team | £86k | £199k | £348k |
+| Marketing | £30k | £80k | £300k |
+| Hosting, payments and overheads | £35k | £151k | £456k |
+| **Profit** | **−£75k** | **£18k** | **£382k** |
 
-**Cashflow and break-even.** Revenue builds through Year 1 (10%, 20%, 30% and 40% of sharing income by quarter) while fixed costs are spread evenly. After the £30k pilot, cash falls to −£59k in Q1 and −£70k in Q2, then Stack makes a monthly profit from Q3 (+£8k) and Q4 (+£26k). Break-even is reached in Q3 of Year 1.
+**Cashflow and break-even.** The model runs quarter by quarter as people join (Appendix C). After the £30k pilot, Stack loses money through Year 1 (−£75k) while it grows. Year 2 opens with new hires, so cash reaches its low point of −£150k in Q2 of Year 2. Stack makes a quarterly profit from Q3 of Year 2 (+£18k), which is break-even.
 
-**Scenarios for Year 1.** Bad case (half the sharing homes, half the Puck buyers): −£128k. Expected: −£6k. Good case (50% more homes): +£114k.
+**Scenarios for Year 2.** Bad case (half the sharing homes, half the Puck buyers): −£187k. Expected: +£18k. Good case (50% more homes): +£221k.
 
-**Funding and use of funds.** I am asking for £100,000 from an angel investor plus a Start Up Loan: £30,000 for the pilot (500 Pucks £10k, case mould £10k, safety testing £5k, pilot marketing £3k, hosting and licensing £2k) and £70,000 working capital. This covers the £70k low point with a £30k buffer, but not the full bad case, which would need a further raise or slower hiring.
+**Funding and use of funds.** I am asking for £200,000 from angel investors plus a Start Up Loan: £30,000 for the pilot (500 Pucks £10k, case mould £10k, safety testing £5k, pilot marketing £3k, hosting and licensing £2k) and £170,000 working capital. This covers the £150k low point with a £50k buffer, but not the full bad case, which would need a further raise or slower hiring.
 
 **Key risks.**
 
@@ -120,7 +121,7 @@ This follows Sarasvathy's (2001) effectual logic: start from existing contacts, 
 | Empty Marketplace | Partner shops list stock from day one |
 | Testers were mostly friendly | Wider paid-plan tests in shops before launch |
 
-**Milestones.** Month 3: two pilot shops, 100 people, 10 paying homes. Month 6: five shops, 1,000 people, 125 paying homes. Year 1: 40,000 people in Manchester. Year 2: the North West. Year 3: the UK.
+**Milestones.** Pilot month 3: two shops, 100 people, 10 paying homes. Pilot month 6: five shops, 1,000 people, 125 paying homes. End of Year 1: about 20,000 people in Manchester. Year 2: the North West, with break-even in Q3. Year 3: the UK.
 
 ## References {.refs}
 
@@ -181,13 +182,13 @@ Sarasvathy, S.D. (2001) 'Causation and effectuation: toward a theoretical shift 
 | 8–9 Oct | Sound failed on iPhone | Fixed audio and two-deck player |
 | 8 Oct | Browsing covers one by one was slow | Crate view, search, A–Z dividers |
 
-## Appendix C: Year 1 cashflow by quarter
+## Appendix C: cashflow by quarter, pilot to Year 2
 
-| | Pilot | Q1 | Q2 | Q3 | Q4 |
-| --- | --- | --- | --- | --- | --- |
-| Revenue | – | £105k | £190k | £275k | £360k |
-| Costs | £30k | £134k | £201k | £267k | £334k |
-| Net | −£30k | −£29k | −£11k | +£8k | +£26k |
-| Cash position | −£30k | −£59k | −£70k | −£62k | −£36k |
+| | Pilot | Y1 Q1 | Y1 Q2 | Y1 Q3 | Y1 Q4 | Y2 Q1 | Y2 Q2 | Y2 Q3 | Y2 Q4 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Revenue | – | £20k | £45k | £74k | £108k | £183k | £305k | £412k | £518k |
+| Costs | £30k | £48k | £68k | £90k | £115k | £220k | £314k | £393k | £473k |
+| Net | −£30k | −£28k | −£23k | −£16k | −£8k | −£36k | −£8k | +£18k | +£45k |
+| Cash position | −£30k | −£58k | −£81k | −£97k | −£105k | −£142k | −£150k | −£132k | −£87k |
 
-Cash position before the £100,000 investment. The pitch deck, prototype and video are linked from the pitch site.
+Cash position before the £200,000 investment; figures rounded. The pitch deck, prototype and video are linked from the pitch site.

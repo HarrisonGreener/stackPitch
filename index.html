@@ -886,9 +886,9 @@ footer .sun{height:10px;background:var(--stripe)}
     <h3 class="rv">What testers said</h3>
     <p class="s-sub rv d1">From product testing with the working prototype.</p>
     <div class="s-body"><div class="quotes" style="color:var(--espresso)">
-      <div class="q rv d2"><p>I think this is something young people will really connect with. I’d definitely use it myself to help sell for my business.</p><span>Mike, 48, vinyl shop owner</span></div>
-      <div class="q rv d3"><p>The interface is so much better than other vinyl collecting apps. This is something I’d use, and I’d probably share records with my sister.</p><span>Alice, 20, freelancer</span></div>
-      <div class="q rv d4"><p>Why doesn’t this already exist?</p><span>Luke, 31, teacher</span></div>
+      <div class="q rv d2"><p>I think this is something young people will really connect with. I’d definitely use it myself to help sell for my business.</p><span>P1 · 48, vinyl shop owner</span></div>
+      <div class="q rv d3"><p>The interface is so much better than other vinyl collecting apps. This is something I’d use, and I’d probably share records with my sister.</p><span>P2 · 20, freelancer</span></div>
+      <div class="q rv d4"><p>Why doesn’t this already exist?</p><span>P3 · 31, teacher</span></div>
     </div></div>
     <span class="n">13</span>
   </article>
@@ -1005,9 +1005,9 @@ footer .sun{height:10px;background:var(--stripe)}
 <section class="ed ed-q" id="testers"><div class="wrap">
   <span class="no px" data-speed=".06">(8) Testing</span>
   <div class="qs">
-    <blockquote class="rv2 px" data-speed=".05">“I think this is something young people will really connect with. I’d definitely use it myself to help sell for my business.”<cite>Mike, 48, vinyl shop owner</cite></blockquote>
-    <blockquote class="rv2 px" data-speed="-.03">“The interface is so much better than other vinyl collecting apps. This is something I’d use, and I’d probably share records with my sister.”<cite>Alice, 20, freelancer</cite></blockquote>
-    <blockquote class="rv2 px" data-speed=".08">“Why doesn’t this already exist?”<cite>Luke, 31, teacher</cite></blockquote>
+    <blockquote class="rv2 px" data-speed=".05">“I think this is something young people will really connect with. I’d definitely use it myself to help sell for my business.”<cite>P1 · 48, vinyl shop owner</cite></blockquote>
+    <blockquote class="rv2 px" data-speed="-.03">“The interface is so much better than other vinyl collecting apps. This is something I’d use, and I’d probably share records with my sister.”<cite>P2 · 20, freelancer</cite></blockquote>
+    <blockquote class="rv2 px" data-speed=".08">“Why doesn’t this already exist?”<cite>P3 · 31, teacher</cite></blockquote>
   </div>
 </div></section>
 <section class="ed ed-comp" id="competitors"><div class="wrap">
@@ -1070,7 +1070,7 @@ footer .sun{height:10px;background:var(--stripe)}
   <table class="num-t" id="numT"></table>
   <div class="num-how"><h4>How Year 1 adds up</h4><ul class="num-a" id="numA"></ul></div>
   <div class="calc"><h4>Model it yourself</h4><p class="muted">Drag to change how many people use Stack, and see what each stream earns in a year. Same assumptions as the table.</p>
-    <div class="calc-row"><input type="range" id="calcU" min="10000" max="1000000" step="10000" value="40000" aria-label="People on Stack"><b id="calcN"></b><span class="muted">people</span></div>
+    <div class="calc-row"><input type="range" id="calcU" min="10000" max="1000000" step="10000" value="10000" aria-label="People on Stack"><b id="calcN"></b><span class="muted">people</span></div>
     <div class="calc-out" id="calcOut"></div></div>
 </div></section>
 <section class="ed ed-risk" id="risks"><div class="wrap">
@@ -1142,11 +1142,11 @@ const order=['puck','sub','social','market'];
 function autoLoop(){if(rt)return;rt=setInterval(()=>{showRev(order[(order.indexOf(rk)+1)%4])},3200)}
 
 /* ---- three-year model ---- */
-const A={acc:[5000,25000,80000],arpu:.6*10+.4*19.99,puckTake:.4,puckAvg:40,gmvPerAcc:24,fee:.08};
-const yrs=A.acc.map((n,i)=>{const prev=i?A.acc[i-1]:0;return{y:'Year '+(i+1),sub:n*A.arpu*12,puck:(n-prev)*A.puckTake*A.puckAvg,mkt:n*A.gmvPerAcc*A.fee}});
+const A={arpu:.6*10+.4*19.99,puckAvg:40,gmvPerAcc:24},YD=[{U:10000,homes:1250,added:2125,sub:209940,puck:34000,mkt:2400},{U:60000,homes:7500,added:9000,sub:1259640,puck:144000,mkt:14400},{U:200000,homes:25000,added:23750,sub:4198800,puck:380000,mkt:48000}];
+const yrs=YD.map((d,i)=>({y:'Year '+(i+1),sub:d.sub,puck:d.puck,mkt:d.mkt}));
 const maxT=Math.max(...yrs.map(y=>y.sub+y.puck+y.mkt));
 $('#chart').innerHTML=yrs.map(y=>{const t=y.sub+y.puck+y.mkt;return `<div class="col"><div class="tot" data-money="${t}">£0</div><div class="bars" data-t="${t}"><i style="background:#C8452B" data-v="${y.sub}"></i><i style="background:#EF8B2C" data-v="${y.puck}"></i><i style="background:#7FA7B7" data-v="${y.mkt}"></i></div><label>${y.y}</label></div>`}).join('');
-$('#assume').innerHTML=[`Paying accounts: ${A.acc.map(n=>n.toLocaleString()).join(', ')}`,`Paying homes 60% Duo, 40% Family, on top of free Solo users: about £${A.arpu.toFixed(2)} a month per account`,`40% of new accounts buy a Puck, average £${A.puckAvg} with bundles`,`Each account buys about £${A.gmvPerAcc} of second-hand records a year, 8% fee`,`Around 60% of subscription income is paid to labels as royalties`,`Record shops and Stack Supply not counted`].map(x=>`<li>${x}</li>`).join('');
+$('#assume').innerHTML=[`After a 6-month pilot (5 shops, 1,000 people), average people on Stack: 10,000, 60,000 and 200,000`,`1 in 8 share at home: ${YD.map(d=>d.homes.toLocaleString()).join(', ')} paying homes, 60% Duo and 40% Family, about £${A.arpu.toFixed(2)} a month each`,`40% of homes that join in the year buy a Puck, £${A.puckAvg} average with bundles`,`Each sharing home buys about £${A.gmvPerAcc} of second-hand records a year, 8% fee`,`About two-thirds of sharing income is paid to rights holders as royalties`,`Record shops and Stack Supply not counted`].map(x=>`<li>${x}</li>`).join('');
 function growChart(){$$('#chart .bars').forEach(b=>{const t=+b.dataset.t;b.style.height=(t/maxT*250)+'px';b.querySelectorAll('i').forEach(i=>i.style.height=(+i.dataset.v/t*100)+'%')});
  $$('#chart [data-money]').forEach(el=>countTo(el,+el.dataset.money,money))}
 
@@ -1197,8 +1197,8 @@ $$('[data-pdf]').forEach(a=>{a.href='assets/stack-pitch-deck.pdf';a.setAttribute
 <script>
 /* launch section: pinned skyline, stages light up, tram moves, record in the clock */
 (()=>{const $=q=>document.querySelector(q),$$=q=>[...document.querySelectorAll(q)];const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
- const STG=[['Year 1','Manchester',40000,5000,12,['Partner record shops','Students and Record Store Day']],['Year 2','The North West',200000,25000,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',640000,80000,150,['Label partnerships','The Puck in stores nationwide']]];
- $('#lnStg').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+ const STG=[['Year 1','Manchester',10000,1250,12,['After a 6-month pilot with 5 shops','Partner record shops, students and Record Store Day']],['Year 2','The North West',60000,7500,45,['Liverpool, Leeds and Sheffield','Shop stock on the Marketplace']],['Year 3','The UK',200000,25000,150,['Label partnerships','The Puck in stores nationwide']]];
+ $('#lnStg').innerHTML=STG.map(g=>`<div class="stg"><small>${g[0]}</small><h5>${g[1]}</h5><div class="u" data-u="${g[2]}">0</div><div class="ul">people on Stack, on average</div><ul><li><b>${g[3].toLocaleString()}</b> shared homes</li><li><b>${g[4]}</b> partner shops</li>${g[5].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
  const sec=$('#launch'),stg=$$('#lnStg .stg'),svg=$('#lnSky svg'),tram=$('#lnSky .tram');
  function f(){const H=innerHeight,r=sec.getBoundingClientRect(),p=clamp(-r.top/(sec.offsetHeight-H));
   if(r.bottom>0&&r.top<H){const act=Math.min(2,Math.floor(clamp((p-.05)/.75)*3));
@@ -1295,15 +1295,15 @@ $$('[data-pdf]').forEach(a=>{a.href='assets/stack-pitch-deck.pdf';a.setAttribute
 </script>
 <script>
 /* revenue table, Year 1 breakdown and users calculator (same model as the forecast chart) */
-(()=>{const arpu=.6*10+.4*19.99,COL=['#C8452B','#EF8B2C','#7FA7B7'],USERS=[40000,200000,640000];
+(()=>{const arpu=.6*10+.4*19.99,COL=['#C8452B','#EF8B2C','#7FA7B7'],YD=[{U:10000,homes:1250,added:2125,sub:209940,puck:34000,mkt:2400},{U:60000,homes:7500,added:9000,sub:1259640,puck:144000,mkt:14400},{U:200000,homes:25000,added:23750,sub:4198800,puck:380000,mkt:48000}];
  const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':v>=1e3?'£'+Math.round(v/1e3)+'k':'£'+Math.round(v),n0=v=>Math.round(v).toLocaleString();
  const calc=(U,prevU)=>{const homes=U*.125,newHomes=(U-prevU)*.125,pucks=newHomes*.4,gmv=homes*24;return{U,homes,sub:homes*arpu*12,pucks,puck:pucks*40,gmv,mkt:gmv*.08}};
- const Y=USERS.map((u,i)=>calc(u,i?USERS[i-1]:0)),tot=y=>y.sub+y.puck+y.mkt;
- document.getElementById('numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack',Y.map(y=>n0(y.U))],['Shared homes paying',Y.map(y=>n0(y.homes))],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(tot(y))}</td>`).join('')}</tr>`;
+ const Y=YD.map(d=>({U:d.U,homes:d.homes,added:d.added,pucks:d.added*.4,sub:d.sub,puck:d.puck,gmv:d.homes*24,mkt:d.mkt})),tot=y=>y.sub+y.puck+y.mkt;
+ document.getElementById('numT').innerHTML='<tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>'+[['People on Stack (average)',Y.map(y=>n0(y.U))],['Shared homes paying',Y.map(y=>n0(y.homes))],['Sharing plans',Y.map(y=>money(y.sub))],['Puck sales',Y.map(y=>money(y.puck))],['Marketplace fees',Y.map(y=>money(y.mkt))]].map(r=>`<tr><td>${r[0]}</td>${r[1].map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')+`<tr class="tot"><td>Total</td>${Y.map(y=>`<td>${money(tot(y))}</td>`).join('')}</tr>`;
  const mx=Math.max(...Y.map(tot));document.getElementById('numChart').innerHTML=Y.map((y,i)=>{const t=tot(y);return `<div class="cc"><b>${money(t)}</b><div class="cb" style="--hh:${t/mx*86}">${[['sub',0],['puck',1],['mkt',2]].map(([k,c])=>`<i style="background:${COL[c]};height:${Math.max(1.5,y[k]/t*100)}%"></i>`).join('')}</div><label>Year ${i+1}</label></div>`}).join('');
  const y=Y[0];
  document.getElementById('numA').innerHTML=`<li><b>Sharing plans:</b> 1 in 8 people share a Stack at home. ${n0(y.U)} × 12.5% = ${n0(y.homes)} homes × £${arpu.toFixed(2)} a month (60% Duo at £10, 40% Family at £19.99) × 12 = <b>${money(y.sub)}</b></li>
- <li><b>Puck:</b> 40% of new shared homes buy one. ${n0(y.homes)} × 40% = ${n0(y.pucks)} Pucks × £40 average with bundles = <b>${money(y.puck)}</b></li>
+ <li><b>Puck:</b> 40% of the ${n0(y.added)} homes that join in Year 1 buy Pucks: ${n0(y.pucks)} homes × £40 average spend with bundles = <b>${money(y.puck)}</b></li>
  <li><b>Marketplace:</b> each shared home buys about £24 of second-hand records a year. ${n0(y.homes)} × £24 = ${money(y.gmv)} sold × 8% fee = <b>${money(y.mkt)}</b></li>
  <li><b>Solo is free</b>, so the other 87.5% of people pay nothing to play their own records. Stack Supply and record shop commission come on top.</li>`;
  const sl=document.getElementById('calcU');function draw(){const c=calc(+sl.value,0),t=tot(c);document.getElementById('calcN').textContent=n0(c.U);
@@ -1428,12 +1428,12 @@ function setNode(k){if(k===lastNode)return;lastNode=k;lnodes.forEach((n,i)=>n.cl
  $('#loopInfo').innerHTML=`<b>${LN[k][1]}</b><p>${d[0]}</p><ul>${d[1].map(x=>`<li>${x}</li>`).join('')}</ul><p class="also">Also earning: <span>Stack Supply</span><span>Record shop partners</span></p>`}
 setNode(0);
 /* three-year chart */
-const A={acc:[5000,25000,80000],arpu:.6*10+.4*19.99,puckTake:.4,puckAvg:40,gmv:24,fee:.08};
-const Y=A.acc.map((n,i)=>{const p=i?A.acc[i-1]:0;return{sub:n*A.arpu*12,puck:(n-p)*A.puckTake*A.puckAvg,mkt:n*A.gmv*A.fee}});
+const A={arpu:.6*10+.4*19.99,homes:[1250,7500,25000]};
+const Y=[{U:10000,homes:1250,added:2125,sub:209940,puck:34000,mkt:2400},{U:60000,homes:7500,added:9000,sub:1259640,puck:144000,mkt:14400},{U:200000,homes:25000,added:23750,sub:4198800,puck:380000,mkt:48000}];
 const money=v=>v>=1e6?'£'+(v/1e6).toFixed(1)+'m':'£'+Math.round(v/1e3)+'k';
 const mx=Math.max(...Y.map(y=>y.sub+y.puck+y.mkt));
 $('#o-chart').innerHTML=Y.map((y,i)=>{const t=y.sub+y.puck+y.mkt;return `<div class="cc"><b data-m="${t}">£0</b><div class="cb" style="--hh:${t/mx*86}"><i style="background:#C8452B;height:${y.sub/t*100}%"></i><i style="background:#EF8B2C;height:${y.puck/t*100}%"></i><i style="background:#7FA7B7;height:${Math.max(2,y.mkt/t*100)}%"></i></div><label>Year ${i+1}</label></div>`}).join('');
-if($('#chartTxt'))$('#chartTxt').innerHTML=`Sharing plans (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.acc.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
+if($('#chartTxt'))$('#chartTxt').innerHTML=`Sharing plans (<span style="color:#C8452B;font-weight:700">red</span>) do the heavy lifting, with Puck sales (<span style="color:#EF8B2C;font-weight:700">orange</span>) and Marketplace fees (<span style="color:#7FA7B7;font-weight:700">blue</span>) on top. ${A.homes.map(n=>n.toLocaleString()).join(', ')} shared (Duo and Family) homes on top of free Solo users, about £${A.arpu.toFixed(2)} a month each. Stack Supply and record shops add more on top.`;
 const chartNums=$$('#o-chart [data-m]');
 
 /* callouts: [chapter, anchor object, angle (deg), length (R), title, sub] */
