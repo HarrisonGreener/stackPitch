@@ -1,127 +1,158 @@
-## Executive summary
+## 1. Executive summary
 
-Stack lets people play the vinyl and CDs they already own on any device, share them with their household, and sell them on when they are done. Owning the record is free to play; Stack earns when people share (Duo £10 and Family £19.99 a month), buy the Puck (from £30), or trade on the Marketplace (8% seller fee).
+Stack lets people play the vinyl and CDs they own on any device, share them with their household and sell them when they are done. Playing your own records is free; Stack earns when people share (Duo £10, Family £19.99 a month), buy the Puck (from £30) or sell on the Marketplace (8% fee).
 
-A working prototype has been tested with 11 people aged 20 to 65, leading to six changes. Stack launches in Manchester through independent record shops. After a six-month pilot, the plan forecasts £246k revenue in Year 1, rising to £1.4m in Year 2 and £4.6m in Year 3, with break-even in Q3 of Year 2. I am asking for £200,000 to make the first Pucks, run the Manchester pilot and reach break-even.
+Eleven testers aged 20 to 65 led to six changes to the prototype. After a six-month pilot with Manchester record shops, the plan forecasts £246k revenue in Year 1, £1.4m in Year 2 and £4.6m in Year 3, breaking even in Q3 of Year 2. I am asking for £200,000.
 
-## Opportunity and customer problem
+Sections 2 to 12 follow the Lean Canvas (Maurya, 2012), one heading per box.
 
-Collectors pay twice for the same music. Someone who owns *The Dark Side of the Moon* on vinyl still pays a streaming service to hear it on the bus, and their collection cannot be shared with the rest of their household. Physical ownership and digital listening sit in separate worlds.
+## 2. Problem
 
-The opportunity is growing. UK vinyl sales reached £174.4m in 2025, up 19.9% and the highest in around 30 years (Marsden, 2026), while the wider UK recorded music market grew for an eleventh consecutive year to £1.57bn (BPI, 2026). Half of US vinyl buyers do not own a record player (Jones, 2023), which suggests people buy records to own them and listen elsewhere. Stack closes that gap.
+The top three problems are:
 
-## Customer research and validation
+1. **Paying twice:** owning *The Dark Side of the Moon* on vinyl does not let you play it on the bus without paying a streaming service.
+2. **No sharing:** a household's records sit on one shelf, out of reach of everyone's phones.
+3. **Slow selling:** second-hand records must be listed and priced one by one.
 
-Stack was developed through Ries's (2011) build, measure, learn loop. Eleven people aged 20 to 65 tested the prototype in October 2026, ten on their own phones. Testers included a vinyl shop owner, students and working adults; most were friends and family, which I treat as a bias toward positive feedback.
+Demand is growing. UK vinyl sales reached £174.4m in 2025, up 19.9% and the highest in about 30 years (Marsden, 2026). Half of US vinyl buyers do not own a record player (Jones, 2023), suggesting people buy records to own them and listen elsewhere.
 
-Six changes came directly from feedback (full log in Appendix A):
+## 3. Existing alternatives
 
-- **Brand:** one tester said the black and orange scheme resembled an adult website's branding, so Stack moved to a warm 1970s palette.
-- **Price:** the same tester found the Puck too expensive at £70, so it was cut to £30, with bundles of two for £50 and three for £75.
-- **Clarity:** testers found the app's purpose and record views confusing, which led to an intro film and the list and crate views.
-- **Features:** a tester asked for social features and a marketplace, which became the Friends tab and the Marketplace.
-
-Further changes came from my own daily testing, such as making Solo free so people never pay to play records they own. Desk research also challenged the idea: labels report that under 25% of vinyl download codes are redeemed (Henshall, 2019). Stack must therefore offer more than a digital copy, which is why sharing and the Marketplace sit at its centre. The next test is willingness to pay for Duo and Family.
-
-## Market size, competitors and positioning
-
-The UK recorded music market is worth £1.57bn, of which vinyl is £174.4m (BPI, 2026; Marsden, 2026). Stack's obtainable market is far smaller: an average of 10,000 people in Manchester in Year 1, growing to 200,000 across the UK by Year 3.
-
-Competitors each solve one part of the problem:
-
-| Competitor | What it does | What it lacks |
+| Alternative | What it does | What it lacks |
 | --- | --- | --- |
-| Spotify, Apple Music | Huge streaming catalogues | You never own anything |
+| Spotify, Apple Music | Huge streaming catalogues | You own nothing |
 | Discogs | Catalogue and second-hand marketplace | You cannot listen |
-| Bandcamp | Physical plus digital, artist by artist | Only records bought there |
-| Vinyl Recorder app (Roberts, 2017) | Recorded vinyl to a phone, paid per track | Needed a USB turntable; no sharing |
+| Bandcamp | Physical plus digital | Only records bought there |
+| Vinyl Recorder app (Roberts, 2017) | Recorded vinyl to a phone | USB turntable needed; no sharing |
 
-Using Blue Ocean thinking (Kim and Mauborgne, 2005), Stack avoids competing with streaming on catalogue size. It creates value no rival offers together: listening, sharing and selling the records you own. Porter's (2008) five forces highlight the main threat as supplier power, because labels control the licences Stack needs.
+Using Blue Ocean thinking (Kim and Mauborgne, 2005), Stack does not compete on catalogue size. It combines listening, sharing and selling the records people own, which no rival offers together.
 
-## Value proposition and prototype
+## 4. Customer segments and market size
 
-Stack's promise is "Own it. Play it everywhere." A record is added once, by barcode, Discogs import or the Puck, then plays in lossless on any device, shared with the household and sellable when no longer wanted. The Puck sits between turntable and speakers: sound passes straight through while it records the owner's copy and logs every play.
+- **Collectors** who own vinyl or CDs and already stream.
+- **Households** that want one shared collection.
+- **Record shops** selling second-hand stock.
 
-The prototype is a working web app at [harrisongreener.github.io/stack](https://harrisongreener.github.io/stack/). It tests whether people understand and want the core idea. Its main features are:
+The UK recorded music market is worth £1.57bn, of which vinyl is £174.4m (BPI, 2026; Marsden, 2026). Stack's obtainable market is 10,000 people on average in Manchester in Year 1, rising to 200,000 across the UK by Year 3.
 
-- **My Stack:** a collection shown as covers, a crate or a list.
-- **Two-deck player:** for playing records.
-- **Family Stack:** a shared collection for the household.
-- **Friends:** activity, badges and listening rooms.
-- **Marketplace:** second-hand sales with ownership transfer.
+## 5. Early adopters
 
-Screenshots are in the portfolio.
+Following Rogers (2003), Stack targets early adopters first: Manchester collectors aged 18 to 35 who visit independent shops monthly, own 50 or more records, already pay for streaming and live with someone they would share with. Second-hand shops are early adopters on the selling side. Two testers fit this profile: a vinyl shop owner (P1) and a 20-year-old who would share with her sister (P2).
 
-## Business model
+## 6. Solution
 
-The model was mapped on a Lean Canvas (Maurya, 2012) and works as a loop. Playing your own records is free, which removes the barrier to joining. Stack earns when people:
+The top three features:
 
-| Stream | Price | Role |
-| --- | --- | --- |
-| Duo and Family sharing plans | £10 and £19.99 a month | Main profit |
-| The Puck | £30; 2 for £50; 3 for £75 | Brings people in, sold close to cost |
-| Marketplace | 8% seller fee | Keeps records moving |
-| Seller Pro | £6.99 a month, 5% fee | For record shops and frequent sellers |
-| Stack Supply and shop partners | Merchandise and commission | Brand and extra income |
+1. **Add once, play anywhere:** add a record by barcode, Discogs import or the Puck, then play it in lossless on any device.
+2. **Family Stack:** one shared collection for the household.
+3. **Marketplace:** sell records with ownership transfer, so the digital copy moves to the buyer.
 
-The Puck is deliberately a low-margin product. Its parts cost about £15–22 at 1,000 units (LionCircuits, no date; Andertons, no date), so at £30 it gets records onto Stack rather than making profit, a common pattern in hardware (Einstein, 2015).
+The working prototype at [harrisongreener.github.io/stack](https://harrisongreener.github.io/stack/) tests whether people understand and want these features. Screenshots are in the portfolio.
 
-## Route to the first 3–5 users and 90-day actions
+## 7. Unique value proposition and high-level concept
 
-The first users will come from the record shop counter. Rogers's (2003) diffusion of innovations suggests targeting innovators and early adopters first, and in music these are the collectors who already visit independent shops. The hook for shops is free help listing their second-hand stock on the Marketplace, using a photo quick-add feature that recognises the record and suggests a price.
+**Unique value proposition:** "Own it. Play it everywhere." The records you own become playable, shareable and sellable in one app.
 
-1. **Weeks 1–4:** visit Manchester shops that sell second-hand records: Vinyl Exchange, Clampdown, Tasty Records, Music For The Soul and Wax and Beans (Manchester's Finest, 2026). Goal: two pilot shops signed.
-2. **Weeks 5–8:** list their stock on Stack and put stickers and posters in store. Goal: the first 3–5 users from shop customers.
-3. **Weeks 9–12:** hold a listening party at a partner shop, launch invite-a-friend and offer Seller Pro to pilot shops. Goal: 100 people and 10 paying homes.
+**High-level concept:** Spotify for the records you already own.
 
-This follows Sarasvathy's (2001) effectual logic: start from existing contacts, such as the pop-up shop owner who tested the app, and build partnerships before paying for advertising.
+## 8. Unfair advantage
 
-## Operations, people, legal, ethical and data obligations, sustainability
+An app can be copied, so the prototype is not the advantage. Harder to copy are:
 
-**Operations and people.** I designed and built the prototype and will run product and shop partnerships during the pilot. The first hire in Year 1 is a developer to build the licensed streaming back end; a partnerships lead, a second developer and support follow in Year 2. Pucks are made in small batches by a contract manufacturer and sold through partner shops and the app.
+- **The Puck:** hardware linking a real turntable to the app.
+- **Record shop partnerships:** built locally, shop by shop.
+- **Ownership data:** Stack knows what people own, which streaming services do not, so the Marketplace improves as it grows.
 
-**Legal, ethical and data obligations:**
+Porter's (2008) five forces show the main threat is supplier power: labels control the licences Stack needs.
 
-- **Music licensing:** owning a record does not give the right to stream or copy it. Stack launches only with licences from labels and publishers, paying royalties on every play.
-- **Data protection:** collections, listening history and location are personal data under UK GDPR. Stack will ask for consent, store data in the UK, and let users export or delete it at any time.
-- **Product safety:** the Puck needs UKCA and CE marking and safety testing, and falls under the WEEE take-back rules for electronics.
-- **Consumer rights:** Marketplace buyers are protected by holding payment until the record arrives and by honest condition grading.
+## 9. Channels: the first 3–5 users and 90 days
 
-**Sustainability.** Selling records on keeps vinyl in use instead of in landfill. The Puck will use a recycled plastic case and minimal packaging, and faulty units will be repaired before being replaced.
+The first users come from the record shop counter. Shops get free listing of their second-hand stock, using a photo quick-add that recognises the record and suggests a price.
 
-## Finances, funding, risks and milestones
+1. **Weeks 1–4:** visit Vinyl Exchange, Clampdown, Tasty Records, Music For The Soul and Wax and Beans (Manchester's Finest, 2026). Goal: two pilot shops.
+2. **Weeks 5–8:** list their stock, with stickers and posters in store. Goal: the first 3–5 users.
+3. **Weeks 9–12:** a listening party, invite-a-friend and Seller Pro for shops. Goal: 100 people and 10 paying homes.
 
-**Pricing and sales assumptions.** One in eight people on Stack shares at home (1,250 homes on average in Year 1), split 60% Duo and 40% Family, an average of £14 a month. Forty per cent of homes that join each year buy Pucks, spending £40 on average. Each sharing home buys £24 of second-hand records a year. People-on-Stack figures are yearly averages. Growth is steady rather than sudden: from 1,000 people at the end of the pilot to about 20,000 by the end of Year 1, 100,000 by the end of Year 2 and 300,000 by the end of Year 3, adding one region at a time through partner shops.
+This follows Sarasvathy's (2001) effectual logic: start from existing contacts and build partnerships before paying for advertising. TikTok, Instagram and Record Store Day follow at launch.
 
-**Costs.** I assume rights holders take two-thirds of sharing revenue, in line with what Spotify pays (Del Fabbro, 2025). Card fees are 1.5% + 20p (Hammond, 2026); other costs are estimates.
+## 10. Revenue streams
+
+| Stream | Price |
+| --- | --- |
+| Duo and Family sharing plans | £10 and £19.99 a month |
+| The Puck | £30; 2 for £50; 3 for £75 |
+| Marketplace | 8% seller fee |
+| Seller Pro | £6.99 a month, 5% fee |
+| Stack Supply and shop partners | Merchandise and commission |
+
+**Revenue model.** One in eight people shares at home, split 60% Duo and 40% Family: £14 a month on average. Forty per cent of homes that join each year buy Pucks, spending £40 on average, and each sharing home buys £24 of second-hand records a year.
+
+**Gross margin.** After rights, Puck parts, card fees and hosting, Stack keeps about 23% of revenue, or £3.45 a month per paying home.
+
+**Lifetime value.** If 4% of paying homes cancel each month, a home stays about 25 months: a lifetime value of about £86.
+
+## 11. Cost structure
+
+**Variable costs.** Rights holders take two-thirds of sharing revenue, in line with Spotify (Del Fabbro, 2025). Puck parts cost £15–22 at 1,000 units (LionCircuits, no date; Andertons, no date), plus about £4 packaging and shipping, the main distribution cost. Card fees are 1.5% + 20p (Hammond, 2026) and hosting about 10p per person a month.
+
+**Fixed costs.** People, marketing and overheads: £131k in Year 1, with me and a developer, then a partnerships lead, second developer and support in Year 2.
+
+**Customer acquisition cost.** £30k of Year 1 marketing ÷ 2,125 new paying homes = about £14 per home. Against an £86 lifetime value that is 6:1, above the 3:1 often treated as healthy. The Puck sells close to cost on purpose, a common hardware pattern (Einstein, 2015).
+
+## 12. Key metrics
+
+| Metric | Year 1 target |
+| --- | --- |
+| People on Stack | 20,000 by year end |
+| Share who pay | 1 in 8 |
+| Monthly cancellations | 4% or less |
+| Homes buying Pucks | 850 |
+| Marketplace sales | £30k |
+| Cost per paying home | £14 or less |
+
+## 13. Customer research and validation
+
+Stack was developed through Ries's (2011) build, measure, learn loop. Eleven people aged 20 to 65 tested the prototype in October 2026, ten on their own phones. Most were friends and family, which I treat as a bias toward positive feedback. Six changes came from feedback (Appendix A):
+
+- **Brand:** the black and orange scheme resembled an adult website's branding, so Stack moved to a warm 1970s palette.
+- **Price:** the Puck was too expensive at £70, so it dropped to £30.
+- **Clarity:** confusion about the app and its record views led to an intro film and list and crate views.
+- **Features:** requests for social features and a marketplace became Friends and the Marketplace.
+
+My own testing made Solo free (Appendix B). Desk research challenged the idea: under 25% of vinyl download codes are redeemed (Henshall, 2019), so Stack must offer more than a digital copy. The next test is willingness to pay for Duo and Family.
+
+## 14. Operations, people, legal, ethical and data obligations, sustainability
+
+**Operations and people.** I designed the prototype and run product and shop partnerships in the pilot. A contract manufacturer makes Pucks in small batches.
+
+- **Music licensing:** owning a record gives no right to stream it, so Stack launches only with label and publisher licences, paying royalties on every play.
+- **Data protection:** collections and listening history are personal data under UK GDPR. Users consent, data stays in the UK, and users can export or delete it.
+- **Product safety:** the Puck needs UKCA and CE marking and falls under WEEE take-back rules.
+- **Consumer rights:** Marketplace payments are held until the record arrives.
+
+**Sustainability.** Selling records on keeps vinyl in use. The Puck uses a recycled case and minimal packaging, and faulty units are repaired before being replaced.
+
+## 15. Finances, funding, risks and milestones
+
+Growth is steady: from 1,000 people at the end of the pilot to about 20,000 by the end of Year 1, 100,000 by Year 2 and 300,000 by Year 3, adding one region at a time.
 
 | | Year 1 | Year 2 | Year 3 |
 | --- | --- | --- | --- |
 | Average people on Stack | 10,000 | 60,000 | 200,000 |
 | Revenue | £246k | £1.42m | £4.63m |
-| Rights holders (two-thirds of sharing) | £140k | £840k | £2.80m |
-| Puck parts and shipping | £31k | £130k | £342k |
-| Team | £86k | £199k | £348k |
-| Marketing | £30k | £80k | £300k |
-| Hosting, payments and overheads | £35k | £151k | £456k |
+| Variable costs | £190k | £1.09m | £3.53m |
+| Fixed costs | £131k | £314k | £718k |
 | **Profit** | **−£75k** | **£18k** | **£382k** |
 
-**Cashflow and break-even.** The model runs quarter by quarter as people join (Appendix C). After the £30k pilot, Stack loses money through Year 1 (−£75k) while it grows. Year 2 opens with new hires, so cash reaches its low point of −£150k in Q2 of Year 2. Stack makes a quarterly profit from Q3 of Year 2 (+£18k), which is break-even.
+**Cashflow and break-even.** After the £30k pilot, Stack loses money through Year 1 while it grows. New hires in Year 2 take cash to its low point of −£150k in Q2, and Stack makes a quarterly profit from Q3 of Year 2: break-even (Appendix C).
 
-**Scenarios for Year 2.** Bad case (half the sharing homes, half the Puck buyers): −£187k. Expected: +£18k. Good case (50% more homes): +£221k.
+**Scenarios for Year 2.** Bad case (half the paying homes and Puck buyers): −£187k. Expected: +£18k. Good case (50% more homes): +£221k.
 
-**Funding and use of funds.** I am asking for £200,000 from angel investors plus a Start Up Loan: £30,000 for the pilot (500 Pucks £10k, case mould £10k, safety testing £5k, pilot marketing £3k, hosting and licensing £2k) and £170,000 working capital. This covers the £150k low point with a £50k buffer, but not the full bad case, which would need a further raise or slower hiring.
+**Funding.** I am asking for £200,000 from angel investors plus a Start Up Loan: £30,000 for the pilot (500 Pucks £10k, case mould £10k, safety testing £5k, marketing £3k, hosting and licensing £2k) and £170,000 working capital. This covers the £150k low point with a £50k buffer, but not the full bad case, which would need slower hiring.
 
-**Key risks.**
+**Risks.** If labels refuse licences, Stack launches only with those that agree. If Puck costs rise, barcode and Discogs import still work. To avoid an empty Marketplace, shops list stock from day one. Because testers were friendly, paid plans will be tested in shops before launch.
 
-| Risk | Response |
-| --- | --- |
-| Labels refuse or delay licences | Start with labels that already include download codes; no launch without licences |
-| Puck costs exceed £30 | Barcode and Discogs import work without it; small batches |
-| Empty Marketplace | Partner shops list stock from day one |
-| Testers were mostly friendly | Wider paid-plan tests in shops before launch |
-
-**Milestones.** Pilot month 3: two shops, 100 people, 10 paying homes. Pilot month 6: five shops, 1,000 people, 125 paying homes. End of Year 1: about 20,000 people in Manchester. Year 2: the North West, with break-even in Q3. Year 3: the UK.
+**Milestones.** Pilot month 3: two shops, 100 people. Pilot month 6: five shops, 1,000 people, 125 paying homes. End of Year 1: 20,000 people in Manchester. Year 2: the North West and break-even. Year 3: the UK.
 
 ## References {.refs}
 

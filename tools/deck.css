@@ -200,3 +200,4 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 .refs{top:215px;gap:4px}.refs li{font-size:12.5px;line-height:1.32}.ack{bottom:70px;font-size:14px}
 .refs{top:255px;gap:9px}.refs li{font-size:15px;line-height:1.38}
 .refs{top:240px;gap:6px}.refs li{font-size:14px;line-height:1.35}
+.lc small.sub{margin:10px 0 4px;color:var(--orange)}.lc .uv small.sub{color:#FFE7C2}.lc ul{font-size:16.5px}.lc .co ul,.lc .re ul{columns:1}

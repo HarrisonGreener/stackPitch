@@ -38,16 +38,16 @@ slide('cream',f'''<div class="cp"><span class="no">05 How it earns</span><h2>One
 slide('dark',f'''<div class="cp"><span class="no">06 Pricing</span><h2>Your music is free.<br><em>Sharing it is what you pay for.</em></h2></div>
 <div class="plans"><div class="pl"><small>Just you</small><h5>Solo</h5><b>Free</b><span>Every record you own, anywhere, in lossless, with no ads</span></div><div class="pl best"><small>2 people, one home</small><h5>Duo</h5><b>£10<i>/month</i></b><span>One shared Stack for two</span></div><div class="pl"><small>Up to 4 people</small><h5>Family</h5><b>£19.99<i>/month</i></b><span>Everyone streams everything the family owns</span></div>
 <div class="pl wide"><span><b>The Puck</b> £30, 2 for £50, 3 for £75</span><span><b>Marketplace</b> 8% seller fee, payment held until it arrives</span><span><b>Seller Pro</b> £6.99/month, 5% fee</span><span><b>Stack Supply</b> clothing and gear</span></div></div>''','Pricing')
-LCV=[('pr','Problem',['You own the record but pay again to stream it','Records and phones don’t talk to each other','Collections sit on a shelf, unshared']),
-('so','Solution',['Add once by barcode, Discogs or the Puck','Play in lossless on any device','Share with family, sell on when done']),
-('km','Key metrics',['People on Stack','Shared homes paying','Pucks sold','Marketplace sales']),
-('uv','Unique value',['<b>Own it. Play it everywhere.</b>','The records you own: playable, shareable and sellable, in one app']),
-('ua','Unfair advantage',['The Puck links a real turntable to the app','A working prototype, already tested']),
+LCV=[('pr','Problem',['Paying twice: you own it but pay to stream it','No sharing: one shelf, one household','Slow selling: list and price one by one','§Existing alternatives','Spotify, Apple Music, Discogs, Bandcamp']),
+('so','Solution',['Add once, play anywhere in lossless','Family Stack: one shared collection','Marketplace with ownership transfer']),
+('km','Key metrics',['People on Stack; 1 in 8 paying','Monthly cancellations','Pucks and Marketplace sales','Cost per paying home']),
+('uv','Unique value proposition',['<b>Own it. Play it everywhere.</b>','The records you own: playable, shareable and sellable','§High-level concept','Spotify for the records you already own']),
+('ua','Unfair advantage',['The Puck links a real turntable to the app','Record shop partnerships','Ownership data streaming services don’t have']),
 ('ch','Channels',['Manchester record shops','Record Store Day','TikTok and Instagram','Invite a friend']),
-('cs','Customer segments',['Vinyl and CD collectors','Families sharing one collection','Record shops selling second-hand','Early adopters: Manchester collectors and students']),
-('co','Cost structure',['Label licensing and royalties','Making and certifying the Puck','Hosting and lossless storage','Marketing and shop partnerships']),
-('re','Revenue streams',['Duo £10 and Family £19.99 a month','The Puck from £30','8% Marketplace fee, or Seller Pro £6.99 a month','Stack Supply and shop partners'])]
-slide('cream lean',f'''<div class="cp"><span class="no">07 Lean Canvas</span><h2 style="white-space:nowrap;font-size:64px">The whole model, <em>on one page.</em></h2></div><div class="lc">{''.join(f'<div class="{k}"><small>{t}</small><ul>{"".join(f"<li>{x}</li>" for x in L)}</ul></div>' for k,t,L in LCV)}</div><p class="lsrc">Lean Canvas after Maurya (2012).</p>''','Lean Canvas')
+('cs','Customer segments',['Vinyl and CD collectors','Households sharing one collection','Second-hand record shops','§Early adopters','Manchester collectors aged 18–35 with 50+ records who already stream']),
+('co','Cost structure',['Variable: royalties, Puck parts and shipping, card fees, hosting','Fixed: team, marketing, overheads (£131k in Year 1)','Cost per paying home: about £14']),
+('re','Revenue streams',['Duo £10, Family £19.99 a month','Puck from £30; 8% Marketplace fee; Seller Pro £6.99','Gross margin about 23%','Lifetime value about £86 a paying home'])]
+slide('cream lean',f'''<div class="cp"><span class="no">07 Lean Canvas</span><h2 style="white-space:nowrap;font-size:64px">The whole model, <em>on one page.</em></h2></div><div class="lc">{''.join(f'<div class="{k}"><small>{t}</small><ul>{"".join((f"</ul><small class=sub>{x[1:]}</small><ul>" if x.startswith("§") else f"<li>{x}</li>") for x in L)}</ul></div>' for k,t,L in LCV)}</div><p class="lsrc">Lean Canvas after Maurya (2012).</p>''','Lean Canvas')
 slide('dark',f'''<div class="cp"><span class="no">07 The product</span><h2>A working app,<br><em>not a mockup.</em></h2></div>
 <div class="phones">{''.join(f'<figure style="--r:{(-3,2,-1,3,-2)[i]}deg"><img src="assets/shots2/{f}.webp"><figcaption>{names[i]}</figcaption></figure>' for i,f in enumerate(shots))}</div>''','The product')
 Q=[("I think this is something young people will really connect with. I’d definitely use it myself to help sell for my business.","P1 · 48, vinyl shop owner"),("The interface is so much better than other vinyl collecting apps. This is something I’d use, and I’d probably share records with my sister.","P2 · 20, freelancer"),("Why doesn’t this already exist?","P3 · 31, teacher")]
