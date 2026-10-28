@@ -14,7 +14,7 @@ The top three problems are:
 2. **No sharing:** a household's records sit on one shelf, out of reach of everyone's phones.
 3. **Slow selling:** second-hand records must be listed and priced one by one.
 
-Demand is growing. UK vinyl sales reached £174.4m in 2025, up 19.9% and the highest in about 30 years (Marsden, 2026). Half of US vinyl buyers do not own a record player (Jones, 2023), suggesting people buy records to own them and listen elsewhere.
+Demand is growing. UK vinyl sales reached £174.7m in 2025, up 19.9% and the highest in about 30 years (BPI, 2026). Half of US vinyl buyers do not own a record player (Jones, 2023), suggesting people buy records to own them and listen elsewhere.
 
 ## 3. Existing alternatives
 
@@ -33,7 +33,7 @@ Using Blue Ocean thinking (Kim and Mauborgne, 2005), Stack does not compete on c
 - **Households** that want one shared collection.
 - **Record shops** selling second-hand stock.
 
-The UK recorded music market is worth £1.57bn, of which vinyl is £174.4m (BPI, 2026; Marsden, 2026). Stack's obtainable market is 10,000 people on average in Manchester in Year 1, rising to 200,000 across the UK by Year 3.
+The UK recorded music market is worth £1.57bn, of which vinyl is £174.7m (BPI, 2026). Stack's obtainable market is 10,000 people on average in Manchester in Year 1, rising to 200,000 across the UK by Year 3.
 
 ## 5. Early adopters
 
@@ -87,7 +87,7 @@ This follows Sarasvathy's (2001) effectual logic: start from existing contacts a
 
 **Revenue model.** One in eight people shares at home, split 60% Duo and 40% Family: £14 a month on average. Forty per cent of homes that join each year buy Pucks, spending £40 on average, and each sharing home buys £24 of second-hand records a year.
 
-**Gross margin.** After rights, Puck parts, card fees and hosting, Stack keeps about 23% of revenue, or £3.45 a month per paying home.
+**Gross margin.** After rights, Puck parts, card fees and hosting, Stack keeps about 23% of revenue. Each paying home's sharing plan leaves about £3.45 a month.
 
 **Lifetime value.** If 4% of paying homes cancel each month, a home stays about 25 months: a lifetime value of about £86.
 
@@ -176,8 +176,6 @@ LionCircuits (no date) *ESP32-S3-WROOM-1-N8R8*. Available at: https://lioncircui
 
 Manchester's Finest (2026) *Manchester's best independent record shops*, 7 January. Available at: https://www.manchestersfinest.com/manchester-guides/manchesters-best-independent-record-shops/ (Accessed: 26 October 2026).
 
-Marsden, B. (2026) 'Vinyl sales in the UK reach their highest point in more than three decades', *Dork*, 24 April. Available at: https://readdork.com/news/uk-vinyl-sales-highest-level-three-decades-bpi-report (Accessed: 23 October 2026).
-
 Maurya, A. (2012) *Running lean: iterate from plan A to a plan that works*. 2nd edn. Sebastopol, CA: O'Reilly.
 
 Porter, M.E. (2008) 'The five competitive forces that shape strategy', *Harvard Business Review*, 86(1), pp. 78–93.
@@ -192,7 +190,7 @@ Sarasvathy, S.D. (2001) 'Causation and effectuation: toward a theoretical shift 
 
 ## AI-use acknowledgement
 
-I used Claude through a plugin in Visual Studio Code to code the Stack prototype and pitch website, and to help build the financial models and revenue forecasts. AI also helped lay out the pitch deck and brand guidelines from my designs. All design and branding is my own, as are the venture idea, features, pricing and business decisions.
+I used Claude through a plugin in Visual Studio Code to code the Stack prototype and pitch website, and to help build the financial models and revenue forecasts. All design and branding are my own, as are the venture idea, features, pricing and business decisions.
 
 ## Appendix A: decision log
 

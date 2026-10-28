@@ -29,7 +29,7 @@ slide('dark',f'''<div class="cp"><span class="no">03 The Puck</span><h2>A spin b
 <div class="flow">{tt}<i class="dash"></i><img class="puck" src="assets/puck-render.png"><i class="dash"></i>{spk}</div>
 <div class="callouts"><span><b>Sound passes through</b>Untouched, to your speakers</span><span><b>Records your copy</b>Hi-res, crackle and all</span><span><b>From £30</b>Or 3 for £75</span></div>''','The Puck')
 bh=[30,38,44,52,61,74,100]
-slide('paper',f'''<div class="cp"><span class="no">04 The market</span><h2 class="mega">£174.4m</h2><h3><em>UK vinyl sales in 2025.</em></h3><p>Up 19.9% in a year, the highest in around 30 years. Collectors want to own music again.</p><p class="src">Sources: BPI (2026); Marsden (2026). Bars show the trend.</p></div>
+slide('paper',f'''<div class="cp"><span class="no">04 The market</span><h2 class="mega">£174.7m</h2><h3><em>UK vinyl sales in 2025.</em></h3><p>Up 19.9% in a year, the highest in around 30 years. Collectors want to own music again.</p><p class="src">Source: BPI (2026). Bars show the trend.</p></div>
 <div class="mbars">{''.join(f'<i style="height:{h}%"></i>' for h in bh)}</div>
 <div class="facts"><div><b>+19.9%</b><span>growth in a year</span></div><div><b>11 years</b><span>of growth in UK recorded music</span></div></div>''','The market')
 slide('cream',f'''<div class="cp"><span class="no">05 How it earns</span><h2>One loop,<br><em>four ways in.</em></h2><p>Each part feeds the next. Your own music is free; Stack earns when people share, buy a Puck or trade records.</p><p class="also">Also earning: <span>Seller Pro</span><span>Stack Supply</span><span>Record shop partners</span></p></div>
@@ -111,7 +111,6 @@ slide('paper',f'''<div class="cp"><span class="no">16 The ask</span><h2 class="m
 slide('dark title end',f'''<div class="glow"></div><div class="trec">{REC}</div><div class="tcopy"><h1><span>Own it.</span><em>Play it</em><em>everywhere.</em></h1><p>Try the prototype: <b>harrisongreener.github.io/stack</b><br>Pitch site: <b>harrisongreener.github.io/stackPitch</b></p><span class="by">Harrison Greener · Student ID 214313327</span></div>''')
 REFS=['BPI (2026) <i>New generation of British artists helped UK recorded music market in 2025 surpass £1.5 billion in annual revenue for the first time</i>. 12 March. Available at: https://www.bpi.co.uk/news/13097053 (Accessed: 23 October 2026).',
 'Maurya, A. (2012) <i>Running lean: iterate from plan A to a plan that works</i>. 2nd edn. Sebastopol, CA: O’Reilly.',
-'Marsden, B. (2026) ‘Vinyl sales in the UK reach their highest point in more than three decades’, <i>Dork</i>, 24 April. Available at: https://readdork.com/news/uk-vinyl-sales-highest-level-three-decades-bpi-report (Accessed: 23 October 2026).',
 'Ries, E. (2011) <i>The lean startup</i>. London: Portfolio Penguin.',
 'Hammond, A. (2026) ‘Stripe payment fees explained: full breakdown and hidden costs’, <i>Airwallex</i>, 2 February. Available at: https://www.airwallex.com/en-uk/blog/stripe-payment-fees-explained (Accessed: 26 October 2026).',
 'Del Fabbro, L. (2025) ‘Spotify breaks record with largest annual payout reaching 10 billion dollars’, <i>The Irish News</i>, 12 March. Available at: https://www.irishnews.com/entertainment/spotify-breaks-record-with-largest-annual-payout-reaching-10-billion-dollars-SHAB4WWOOJKNJDYCOAPBEAZ7OY/ (Accessed: 26 October 2026).',
