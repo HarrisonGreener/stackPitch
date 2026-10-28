@@ -190,6 +190,10 @@ Rogers, E.M. (2003) *Diffusion of innovations*. 5th edn. New York: Free Press.
 
 Sarasvathy, S.D. (2001) 'Causation and effectuation: toward a theoretical shift from economic inevitability to entrepreneurial contingency', *Academy of Management Review*, 26(2), pp. 243–263.
 
+## AI-use acknowledgement
+
+I used Claude through a plugin in Visual Studio Code to code the Stack prototype and pitch website, and to help build the financial models and revenue forecasts. AI also helped lay out the pitch deck and brand guidelines from my designs. All design and branding is my own, as are the venture idea, features, pricing and business decisions.
+
 ## Appendix A: decision log
 
 | Tester | Who | When | How | What they said | What changed |
