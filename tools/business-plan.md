@@ -190,7 +190,7 @@ Sarasvathy, S.D. (2001) 'Causation and effectuation: toward a theoretical shift 
 
 ## AI-use acknowledgement
 
-I used Claude through a plugin in Visual Studio Code to code the Stack prototype and pitch website, and to help build the financial models and revenue forecasts. The Stack Supply clothing images were generated with Google Gemini from my own drawings, and the Marketplace mockup images were also made with Gemini. All design and branding are my own, including the Stack logo, the DJ Selector character and his renders, as are the venture idea, features, pricing and business decisions.
+I used Claude through a plugin in Visual Studio Code to code the Stack prototype and pitch website, and to help build the financial models and revenue forecasts. Google Gemini generated the Stack Supply clothing images from my own drawings and the Puck product images from my own Blender render; the Marketplace mockup images were also made with Gemini. All design and branding are my own, including the Stack logo, the DJ Selector character and his renders, as are the venture idea, features, pricing and business decisions.
 
 ## Appendix A: decision log
 
