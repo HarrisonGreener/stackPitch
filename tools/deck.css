@@ -173,9 +173,9 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 
 /* who tested */
 .tsum{position:absolute;right:96px;top:110px;display:flex;gap:14px}.tsum div{background:var(--esp);color:var(--cream);border-radius:20px;padding:16px 24px;min-width:150px}.tsum b{display:block;font-size:44px;font-weight:800;color:var(--gold);line-height:1}.tsum span{font-size:15px;font-weight:600}
-.tt{position:absolute;left:96px;right:96px;top:300px;border-collapse:separate;border-spacing:0;font-size:16px;line-height:1.35;background:var(--paper);border-radius:20px;overflow:hidden}
-.tt th{text-align:left;font-size:14px;color:var(--red);padding:14px 16px 8px;font-weight:700}.tt td{padding:10px 16px;border-top:1px solid rgba(58,34,22,.1);vertical-align:top;color:var(--cocoa)}
-.tt td:first-child{font-weight:700;color:var(--esp);white-space:nowrap}.tt td:last-child{color:var(--esp);font-weight:600}
+table.tt{position:absolute;left:96px;right:96px;top:300px;border-collapse:separate;border-spacing:0;font-size:16px;line-height:1.35;background:var(--paper);border-radius:20px;overflow:hidden}
+table.tt th{text-align:left;font-size:14px;color:var(--red);padding:14px 16px 8px;font-weight:700}table.tt td{padding:10px 16px;border-top:1px solid rgba(58,34,22,.1);vertical-align:top;color:var(--cocoa)}
+table.tt td:first-child{font-weight:700;color:var(--esp);white-space:nowrap}table.tt td:last-child{color:var(--esp);font-weight:600}
 .tnote{position:absolute;left:96px;bottom:76px;margin:0;font-size:15px;opacity:.6}
 /* founder testing */
 .ft2{position:absolute;left:96px;right:96px;top:420px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -201,3 +201,5 @@ blockquote p{font-size:26px;line-height:1.35;font-weight:700;margin:20px 0 20px}
 .refs{top:255px;gap:9px}.refs li{font-size:15px;line-height:1.38}
 .refs{top:240px;gap:6px}.refs li{font-size:14px;line-height:1.35}
 .lc small.sub{margin:10px 0 4px;color:var(--orange)}.lc .uv small.sub{color:#FFE7C2}.lc ul{font-size:16.5px}.lc .co ul,.lc .re ul{columns:1}
+
+.pshot{display:block;width:460px;margin-top:28px;border-radius:22px;box-shadow:0 24px 50px -18px rgba(0,0,0,.6)}

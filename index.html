@@ -646,7 +646,7 @@ footer .sun{height:10px;background:var(--stripe)}
 .pk-hint{position:absolute;left:50%;top:100%;transform:translateX(-50%);font-size:12px;font-weight:700;color:#E9CFA8;white-space:nowrap;opacity:.8;transition:opacity .4s;pointer-events:none}
 .tshot img{border:0!important;border-radius:0!important;box-shadow:none!important;aspect-ratio:auto!important;object-fit:contain!important;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
 .ttrec{transform-origin:66px 60px;animation:spin 1.8s linear infinite}
-@media (max-width:640px){.hide-s2{display:none}.top nav a[href="#video"],.top nav a[href="#prototype"]{display:none}}
+@media (max-width:640px){.hide-s2{display:none}.top .wrap{gap:8px;padding-left:16px;padding-right:16px}.top .wrap>a{flex:none}.top img{height:17px}.top nav{gap:0}.top nav a{padding:8px 5px}.toc-m{position:fixed;left:12px;right:12px;top:68px;width:auto}}@media (max-width:350px){.top .wrap{gap:4px;padding-left:12px;padding-right:12px}.top img{height:15px}.top nav a{padding:8px 4px;font-size:12px}}
 .snav{background:linear-gradient(180deg,#EF8B2C,#C8452B)!important;color:#FFF5E6!important}
 </style>
 </head>
@@ -655,7 +655,7 @@ footer .sun{height:10px;background:var(--stripe)}
 <div class="pgbar" aria-hidden="true"><i id="pgbar"></i></div>
 <header class="top"><div class="wrap">
   <a href="#top" aria-label="Stack"><img src="assets/stack-lockup-brown.svg" alt="Stack"></a>
-  <button class="snd" id="sndBtn" aria-pressed="false"><span class="eqb"><i></i><i></i><i></i></span><b>Sound on</b></button><div class="toc" id="toc"><button class="toc-b" id="tocB" aria-expanded="false" aria-controls="tocM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Contents</button><div class="toc-m" id="tocM" hidden></div></div><nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a><a class="hide-s" href="#" data-pdf>PDF</a><a class="snav" href="brand.html" target="_blank">Brand<span class="hide-s2"> guidelines</span></a></nav>
+  <button class="snd" id="sndBtn" aria-pressed="false"><span class="eqb"><i></i><i></i><i></i></span><b>Sound on</b></button><div class="toc" id="toc"><button class="toc-b" id="tocB" aria-expanded="false" aria-controls="tocM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Contents</button><div class="toc-m" id="tocM" hidden></div></div><nav><a href="#video">Video</a><a href="#deck">Deck</a><a href="#prototype">Prototype</a></nav>
 </div></header>
 
 <!-- ================= HERO ================= -->
@@ -1331,7 +1331,7 @@ $$('[data-pdf]').forEach(a=>{a.href='assets/stack-pitch-deck.pdf';a.setAttribute
  let html='<a href="#top" data-y="top"><span></span>Home</a><a href="#video" data-y="video"><span></span>The pitch video</a><hr>';
  CH.forEach((n,i)=>{if(i)html+=`<a href="#story" data-ch="${i}"><span>${i}</span>${n}</a>`});
  SEC.forEach(([id,n],k)=>html+=`<a href="#${id}" data-y="${id}"><span>${7+k}</span>${n}</a>`);
- html+='<hr><a href="brand.html" target="_blank" data-ext="1"><span></span>Brand guidelines ↗</a><a href="assets/stack-business-plan.pdf" target="_blank" data-ext="1"><span></span>Business plan (PDF) ↗</a><a href="#prototype" data-y="prototype"><span></span>Try the prototype</a><a href="#game" data-y="game"><span></span>The mini-game</a>';m.innerHTML=html;
+ html+='<hr><a href="assets/stack-pitch-deck.pdf" target="_blank" data-ext="1"><span></span>Pitch deck (PDF) ↗</a><a href="brand.html" target="_blank" data-ext="1"><span></span>Brand guidelines ↗</a><a href="assets/stack-brand-guidelines.pdf" target="_blank" data-ext="1"><span></span>Brand guidelines (PDF) ↗</a><a href="assets/stack-business-plan.pdf" target="_blank" data-ext="1"><span></span>Business plan (PDF) ↗</a><a href="#prototype" data-y="prototype"><span></span>Try the prototype</a><a href="#game" data-y="game"><span></span>The mini-game</a>';m.innerHTML=html;
  const open=v=>{m.hidden=!v;b.setAttribute('aria-expanded',v)};
  b.addEventListener('click',e=>{e.stopPropagation();open(m.hidden)});
  document.addEventListener('click',e=>{if(!m.hidden&&!m.contains(e.target))open(false)});
