@@ -1,4 +1,4 @@
-D='/tmp/claude-0/-home-claude/e660ac9a-ba93-596c-b837-5a7074dfe847/scratchpad/'
+D=__import__('os').path.dirname(__import__('os').path.abspath(__file__))+'/'
 sky=open(D+'sky.html').read().replace('class="ln-sky" id="lnSky"','class="sky"')
 tt=open(D+'tt.html').read().replace('class="obj" id="o-tt"','class="tt"')
 spk=open(D+'spk.html').read().replace('class="obj" id="o-spk"','class="spk"')
@@ -142,5 +142,5 @@ addEventListener('resize',fit);fit();go((+location.hash.slice(1)||1)-1);
 addEventListener('keydown',e=>{{if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){{e.preventDefault();go(k+1)}}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){{e.preventDefault();go(k-1)}}if(e.key==='Home')go(0);if(e.key==='End')go(S.length-1)}});
 addEventListener('click',e=>go(k+(e.clientX<innerWidth/3?-1:1)));
 </script></body></html>'''
-open('/home/claude/stackpitch/deck.html','w').write(html)
+open(''+__import__('os').path.dirname(__import__('os').path.dirname(__import__('os').path.abspath(__file__)))+'/deck.html','w').write(html)
 print(N)
