@@ -15,7 +15,7 @@ def page(cls,title,body,num=True):P.append((cls,title,body,num))
 def head(no,h,em,p=''):return f'<div class="hd"><span class="no">{no}</span><h2>{h}<br><em>{em}</em></h2>{f"<p>{p}</p>" if p else ""}</div>'
 # 1 cover
 page('night cover','',f'''<svg class="arcs" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke-width="12"><path d="M-60 1060 A 900 900 0 0 1 1060 -60" stroke="#E9B949"/><path d="M-60 1120 A 960 960 0 0 1 1120 -60" stroke="#EF8B2C"/><path d="M-60 1180 A 1020 1020 0 0 1 1180 -60" stroke="#C8452B"/><path d="M-60 1240 A 1080 1080 0 0 1 1240 -60" stroke="#7FA7B7"/></g></svg>
-<img class="cv-s" src="{B}stack-monogram-sunset.svg"><div class="cv"><img src="{B}stack-lockup-cream.svg" class="cv-l"><h1>Brand<br><em>guidelines.</em></h1><p>Version 1.0 · October 2026 · Harrison Greener</p></div>''',False)
+<img class="cv-s" src="{B}stack-monogram-sunset.svg"><div class="cv"><img src="{B}stack-lockup-cream.svg" class="cv-l"><h1>Brand<br><em>guidelines.</em></h1><p>Version 1.0 · October 2026 · Harrison Greener · Student ID 214313327</p></div>''',False)
 # 2 contents
 TOC=[('01','The brand'),('02','Voice'),('03','Logo system'),('04','Clear space and sizes'),('05','Logo on backgrounds'),('06','Logo misuse'),('07','Partner lock-ups'),('08','Colour'),('09','Colour pairs'),('10','Typography'),('11','DJ Selector'),('12','Expressions and poses'),('13','Selector rules'),('14','Pixel emoji'),('15','Stickers'),('16','Merch'),('17','Applications'),('18','Developer rules')]
 page('cream','Contents',head('Contents','What’s','inside.')+'<div class="toc">'+''.join(f'<div><span>{a}</span>{b}</div>' for a,b in TOC)+'</div>')
